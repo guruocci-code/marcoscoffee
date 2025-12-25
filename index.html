@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marco’s Coffee – Specialty Coffee</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --dark:#111;
+  --bg:#f7f4ef;
+}
+
+body{
+  margin:0;
+  font-family:Inter,sans-serif;
+  background:var(--bg);
+  color:#222;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:26px 8%;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.brand h1{
+  font-family:"Playfair Display",serif;
+  font-size:46px;
+  margin:0;
+}
+
+.instagram{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-weight:600;
+  text-decoration:none;
+  color:#111;
+}
+
+.instagram svg{
+  width:22px;
+  height:22px;
+}
+
+.lang-switch button{
+  border:none;
+  background:#ddd;
+  padding:6px 12px;
+  border-radius:6px;
+  margin-left:6px;
+  cursor:pointer;
+}
+
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  padding:70px 8%;
+  align-items:center;
+}
+
+.hero h2{
+  font-family:"Playfair Display",serif;
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:18px;
+  line-height:1.7;
+}
+
+.hero a{
+  display:inline-block;
+  margin-top:26px;
+  padding:14px 34px;
+  background:var(--dark);
+  color:#fff;
+  border-radius:30px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.hero img{
+  width:100%;
+  border-radius:22px;
+  box-shadow:0 20px 45px rgba(0,0,0,.25);
+}
+
+/* PRODUCTS */
+#products{
+  padding:90px 8%;
+}
+
+#products h2{
+  text-align:center;
+  font-family:"Playfair Display",serif;
+  font-size:34px;
+  margin-bottom:60px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:34px;
+}
+
+.product{
+  background:#fff;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 10px 26px rgba(0,0,0,.08);
+  text-align:center;
+}
+
+.product h3{
+  font-size:17px;
+  margin-bottom:22px;
+}
+
+.product a{
+  display:inline-block;
+  padding:12px 28px;
+  background:#111;
+  color:#fff;
+  border-radius:24px;
+  text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  color:#666;
+}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:56px;
+  height:56px;
+  background:#25d366;
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  text-decoration:none;
+  box-shadow:0 8px 18px rgba(0,0,0,.3);
+}
+
+@media(max-width:900px){
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <h1>Marco’s Coffee</h1>
+    <a class="instagram" href="https://instagram.com/marcoscoffeeantalya" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+      </svg>
+      Instagram
+    </a>
+  </div>
+
+  <div class="lang-switch">
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('tr')">TR</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h2 id="hero-title">Specialty Single-Origin Coffee</h2>
+    <p id="hero-text">
+      Carefully selected and roasted to highlight balance, sweetness and clarity.
+      Crafted in small batches in Antalya.
+    </p>
+    <a href="#products" id="hero-btn">Shop Coffee</a>
+  </div>
+
+  <img src="hero.jpg" alt="Marco’s Coffee">
+</section>
+
+<section id="products">
+  <h2 id="products-title">Our Coffee Selection</h2>
+
+  <div class="grid">
+    <div class="product"><h3>500gr Mexico Veracruz Costa Azul</h3><a href="https://www.shopier.com/Marcoscoffee/32605899" target="_blank">Buy</a></div>
+    <div class="product"><h3>500gr Ethiopia Yirgacheffe Grade 2</h3><a href="https://www.shopier.com/Marcoscoffee/32443041" target="_blank">Buy</a></div>
+    <div class="product"><h3>500gr Costa Rica La Pastora Tarrazú</h3><a href="https://www.shopier.com/Marcoscoffee/30935484" target="_blank">Buy</a></div>
+    <div class="product"><h3>500gr Peru Papagayo SHB EP – Grade 1</h3><a href="https://www.shopier.com/Marcoscoffee/24762272" target="_blank">Buy</a></div>
+    <div class="product"><h3>500gr Colombia Huila – Rafael Region</h3><a href="https://www.shopier.com/Marcoscoffee/24469806" target="_blank">Buy</a></div>
+    <div class="product"><h3>Sample Box – 3 × 250gr</h3><a href="https://www.shopier.com/Marcoscoffee/39798434" target="_blank">Buy</a></div>
+  </div>
+</section>
+
+<footer>
+  © Marco’s Coffee – Specialty Coffee
+</footer>
+
+<a class="whatsapp" href="https://wa.me/905078677978" target="_blank">💬</a>
+
+<script>
+const texts={
+  en:{
+    title:"Specialty Single-Origin Coffee",
+    text:"Carefully selected and roasted to highlight balance, sweetness and clarity. Crafted in small batches in Antalya.",
+    btn:"Shop Coffee",
+    products:"Our Coffee Selection"
+  },
+  tr:{
+    title:"Özel Tek Köken Kahve",
+    text:"Denge, tatlılık ve berraklığı ortaya çıkarmak için özenle kavrulmuştur.",
+    btn:"Kahveleri Gör",
+    products:"Kahve Seçkimiz"
+  }
+};
+
+function setLang(l){
+  document.getElementById("hero-title").innerText=texts[l].title;
+  document.getElementById("hero-text").innerText=texts[l].text;
+  document.getElementById("hero-btn").innerText=texts[l].btn;
+  document.getElementById("products-title").innerText=texts[l].products;
+}
+</script>
+
+</body>
+</html>
