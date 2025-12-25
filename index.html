@@ -159,6 +159,60 @@ footer{
     text-align:center;
   }
 }
+/* === Animaciones suaves premium (seguras) === */
+
+.hero,
+.product,
+footer {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.hero {
+  animation-delay: 0.1s;
+}
+
+.product {
+  animation-delay: 0.2s;
+}
+
+footer {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover premium en productos */
+.product {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.product:hover {
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+/* Botones más elegantes */
+.product a,
+.hero a {
+  transition: all 0.3s ease;
+}
+
+.product a:hover,
+.hero a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
 </style>
 </head>
 
