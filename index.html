@@ -5,110 +5,136 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marco’s Coffee</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+:root {
+  --dark: #2b2b2b;
+  --light: #faf8f6;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: #faf8f6;
-  color: #2b2b2b;
+  background: var(--light);
+  color: var(--dark);
 }
 
+/* HEADER */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 24px 48px;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
 }
 
 .lang-switch button {
   background: none;
   border: none;
-  font-weight: 500;
+  font-size: 14px;
+  margin-left: 12px;
   cursor: pointer;
-  margin-left: 10px;
 }
 
+/* HERO */
 .hero {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  padding: 48px;
   align-items: center;
-  padding: 40px;
-  gap: 40px;
 }
 
 .hero img {
-  max-width: 420px;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
-.hero-text {
-  max-width: 500px;
-}
-
-.hero-text h1 {
+.hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 52px;
-  margin: 0 0 10px 0;
+  font-size: 54px;
+  margin: 0 0 16px 0;
 }
 
-.hero-text p {
+.hero p {
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.6;
+  max-width: 480px;
 }
 
+/* PRODUCTS */
 .products {
-  padding: 40px;
+  padding: 60px 48px;
 }
 
 .products h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  margin-bottom: 30px;
+  font-size: 36px;
+  margin-bottom: 40px;
 }
 
 .product {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 0;
+  padding: 18px 0;
   border-bottom: 1px solid #ddd;
 }
 
-.product span {
-  font-size: 16px;
-}
-
 .buy-btn {
-  background: #2b2b2b;
-  color: #fff;
-  padding: 10px 18px;
+  background: var(--dark);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 6px;
   text-decoration: none;
-  border-radius: 4px;
   font-size: 14px;
+  transition: opacity 0.2s ease;
 }
 
+.buy-btn:hover {
+  opacity: 0.85;
+}
+
+/* SOCIAL */
 .social {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 28px;
   padding: 40px;
 }
 
 .social a {
   text-decoration: none;
-  font-weight: 500;
+  font-size: 16px;
 }
 
+/* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
   font-size: 14px;
   opacity: 0.7;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  header, .hero, .products {
+    padding: 24px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
 }
 </style>
 </head>
@@ -116,7 +142,7 @@ footer {
 <body>
 
 <header>
-  <strong>Marco’s Coffee</strong>
+  <div class="logo">Marco’s Coffee</div>
   <div class="lang-switch">
     <button onclick="setLang('en')">EN</button>
     <button onclick="setLang('tr')">TR</button>
@@ -125,7 +151,7 @@ footer {
 
 <section class="hero">
   <img src="hero.jpg" alt="Marco’s Coffee">
-  <div class="hero-text">
+  <div>
     <h1 data-en="Marco’s Coffee" data-tr="Marco’s Coffee">Marco’s Coffee</h1>
     <p data-en="Specialty coffee, carefully selected and freshly roasted."
        data-tr="Özenle seçilmiş ve taze kavrulmuş nitelikli kahve.">
@@ -139,40 +165,33 @@ footer {
 
   <div class="product">
     <span>500gr Mexico Veracruz Costa Azul</span>
-    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al"
-       href="https://www.shopier.com/Marcoscoffee/32605899" target="_blank">Buy now</a>
+    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/32605899" target="_blank">Buy now</a>
   </div>
 
   <div class="product">
     <span>500gr Ethiopia Yirgacheffe Grade 2</span>
-    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al"
-       href="https://www.shopier.com/Marcoscoffee/32443041" target="_blank">Buy now</a>
+    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/32443041" target="_blank">Buy now</a>
   </div>
 
   <div class="product">
     <span>500gr Costa Rica La Pastora Tarrazu</span>
-    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al"
-       href="https://www.shopier.com/Marcoscoffee/30935484" target="_blank">Buy now</a>
+    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/30935484" target="_blank">Buy now</a>
   </div>
 
   <div class="product">
     <span>500gr Peru Papagayo SHB EP Grade 1</span>
-    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al"
-       href="https://www.shopier.com/Marcoscoffee/24762272" target="_blank">Buy now</a>
+    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/24762272" target="_blank">Buy now</a>
   </div>
 
   <div class="product">
     <span>500gr Colombia Huila Rafael Region</span>
-    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al"
-       href="https://www.shopier.com/Marcoscoffee/24469806" target="_blank">Buy now</a>
+    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/24469806" target="_blank">Buy now</a>
   </div>
 
   <div class="product">
     <span>Sample Box 3×250gr</span>
-    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al"
-       href="https://www.shopier.com/Marcoscoffee/39798434" target="_blank">Buy now</a>
+    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/39798434" target="_blank">Buy now</a>
   </div>
-
 </section>
 
 <div class="social">
