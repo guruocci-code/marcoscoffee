@@ -3,137 +3,160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marco’s Coffee</title>
+<title>Marco’s Coffee – Specialty Coffee</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --dark: #2b2b2b;
-  --light: #faf8f6;
+body{
+  margin:0;
+  font-family:Inter, sans-serif;
+  background:#f7f4ef;
+  color:#222;
 }
 
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: var(--light);
-  color: var(--dark);
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:24px 8%;
 }
 
-/* HEADER */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 48px;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:16px;
 }
 
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  font-weight: 700;
+.brand h1{
+  font-size:42px;
+  font-weight:700;
+  margin:0;
 }
 
-.lang-switch button {
-  background: none;
-  border: none;
-  font-size: 14px;
-  margin-left: 12px;
-  cursor: pointer;
+.instagram-link{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  text-decoration:none;
+  color:#111;
+  font-weight:600;
 }
 
-/* HERO */
-.hero {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 48px;
-  padding: 48px;
-  align-items: center;
+.instagram-link svg{
+  width:22px;
+  height:22px;
 }
 
-.hero img {
-  width: 100%;
-  border-radius: 10px;
+.lang-switch button{
+  margin-left:10px;
+  border:none;
+  background:#ddd;
+  padding:6px 12px;
+  border-radius:6px;
+  cursor:pointer;
 }
 
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 54px;
-  margin: 0 0 16px 0;
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  padding:60px 8%;
+  align-items:center;
 }
 
-.hero p {
-  font-size: 18px;
-  line-height: 1.6;
-  max-width: 480px;
+.hero img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.15);
 }
 
-/* PRODUCTS */
-.products {
-  padding: 60px 48px;
+.hero h2{
+  font-size:38px;
+  margin-bottom:20px;
 }
 
-.products h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  margin-bottom: 40px;
+.hero p{
+  font-size:18px;
+  line-height:1.6;
 }
 
-.product {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 0;
-  border-bottom: 1px solid #ddd;
+.hero a{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 32px;
+  background:#111;
+  color:#fff;
+  border-radius:30px;
+  font-weight:600;
+  text-decoration:none;
 }
 
-.buy-btn {
-  background: var(--dark);
-  color: white;
-  padding: 12px 22px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 14px;
-  transition: opacity 0.2s ease;
+section#products{
+  padding:70px 8%;
 }
 
-.buy-btn:hover {
-  opacity: 0.85;
+#products h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:50px;
 }
 
-/* SOCIAL */
-.social {
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  padding: 40px;
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
 }
 
-.social a {
-  text-decoration: none;
-  font-size: 16px;
+.product{
+  background:#fff;
+  padding:26px;
+  border-radius:16px;
+  box-shadow:0 8px 18px rgba(0,0,0,0.08);
+  text-align:center;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  opacity: 0.7;
+.product h3{
+  font-size:17px;
+  margin-bottom:20px;
 }
 
-/* MOBILE */
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
+.product a{
+  display:inline-block;
+  padding:12px 26px;
+  background:#111;
+  color:#fff;
+  border-radius:25px;
+  text-decoration:none;
+}
 
-  header, .hero, .products {
-    padding: 24px;
-  }
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  color:#666;
+}
 
-  .hero h1 {
-    font-size: 42px;
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  color:#fff;
+  width:56px;
+  height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  font-size:26px;
+  text-decoration:none;
+}
+
+@media(max-width:900px){
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
   }
 }
 </style>
@@ -142,7 +165,19 @@ footer {
 <body>
 
 <header>
-  <div class="logo">Marco’s Coffee</div>
+  <div class="brand">
+    <h1>Marco’s Coffee</h1>
+
+    <a class="instagram-link" href="https://instagram.com/marcoscoffeeantalya" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M7 2H17C19.76 2 22 4.24 22 7V17C22 19.76 19.76 22 17 22H7C4.24 22 2 19.76 2 17V7C2 4.24 4.24 2 7 2Z" stroke="currentColor" stroke-width="2"/>
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+      </svg>
+      Instagram
+    </a>
+  </div>
+
   <div class="lang-switch">
     <button onclick="setLang('en')">EN</button>
     <button onclick="setLang('tr')">TR</button>
@@ -150,63 +185,88 @@ footer {
 </header>
 
 <section class="hero">
-  <img src="hero.jpg" alt="Marco’s Coffee">
   <div>
-    <h1 data-en="Marco’s Coffee" data-tr="Marco’s Coffee">Marco’s Coffee</h1>
-    <p data-en="Specialty coffee, carefully selected and freshly roasted."
-       data-tr="Özenle seçilmiş ve taze kavrulmuş nitelikli kahve.">
-       Specialty coffee, carefully selected and freshly roasted.
+    <h2 id="hero-title">Specialty Single-Origin Coffee</h2>
+    <p id="hero-text">
+      Carefully selected and roasted for balance, sweetness and clarity.
+      Delivered fresh from Antalya.
     </p>
+    <a href="#products" id="hero-btn">Shop Coffee</a>
   </div>
+
+  <img src="hero.jpg" alt="Marco’s Coffee">
 </section>
 
-<section class="products">
-  <h2 data-en="Coffee single origin" data-tr="Tek Köken Kahve">Coffee single origin</h2>
+<section id="products">
+  <h2 id="products-title">Our Coffee Selection</h2>
 
-  <div class="product">
-    <span>500gr Mexico Veracruz Costa Azul</span>
-    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/32605899" target="_blank">Buy now</a>
-  </div>
+  <div class="products-grid">
 
-  <div class="product">
-    <span>500gr Ethiopia Yirgacheffe Grade 2</span>
-    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/32443041" target="_blank">Buy now</a>
-  </div>
+    <div class="product">
+      <h3>500gr Mexico Veracruz Costa Azul</h3>
+      <a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/32605899" target="_blank">Buy now</a>
+    </div>
 
-  <div class="product">
-    <span>500gr Costa Rica La Pastora Tarrazu</span>
-    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/30935484" target="_blank">Buy now</a>
-  </div>
+    <div class="product">
+      <h3>500gr Ethiopia Yirgacheffe Grade 2</h3>
+      <a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/32443041" target="_blank">Buy now</a>
+    </div>
 
-  <div class="product">
-    <span>500gr Peru Papagayo SHB EP Grade 1</span>
-    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/24762272" target="_blank">Buy now</a>
-  </div>
+    <div class="product">
+      <h3>500gr Costa Rica La Pastora Tarrazú</h3>
+      <a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/30935484" target="_blank">Buy now</a>
+    </div>
 
-  <div class="product">
-    <span>500gr Colombia Huila Rafael Region</span>
-    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/24469806" target="_blank">Buy now</a>
-  </div>
+    <div class="product">
+      <h3>500gr Peru Papagayo SHB EP – Grade 1</h3>
+      <a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/24762272" target="_blank">Buy now</a>
+    </div>
 
-  <div class="product">
-    <span>Sample Box 3×250gr</span>
-    <a class="buy-btn" data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/39798434" target="_blank">Buy now</a>
+    <div class="product">
+      <h3>500gr Colombia Huila – Rafael Region</h3>
+      <a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/24469806" target="_blank">Buy now</a>
+    </div>
+
+    <div class="product">
+      <h3>Sample Box – 3 × 250gr</h3>
+      <a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/39798434" target="_blank">Buy now</a>
+    </div>
+
   </div>
 </section>
-
-<div class="social">
-  <a href="https://instagram.com/marcoscoffeeantalya" target="_blank">📸 Instagram</a>
-  <a href="https://wa.me/905078677978" target="_blank">💬 WhatsApp</a>
-</div>
 
 <footer>
-  © Marco’s Coffee
+  © Marco’s Coffee – Specialty Coffee
 </footer>
 
+<a class="whatsapp" href="https://wa.me/905078677978" target="_blank">💬</a>
+
 <script>
-function setLang(lang) {
-  document.querySelectorAll('[data-' + lang + ']').forEach(el => {
-    el.textContent = el.getAttribute('data-' + lang);
+const texts = {
+  en:{
+    title:"Specialty Single-Origin Coffee",
+    text:"Carefully selected and roasted for balance, sweetness and clarity. Delivered fresh from Antalya.",
+    btn:"Shop Coffee",
+    products:"Our Coffee Selection",
+    buy:"Buy now"
+  },
+  tr:{
+    title:"Özel Tek Köken Kahve",
+    text:"Denge, tatlılık ve berraklık için özenle seçilip kavrulmuştur.",
+    btn:"Kahveleri Gör",
+    products:"Kahve Seçkimiz",
+    buy:"Satın Al"
+  }
+};
+
+function setLang(lang){
+  document.getElementById("hero-title").innerText = texts[lang].title;
+  document.getElementById("hero-text").innerText = texts[lang].text;
+  document.getElementById("hero-btn").innerText = texts[lang].btn;
+  document.getElementById("products-title").innerText = texts[lang].products;
+
+  document.querySelectorAll("[data-en]").forEach(el=>{
+    el.innerText = el.getAttribute("data-"+lang);
   });
 }
 </script>
