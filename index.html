@@ -13,6 +13,12 @@ body{
   font-family:Inter, sans-serif;
   background:#f7f4ef;
   color:#222;
+  animation: fadeIn 0.8s ease-out both;
+}
+
+@keyframes fadeIn {
+  from { opacity:0; transform:translateY(8px); }
+  to { opacity:1; transform:translateY(0); }
 }
 
 header{
@@ -57,6 +63,8 @@ header{
   cursor:pointer;
 }
 
+/* ===== HERO ===== */
+
 .hero{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -68,7 +76,7 @@ header{
 .hero img{
   width:100%;
   border-radius:20px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.15);
+  box-shadow:0 18px 40px rgba(0,0,0,0.15);
 }
 
 .hero h2{
@@ -90,9 +98,17 @@ header{
   border-radius:30px;
   font-weight:600;
   text-decoration:none;
+  transition:.3s;
 }
 
-section#products{
+.hero a:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 18px rgba(0,0,0,0.25);
+}
+
+/* ===== PRODUCTS ===== */
+
+#products{
   padding:70px 8%;
 }
 
@@ -112,13 +128,20 @@ section#products{
   background:#fff;
   padding:26px;
   border-radius:16px;
-  box-shadow:0 8px 18px rgba(0,0,0,0.08);
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
   text-align:center;
+  transition:.4s;
+}
+
+.product:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 50px rgba(0,0,0,.12);
 }
 
 .product h3{
   font-size:17px;
   margin-bottom:20px;
+  font-weight:600;
 }
 
 .product a{
@@ -129,6 +152,58 @@ section#products{
   border-radius:25px;
   text-decoration:none;
 }
+
+/* ===== ROASTERY ===== */
+
+#roastery{
+  padding:80px 8%;
+  text-align:center;
+}
+
+#roastery h2{
+  font-size:32px;
+  margin-bottom:20px;
+}
+
+#roastery p{
+  max-width:720px;
+  margin:0 auto 40px;
+  font-size:18px;
+  line-height:1.6;
+}
+
+.roastery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+  margin-bottom:40px;
+}
+
+.roastery-grid img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-radius:16px;
+  box-shadow:0 12px 28px rgba(0,0,0,0.12);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.roastery-grid img:hover{
+  transform: translateY(-4px) scale(1.04);
+  box-shadow:0 20px 45px rgba(0,0,0,0.22);
+}
+
+
+.roastery-btn{
+  padding:14px 34px;
+  background:#111;
+  color:#fff;
+  border-radius:30px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+/* ===== FOOTER & WHATSAPP ===== */
 
 footer{
   text-align:center;
@@ -153,216 +228,41 @@ footer{
   text-decoration:none;
 }
 
+/* ===== PREMIUM BRANDING ===== */
+
+@media (min-width:1024px){
+  body::before{
+    content:"Marco’s Coffee Marco’s Coffee Marco’s Coffee";
+    position:fixed;
+    left:50px;
+    top:30%;
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:.15em;
+    color:rgba(0,0,0,.04);
+    transform:rotate(-90deg);
+    pointer-events:none;
+  }
+
+  body::after{
+    content:"";
+    position:fixed;
+    left:50px;
+    top:240px;
+    width:350px;
+    height:350px;
+    background:url("logo.png") no-repeat center/contain;
+    opacity:.06;
+    pointer-events:none;
+  }
+}
+
 @media(max-width:900px){
   .hero{
     grid-template-columns:1fr;
     text-align:center;
   }
 }
-/* === Animaciones suaves premium (seguras) === */
-
-.hero,
-.product,
-footer {
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-}
-
-.hero {
-  animation-delay: 0.1s;
-}
-
-.product {
-  animation-delay: 0.2s;
-}
-
-footer {
-  animation-delay: 0.3s;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Hover premium en productos */
-.product {
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.product:hover {
-  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
-  transform: translateY(-2px);
-}
-
-/* Botones más elegantes */
-.product a,
-.hero a {
-  transition: all 0.3s ease;
-}
-
-.product a:hover,
-.hero a:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
-}
-/* ===== Premium brand pattern (Marco's Coffee) ===== */
-
-@media (min-width: 1024px) {
-  body::before {
-    content: "Marco’s Coffee Marco’s Coffee Marco’s Coffee Marco’s Coffee Marco’s Coffee";
-    position: fixed;
-    left: 50px;
-    top: 30%;
-    width: 260px;
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 2.2;
-    letter-spacing: 0.15em;
-    color: rgba(0, 0, 0, 0.04);
-    transform: rotate(-90deg);
-    transform-origin: left top;
-    pointer-events: none;
-    user-select: none;
-    white-space: nowrap;
-  }
-}
-/* ===== Smooth fade-in on load ===== */
-body {
-  animation: fadeIn 0.8s ease-out both;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* ===== Premium button hover ===== */
-button,
-a.button,
-.buy-button {
-  transition: all 0.25s ease;
-}
-
-button:hover,
-a.button:hover,
-.buy-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
-}
-/* ===== Image subtle zoom on hover ===== */
-.hero-image img {
-  transition: transform 0.6s ease;
-}
-
-.hero-image:hover img {
-  transform: scale(1.03);
-}
-/* ===== Soft paper shadow ===== */
-.hero-image img {
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
-  border-radius: 18px;
-}
-/* ===== Premium logo under title (desktop only) ===== */
-
-@media (min-width: 1024px) {
-  body::after {
-    content: "";
-    position: fixed;
-    left: 50px;
-    top: 240px; /* 👈 anclado debajo de “Marco’s Coffee” */
-    width: 350px;
-    height: 350px;
-    background: url("logo.png") no-repeat center / contain;
-    opacity: 0.06;
-    pointer-events: none;
-    user-select: none;
-    z-index: 0;
-  }
-}
-/* ===== Premium motion system ===== */
-
-:root {
-  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-/* Fade + lift elegante */
-.fade-premium {
-  opacity: 0;
-  transform: translateY(18px);
-  animation: fadeLift 1s var(--ease-premium) forwards;
-}
-
-@keyframes fadeLift {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Delays suaves */
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-
-/* Respeto a accesibilidad */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-/* ===== Product cards refinement ===== */
-
-.product {
-  background: #fff;
-  border-radius: 14px;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.06);
-  transition: transform .4s var(--ease-premium), box-shadow .4s var(--ease-premium);
-}
-
-.product:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0,0,0,.12);
-}
-
-.product h3 {
-  font-weight: 600;
-  letter-spacing: .2px;
-}
-
-.product a {
-  font-weight: 500;
-}
-/* ===== Conversion buttons ===== */
-
-a.buy-btn {
-  position: relative;
-  overflow: hidden;
-}
-
-a.buy-btn::after {
-  content: "→";
-  margin-left: 8px;
-  transition: transform .3s var(--ease-premium);
-}
-
-a.buy-btn:hover::after {
-  transform: translateX(4px);
-}
-
 </style>
 </head>
 
@@ -371,21 +271,6 @@ a.buy-btn:hover::after {
 <header>
   <div class="brand">
     <h1>Marco’s Coffee</h1>
-<meta name="description" content="Marco’s Coffee is a specialty coffee brand in Turkey offering premium single origin beans roasted in small batches. Order coffee online in Turkey." />
-<meta name="keywords" content="specialty coffee, single origin coffee, Marco's Coffee, buy coffee Turkey" />
-<p style="display:none;">
-Marco’s Coffee is an independent specialty coffee brand based in Turkey, offering single origin coffee roasted in small batches and available online.
-</p>
-
-<meta property="og:title" content="Marco’s Coffee – Specialty Single Origin Coffee" />
-<meta property="og:description" content="Discover premium single origin coffee roasted with care. Order online from Marco’s Coffee." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.marcoscoffee.store" />
-<meta property="og:site_name" content="Marco’s Coffee" />
-<meta property="og:locale" content="en_TR" />
-
-
-
     <a class="instagram-link" href="https://instagram.com/marcoscoffeeantalya" target="_blank">
       <svg viewBox="0 0 24 24" fill="none">
         <path d="M7 2H17C19.76 2 22 4.24 22 7V17C22 19.76 19.76 22 17 22H7C4.24 22 2 19.76 2 17V7C2 4.24 4.24 2 7 2Z" stroke="currentColor" stroke-width="2"/>
@@ -405,87 +290,90 @@ Marco’s Coffee is an independent specialty coffee brand based in Turkey, offer
 <section class="hero">
   <div>
     <h2 id="hero-title">Specialty Single-Origin Coffee</h2>
-    <p id="hero-text">
-      Carefully selected and roasted for balance, sweetness and clarity.
-      Delivered fresh from Antalya.
-    </p>
+    <p id="hero-text">Carefully selected and roasted for balance, sweetness and clarity. Delivered fresh from Antalya.</p>
     <a href="#products" id="hero-btn">Shop Coffee</a>
   </div>
-
   <img src="hero.jpg" alt="Marco’s Coffee">
 </section>
 
 <section id="products">
-  <h2 id="products-title">Our Coffee Selection</h2>
+<h2 id="products-title">Our Coffee Selection</h2>
+<div class="products-grid">
 
-  <div class="products-grid">
+<div class="product"><h3>500gr Mexico Veracruz Costa Azul</h3><a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/32605899" target="_blank">Buy now</a></div>
+<div class="product"><h3>500gr Ethiopia Yirgacheffe Grade 2</h3><a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/32443041" target="_blank">Buy now</a></div>
+<div class="product"><h3>500gr Costa Rica La Pastora Tarrazú</h3><a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/30935484" target="_blank">Buy now</a></div>
+<div class="product"><h3>500gr Peru Papagayo SHB EP – Grade 1</h3><a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/24762272" target="_blank">Buy now</a></div>
+<div class="product"><h3>500gr Colombia Huila – Rafael Region</h3><a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/24469806" target="_blank">Buy now</a></div>
+<div class="product"><h3>Sample Box – 3 × 250gr</h3><a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/39798434" target="_blank">Buy now</a></div>
 
-    <div class="product">
-      <h3>500gr Mexico Veracruz Costa Azul</h3>
-      <a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/32605899" target="_blank">Buy now</a>
-    </div>
-
-    <div class="product">
-      <h3>500gr Ethiopia Yirgacheffe Grade 2</h3>
-      <a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/32443041" target="_blank">Buy now</a>
-    </div>
-
-    <div class="product">
-      <h3>500gr Costa Rica La Pastora Tarrazú</h3>
-      <a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/30935484" target="_blank">Buy now</a>
-    </div>
-
-    <div class="product">
-      <h3>500gr Peru Papagayo SHB EP – Grade 1</h3>
-      <a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/24762272" target="_blank">Buy now</a>
-    </div>
-
-    <div class="product">
-      <h3>500gr Colombia Huila – Rafael Region</h3>
-      <a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/24469806" target="_blank">Buy now</a>
-    </div>
-
-    <div class="product">
-      <h3>Sample Box – 3 × 250gr</h3>
-      <a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/39798434" target="_blank">Buy now</a>
-    </div>
-
-  </div>
+</div>
 </section>
 
-<footer>
-  © Marco’s Coffee – Specialty Coffee
-</footer>
+<section id="roastery">
+<h2 id="roastery-title">Our Roastery</h2>
+<p id="roastery-text">Marco’s Coffee is roasted in small batches in our Antalya roastery.</p>
 
+<div class="roastery-grid">
+
+  <img 
+    src="roastery1.jpg"
+    srcset="roastery1.jpg 1200w, roastery1@2x.jpg 2400w"
+    sizes="(max-width: 768px) 100vw, 33vw"
+    loading="lazy"
+    alt="Coffee roasting process at Marco’s Coffee">
+
+  <img 
+    src="roastery2.jpg"
+    srcset="roastery2.jpg 1200w, roastery2@2x.jpg 2400w"
+    sizes="(max-width: 768px) 100vw, 33vw"
+    loading="lazy"
+    alt="Coffee roaster machine">
+
+  <img 
+    src="roastery3.jpg"
+    srcset="roastery3.jpg 1200w, roastery3@2x.jpg 2400w"
+    sizes="(max-width: 768px) 100vw, 33vw"
+    loading="lazy"
+    alt="Freshly roasted coffee beans">
+
+  <img 
+    src="roastery4.jpg"
+    srcset="roastery4.jpg 1200w, roastery4@2x.jpg 2400w"
+    sizes="(max-width: 768px) 100vw, 33vw"
+    loading="lazy"
+    alt="Roastery details and workflow">
+
+  <img 
+    src="roastery5.jpg"
+    srcset="roastery5.jpg 1200w, roastery5@2x.jpg 2400w"
+    sizes="(max-width: 768px) 100vw, 33vw"
+    loading="lazy"
+    alt="Marco’s Coffee roastery in Antalya">
+
+</div>
+
+
+<a class="roastery-btn" href="https://instagram.com/marcoscoffeeantalya" target="_blank">Visit our Roastery on Instagram</a>
+</section>
+
+<footer>© Marco’s Coffee – Specialty Coffee</footer>
 <a class="whatsapp" href="https://wa.me/905078677978" target="_blank">💬</a>
 
 <script>
-const texts = {
-  en:{
-    title:"Specialty Single-Origin Coffee",
-    text:"Carefully selected and roasted for balance, sweetness and clarity. Delivered fresh from Antalya.",
-    btn:"Shop Coffee",
-    products:"Our Coffee Selection",
-    buy:"Buy now"
-  },
-  tr:{
-    title:"Özel Tek Köken Kahve",
-    text:"Denge, tatlılık ve berraklık için özenle seçilip kavrulmuştur.",
-    btn:"Kahveleri Gör",
-    products:"Kahve Seçkimiz",
-    buy:"Satın Al"
-  }
+const texts={
+en:{title:"Specialty Single-Origin Coffee",text:"Carefully selected and roasted for balance, sweetness and clarity. Delivered fresh from Antalya.",btn:"Shop Coffee",products:"Our Coffee Selection",roasteryTitle:"Our Roastery",roasteryText:"Marco’s Coffee is roasted in small batches in our Antalya roastery."},
+tr:{title:"Özel Tek Köken Kahve",text:"Denge, tatlılık ve berraklık için özenle seçilip kavrulmuştur.",btn:"Kahveleri Gör",products:"Kahve Seçkimiz",roasteryTitle:"Kavurmahane",roasteryText:"Marco’s Coffee, Antalya’daki kavurmahane­sinde küçük partiler halinde kavrulur."}
 };
 
 function setLang(lang){
-  document.getElementById("hero-title").innerText = texts[lang].title;
-  document.getElementById("hero-text").innerText = texts[lang].text;
-  document.getElementById("hero-btn").innerText = texts[lang].btn;
-  document.getElementById("products-title").innerText = texts[lang].products;
-
-  document.querySelectorAll("[data-en]").forEach(el=>{
-    el.innerText = el.getAttribute("data-"+lang);
-  });
+document.getElementById("hero-title").innerText=texts[lang].title;
+document.getElementById("hero-text").innerText=texts[lang].text;
+document.getElementById("hero-btn").innerText=texts[lang].btn;
+document.getElementById("products-title").innerText=texts[lang].products;
+document.getElementById("roastery-title").innerText=texts[lang].roasteryTitle;
+document.getElementById("roastery-text").innerText=texts[lang].roasteryText;
+document.querySelectorAll("[data-en]").forEach(el=>el.innerText=el.getAttribute("data-"+lang));
 }
 </script>
 
