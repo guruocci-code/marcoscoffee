@@ -273,7 +273,14 @@ footer{
   .whatsapp{
     bottom: 20px;
     z-index: 999;
+  
+/* ===== Mobile spacing fix for WhatsApp over footer ===== */
+@media (max-width: 768px){
+  footer{
+    padding-bottom: 90px;
   }
+}
+
 }
 
 </style>
