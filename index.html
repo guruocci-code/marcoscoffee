@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marco’s Coffee – Specialty Coffee</title>
+<title>Marco’s Coffee | Official Website – Specialty Coffee Roastery</title>
+<meta name="description" content="Official website of Marco’s Coffee. Specialty coffee roasted in small batches in Antalya. Shop single-origin coffees and contact us directly.">
+
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -185,14 +187,7 @@ header{
   object-fit:cover;
   border-radius:16px;
   box-shadow:0 12px 28px rgba(0,0,0,0.12);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
-
-.roastery-grid img:hover{
-  transform: translateY(-4px) scale(1.04);
-  box-shadow:0 20px 45px rgba(0,0,0,0.22);
-}
-
 
 .roastery-btn{
   padding:14px 34px;
@@ -203,29 +198,36 @@ header{
   text-decoration:none;
 }
 
-/* ===== FOOTER & WHATSAPP ===== */
+/* ===== FOOTER ===== */
 
 footer{
   text-align:center;
-  padding:30px;
+  padding:30px 30px 90px;
   font-size:14px;
   color:#666;
 }
 
+/* ===== WHATSAPP (FINAL, CLEAR & SMALL) ===== */
+
 .whatsapp{
   position:fixed;
-  bottom:20px;
-  right:20px;
+  right:16px;
+  bottom:16px;
+  width:44px;
+  height:44px;
   background:#25d366;
-  color:#fff;
-  width:56px;
-  height:56px;
+  border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  border-radius:50%;
-  font-size:26px;
-  text-decoration:none;
+  box-shadow:0 6px 16px rgba(0,0,0,0.25);
+  z-index:999;
+}
+
+.whatsapp img{
+  width:22px;
+  height:22px;
+  filter:brightness(0) invert(1);
 }
 
 /* ===== PREMIUM BRANDING ===== */
@@ -263,26 +265,6 @@ footer{
     text-align:center;
   }
 }
-/* ===== Mobile spacing fix for buttons ===== */
-@media (max-width: 768px){
-  .roastery-btn{
-    margin-bottom: 90px;
-    display: inline-block;
-  }
-
-  .whatsapp{
-    bottom: 20px;
-    z-index: 999;
-  
-/* ===== Mobile spacing fix for WhatsApp over footer ===== */
-@media (max-width: 768px){
-  footer{
-    padding-bottom: 90px;
-  }
-}
-
-}
-
 </style>
 </head>
 
@@ -335,50 +317,23 @@ footer{
 <p id="roastery-text">Marco’s Coffee is roasted in small batches in our Antalya roastery.</p>
 
 <div class="roastery-grid">
-
-  <img 
-    src="roastery1.jpg"
-    srcset="roastery1.jpg 1200w, roastery1@2x.jpg 2400w"
-    sizes="(max-width: 768px) 100vw, 33vw"
-    loading="lazy"
-    alt="Coffee roasting process at Marco’s Coffee">
-
-  <img 
-    src="roastery2.jpg"
-    srcset="roastery2.jpg 1200w, roastery2@2x.jpg 2400w"
-    sizes="(max-width: 768px) 100vw, 33vw"
-    loading="lazy"
-    alt="Coffee roaster machine">
-
-  <img 
-    src="roastery3.jpg"
-    srcset="roastery3.jpg 1200w, roastery3@2x.jpg 2400w"
-    sizes="(max-width: 768px) 100vw, 33vw"
-    loading="lazy"
-    alt="Freshly roasted coffee beans">
-
-  <img 
-    src="roastery4.jpg"
-    srcset="roastery4.jpg 1200w, roastery4@2x.jpg 2400w"
-    sizes="(max-width: 768px) 100vw, 33vw"
-    loading="lazy"
-    alt="Roastery details and workflow">
-
-  <img 
-    src="roastery5.jpg"
-    srcset="roastery5.jpg 1200w, roastery5@2x.jpg 2400w"
-    sizes="(max-width: 768px) 100vw, 33vw"
-    loading="lazy"
-    alt="Marco’s Coffee roastery in Antalya">
-
+  <img src="roastery1.jpg">
+  <img src="roastery2.jpg">
+  <img src="roastery3.jpg">
+  <img src="roastery4.jpg">
+  <img src="roastery5.jpg">
 </div>
 
-
-<a class="roastery-btn" href="https://instagram.com/marcoscoffeeantalya" target="_blank">Visit our Roastery on Instagram</a>
+<a class="roastery-btn" href="https://instagram.com/marcoscoffeeantalya" target="_blank">
+  Visit our Roastery on Instagram
+</a>
 </section>
 
 <footer>© Marco’s Coffee – Specialty Coffee</footer>
-<a class="whatsapp" href="https://wa.me/905078677978" target="_blank">💬</a>
+
+<a class="whatsapp" href="https://wa.me/905078677978" target="_blank" aria-label="Chat on WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
 
 <script>
 const texts={
