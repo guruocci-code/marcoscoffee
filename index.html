@@ -1,368 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marco’s Coffee | Official Website – Specialty Coffee Roastery</title>
-<meta name="description" content="Official website of Marco’s Coffee. Specialty coffee roasted in small batches in Antalya. Shop single-origin coffees and contact us directly.">
+  <meta charset="UTF-8">
+  <title>Marco’s Coffee – Temporarily Offline</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{
+      margin:0;
+      font-family:Inter, sans-serif;
+      background:#f7f4ef;
+      color:#222;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+      text-align:center;
+    }
 
-<style>
-body{
-  margin:0;
-  font-family:Inter, sans-serif;
-  background:#f7f4ef;
-  color:#222;
-  animation: fadeIn 0.8s ease-out both;
-}
+    .box{
+      max-width:520px;
+      padding:40px;
+      background:#fff;
+      border-radius:20px;
+      box-shadow:0 18px 40px rgba(0,0,0,.12);
+    }
 
-@keyframes fadeIn {
-  from { opacity:0; transform:translateY(8px); }
-  to { opacity:1; transform:translateY(0); }
-}
+    h1{
+      font-size:34px;
+      margin-bottom:20px;
+    }
 
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:24px 8%;
-}
+    p{
+      font-size:18px;
+      line-height:1.6;
+      margin-bottom:30px;
+    }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
+    .small{
+      font-size:14px;
+      color:#666;
+    }
 
-.brand h1{
-  font-size:42px;
-  font-weight:700;
-  margin:0;
-}
-
-.instagram-link{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  text-decoration:none;
-  color:#111;
-  font-weight:600;
-}
-
-.instagram-link svg{
-  width:22px;
-  height:22px;
-}
-
-.lang-switch button{
-  margin-left:10px;
-  border:none;
-  background:#ddd;
-  padding:6px 12px;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-/* ===== HERO ===== */
-
-.hero{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  padding:60px 8%;
-  align-items:center;
-}
-
-.hero img{
-  width:100%;
-  border-radius:20px;
-  box-shadow:0 18px 40px rgba(0,0,0,0.15);
-}
-
-.hero h2{
-  font-size:38px;
-  margin-bottom:20px;
-}
-
-.hero p{
-  font-size:18px;
-  line-height:1.6;
-}
-
-.hero a{
-  display:inline-block;
-  margin-top:25px;
-  padding:14px 32px;
-  background:#111;
-  color:#fff;
-  border-radius:30px;
-  font-weight:600;
-  text-decoration:none;
-  transition:.3s;
-}
-
-.hero a:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 18px rgba(0,0,0,0.25);
-}
-
-/* ===== PRODUCTS ===== */
-
-#products{
-  padding:70px 8%;
-}
-
-#products h2{
-  text-align:center;
-  font-size:32px;
-  margin-bottom:50px;
-}
-
-.products-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-
-.product{
-  background:#fff;
-  padding:26px;
-  border-radius:16px;
-  box-shadow:0 10px 30px rgba(0,0,0,.06);
-  text-align:center;
-  transition:.4s;
-}
-
-.product:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 50px rgba(0,0,0,.12);
-}
-
-.product h3{
-  font-size:17px;
-  margin-bottom:20px;
-  font-weight:600;
-}
-
-.product a{
-  display:inline-block;
-  padding:12px 26px;
-  background:#111;
-  color:#fff;
-  border-radius:25px;
-  text-decoration:none;
-}
-
-/* ===== ROASTERY ===== */
-
-#roastery{
-  padding:80px 8%;
-  text-align:center;
-}
-
-#roastery h2{
-  font-size:32px;
-  margin-bottom:20px;
-}
-
-#roastery p{
-  max-width:720px;
-  margin:0 auto 40px;
-  font-size:18px;
-  line-height:1.6;
-}
-
-.roastery-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-  margin-bottom:40px;
-}
-
-.roastery-grid img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  border-radius:16px;
-  box-shadow:0 12px 28px rgba(0,0,0,0.12);
-}
-
-.roastery-btn{
-  padding:14px 34px;
-  background:#111;
-  color:#fff;
-  border-radius:30px;
-  font-weight:600;
-  text-decoration:none;
-}
-
-/* ===== FOOTER ===== */
-
-footer{
-  text-align:center;
-  padding:30px 30px 90px;
-  font-size:14px;
-  color:#666;
-}
-
-/* ===== WHATSAPP (FINAL, CLEAR & SMALL) ===== */
-
-.whatsapp{
-  position:fixed;
-  right:16px;
-  bottom:16px;
-  width:44px;
-  height:44px;
-  background:#25d366;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 6px 16px rgba(0,0,0,0.25);
-  z-index:999;
-}
-
-.whatsapp img{
-  width:22px;
-  height:22px;
-  filter:brightness(0) invert(1);
-}
-
-/* ===== PREMIUM BRANDING ===== */
-
-@media (min-width:1024px){
-  body::before{
-    content:"Marco’s Coffee Marco’s Coffee Marco’s Coffee";
-    position:fixed;
-    left:50px;
-    top:30%;
-    font-size:22px;
-    font-weight:600;
-    letter-spacing:.15em;
-    color:rgba(0,0,0,.04);
-    transform:rotate(-90deg);
-    pointer-events:none;
-  }
-
-  body::after{
-    content:"";
-    position:fixed;
-    left:50px;
-    top:240px;
-    width:350px;
-    height:350px;
-    background:url("logo.png") no-repeat center/contain;
-    opacity:.06;
-    pointer-events:none;
-  }
-}
-
-@media(max-width:900px){
-  .hero{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-}@media (max-width: 600px) {
-
-  .roastery-btn{
-    display:inline-block;
-    padding:12px 22px;
-    font-size:15px;
-    line-height:1.3;
-    border-radius:24px;
-    white-space:normal;
-  }
-
-}
-
-</style>
+    .instagram{
+      display:inline-block;
+      margin-top:20px;
+      text-decoration:none;
+      font-weight:600;
+      color:#111;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="brand">
+  <div class="box">
     <h1>Marco’s Coffee</h1>
-    <a class="instagram-link" href="https://instagram.com/marcoscoffeeantalya" target="_blank">
-      <svg viewBox="0 0 24 24" fill="none">
-        <path d="M7 2H17C19.76 2 22 4.24 22 7V17C22 19.76 19.76 22 17 22H7C4.24 22 2 19.76 2 17V7C2 4.24 4.24 2 7 2Z" stroke="currentColor" stroke-width="2"/>
-        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
-        <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-      </svg>
-      Instagram
+
+    <p>
+      We’re taking a short break after the Christmas and New Year celebrations.<br><br>
+      Our website is temporarily offline while we prepare a better ordering experience.
+    </p>
+
+    <p class="small">
+      We’ll be back very soon ☕
+    </p>
+
+    <a class="instagram" href="https://instagram.com/marcoscoffeeantalya" target="_blank">
+      Follow us on Instagram
     </a>
   </div>
-
-  <div class="lang-switch">
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('tr')">TR</button>
-  </div>
-</header>
-
-<section class="hero">
-  <div>
-    <h2 id="hero-title">Specialty Single-Origin Coffee</h2>
-    <p id="hero-text">Carefully selected and roasted for balance, sweetness and clarity. Delivered fresh from Antalya.</p>
-    <a href="#products" id="hero-btn">Shop Coffee</a>
-  </div>
-  <img src="hero.jpg" alt="Marco’s Coffee">
-</section>
-
-<section id="products">
-<h2 id="products-title">Our Coffee Selection</h2>
-<div class="products-grid">
-
-<div class="product"><h3>500gr Mexico Veracruz Costa Azul</h3><a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/32605899" target="_blank">Buy now</a></div>
-<div class="product"><h3>500gr Ethiopia Yirgacheffe Grade 2</h3><a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/32443041" target="_blank">Buy now</a></div>
-<div class="product"><h3>500gr Costa Rica La Pastora Tarrazú</h3><a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/30935484" target="_blank">Buy now</a></div>
-<div class="product"><h3>500gr Peru Papagayo SHB EP – Grade 1</h3><a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/24762272" target="_blank">Buy now</a></div>
-<div class="product"><h3>500gr Colombia Huila – Rafael Region</h3><a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/24469806" target="_blank">Buy now</a></div>
-<div class="product"><h3>Sample Box – 3 × 250gr</h3><a data-en="Buy now" data-tr="Satın Al" href="https://www.shopier.com/Marcoscoffee/39798434" target="_blank">Buy now</a></div>
-
-</div>
-</section>
-
-<section id="roastery">
-<h2 id="roastery-title">Our Roastery</h2>
-<p id="roastery-text">Marco’s Coffee is roasted in small batches in our Antalya roastery.</p>
-
-<div class="roastery-grid">
-  <img src="roastery1.jpg">
-  <img src="roastery2.jpg">
-  <img src="roastery3.jpg">
-  <img src="roastery4.jpg">
-  <img src="roastery5.jpg">
-</div>
-
-<a class="roastery-btn" href="https://instagram.com/marcoscoffeeantalya" target="_blank">
-  Visit our Roastery on Instagram
-</a>
-</section>
-
-<footer>© Marco’s Coffee – Specialty Coffee</footer>
-
-<a class="whatsapp" href="https://wa.me/905078677978" target="_blank" aria-label="Chat on WhatsApp">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-</a>
-
-<script>
-const texts={
-en:{title:"Specialty Single-Origin Coffee",text:"Carefully selected and roasted for balance, sweetness and clarity. Delivered fresh from Antalya.",btn:"Shop Coffee",products:"Our Coffee Selection",roasteryTitle:"Our Roastery",roasteryText:"Marco’s Coffee is roasted in small batches in our Antalya roastery."},
-tr:{title:"Özel Tek Köken Kahve",text:"Denge, tatlılık ve berraklık için özenle seçilip kavrulmuştur.",btn:"Kahveleri Gör",products:"Kahve Seçkimiz",roasteryTitle:"Kavurmahane",roasteryText:"Marco’s Coffee, Antalya’daki kavurmahane­sinde küçük partiler halinde kavrulur."}
-};
-
-function setLang(lang){
-document.getElementById("hero-title").innerText=texts[lang].title;
-document.getElementById("hero-text").innerText=texts[lang].text;
-document.getElementById("hero-btn").innerText=texts[lang].btn;
-document.getElementById("products-title").innerText=texts[lang].products;
-document.getElementById("roastery-title").innerText=texts[lang].roasteryTitle;
-document.getElementById("roastery-text").innerText=texts[lang].roasteryText;
-document.querySelectorAll("[data-en]").forEach(el=>el.innerText=el.getAttribute("data-"+lang));
-}
-</script>
 
 </body>
 </html>
