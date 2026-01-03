@@ -3,52 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marco’s Coffee | Specialty Coffee Education</title>
 
-<meta name="description" content="Marco’s Coffee. Specialty coffee education, brewing tutorials and recipes by a certified coffee professional in Turkey.">
+<title>Marco’s Coffee | Specialty Coffee Education</title>
+<meta name="description" content="Specialty coffee education, brewing tutorials and recipes by a certified coffee professional in Turkey.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-<a class="whatsapp" 
-   href="https://wa.me/905078677978?text=Hi%20Marco,%20I%20have%20a%20coffee%20question"
-   target="_blank"
-   aria-label="Coffee consultations on WhatsApp">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-</a>
-.whatsapp{
-  position:fixed;
-  right:16px;
-  bottom:16px;
-  width:46px;
-  height:46px;
-  background:#111; /* negro, no verde venta */
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 6px 16px rgba(0,0,0,0.25);
-  z-index:999;
-}
-
-.whatsapp img{
-  width:22px;
-  height:22px;
-  filter:brightness(0) invert(1);
-}
-
-
 body{
   margin:0;
   font-family:Inter, sans-serif;
   background:#f7f4ef;
   color:#222;
-  animation: fadeIn 0.8s ease-out both;
+  animation: fadeIn .8s ease-out both;
 }
 
-@keyframes fadeIn {
-  from { opacity:0; transform:translateY(8px); }
-  to { opacity:1; transform:translateY(0); }
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
 header{
@@ -98,7 +70,7 @@ header{
 .hero img{
   width:100%;
   border-radius:20px;
-  box-shadow:0 18px 40px rgba(0,0,0,0.15);
+  box-shadow:0 18px 40px rgba(0,0,0,.15);
 }
 
 .hero h2{
@@ -120,12 +92,6 @@ header{
   border-radius:30px;
   font-weight:600;
   text-decoration:none;
-  transition:.3s;
-}
-
-.hero a:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 18px rgba(0,0,0,0.25);
 }
 
 /* ===== EDUCATION ===== */
@@ -178,7 +144,7 @@ header{
   height:260px;
   object-fit:cover;
   border-radius:16px;
-  box-shadow:0 12px 28px rgba(0,0,0,0.12);
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
 }
 
 .roastery-btn{
@@ -194,38 +160,32 @@ header{
 
 footer{
   text-align:center;
-  padding:40px;
+  padding:40px 30px 90px;
   font-size:14px;
   color:#666;
 }
 
-/* ===== PREMIUM BRANDING ===== */
+/* ===== WHATSAPP (CONSULTAS) ===== */
 
-@media (min-width:1024px){
-  body::before{
-    content:"Marco’s Coffee Marco’s Coffee Marco’s Coffee";
-    position:fixed;
-    left:50px;
-    top:30%;
-    font-size:22px;
-    font-weight:600;
-    letter-spacing:.15em;
-    color:rgba(0,0,0,.04);
-    transform:rotate(-90deg);
-    pointer-events:none;
-  }
+.whatsapp{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  width:48px;
+  height:48px;
+  background:#111;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 16px rgba(0,0,0,.3);
+  z-index:9999;
+}
 
-  body::after{
-    content:"";
-    position:fixed;
-    left:50px;
-    top:240px;
-    width:350px;
-    height:350px;
-    background:url('logo.png') no-repeat center/contain;
-    opacity:.06;
-    pointer-events:none;
-  }
+.whatsapp img{
+  width:24px;
+  height:24px;
+  filter:brightness(0) invert(1);
 }
 </style>
 </head>
@@ -250,9 +210,9 @@ footer{
   <div>
     <h2 id="hero-title">Specialty Coffee Education</h2>
     <p id="hero-text">
-      Brewing tutorials, recipes and coffee methods shared by a certified coffee professional.
+      Brewing tutorials, recipes and coffee methods by a certified coffee professional.
     </p>
-    <a href="https://instagram.com/marcoscoffeeantalya" target="_blank" id="hero-btn">
+    <a id="hero-btn" href="https://instagram.com/marcoscoffeeantalya" target="_blank">
       Follow on Instagram
     </a>
   </div>
@@ -262,15 +222,15 @@ footer{
 <section id="education">
   <h2 id="education-title">Coffee Knowledge & Tutorials</h2>
   <p id="education-text">
-    Content focused on extraction, brewing methods, recipes and specialty coffee education.
-    All content is educational and based on professional certification issued in Turkey.
+    Educational content focused on brewing, extraction and specialty coffee methods.
+    Based on professional certification issued in Turkey.
   </p>
 </section>
 
 <section id="roastery">
   <h2 id="roastery-title">Our Roastery</h2>
   <p id="roastery-text">
-    Marco’s Coffee is roasted in small batches in Antalya and shared through educational content.
+    Coffee roasted in small batches in Antalya and shared through educational content.
   </p>
 
   <div class="roastery-grid">
@@ -282,44 +242,53 @@ footer{
   </div>
 
   <a class="roastery-btn" href="https://instagram.com/marcoscoffeeantalya" target="_blank">
-    See Tutorials on Instagram
+    Watch Tutorials on Instagram
   </a>
 </section>
 
 <footer>
-  © Marco’s Coffee — Specialty Coffee Education
+© Marco’s Coffee — Specialty Coffee Education<br>
+Consultations available for educational purposes only.
 </footer>
+
+<!-- ✅ WHATSAPP REAL, VISIBLE, FUNCIONANDO -->
+<a class="whatsapp"
+   href="https://wa.me/905078677978?text=Hi%20Marco,%20I%20have%20a%20coffee%20question"
+   target="_blank"
+   aria-label="Coffee consultations">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</a>
 
 <script>
 const texts={
 en:{
-  title:"Specialty Coffee Education",
-  text:"Brewing tutorials, recipes and coffee methods shared by a certified coffee professional.",
+  hero:"Specialty Coffee Education",
+  text:"Brewing tutorials, recipes and coffee methods by a certified coffee professional.",
   btn:"Follow on Instagram",
-  educationTitle:"Coffee Knowledge & Tutorials",
-  educationText:"Content focused on extraction, brewing methods, recipes and specialty coffee education. All content is educational and based on professional certification issued in Turkey.",
-  roasteryTitle:"Our Roastery",
-  roasteryText:"Marco’s Coffee is roasted in small batches in Antalya and shared through educational content."
+  eduTitle:"Coffee Knowledge & Tutorials",
+  eduText:"Educational content focused on brewing, extraction and specialty coffee methods.",
+  roastTitle:"Our Roastery",
+  roastText:"Coffee roasted in small batches in Antalya and shared through educational content."
 },
 tr:{
-  title:"Özel Kahve Eğitimi",
-  text:"Sertifikalı bir kahve uzmanından demleme teknikleri, tarifler ve kahve yöntemleri.",
+  hero:"Özel Kahve Eğitimi",
+  text:"Sertifikalı bir kahve uzmanından demleme yöntemleri ve tarifler.",
   btn:"Instagram’da Takip Et",
-  educationTitle:"Kahve Bilgisi & Eğitim",
-  educationText:"Demleme, ekstraksiyon ve özel kahve eğitimi odaklı içerikler. Tüm içerikler Türkiye’de verilen resmi sertifikaya dayanmaktadır.",
-  roasteryTitle:"Kavurmahane",
-  roasteryText:"Marco’s Coffee, Antalya’da küçük partiler halinde kavrulur ve eğitici içeriklerle paylaşılır."
+  eduTitle:"Kahve Bilgisi & Eğitim",
+  eduText:"Demleme ve özel kahve yöntemlerine odaklanan eğitici içerikler.",
+  roastTitle:"Kavurmahane",
+  roastText:"Antalya’da küçük partiler halinde kavrulan kahve."
 }
 };
 
-function setLang(lang){
-  document.getElementById("hero-title").innerText=texts[lang].title;
-  document.getElementById("hero-text").innerText=texts[lang].text;
-  document.getElementById("hero-btn").innerText=texts[lang].btn;
-  document.getElementById("education-title").innerText=texts[lang].educationTitle;
-  document.getElementById("education-text").innerText=texts[lang].educationText;
-  document.getElementById("roastery-title").innerText=texts[lang].roasteryTitle;
-  document.getElementById("roastery-text").innerText=texts[lang].roasteryText;
+function setLang(l){
+  document.getElementById("hero-title").innerText=texts[l].hero;
+  document.getElementById("hero-text").innerText=texts[l].text;
+  document.getElementById("hero-btn").innerText=texts[l].btn;
+  document.getElementById("education-title").innerText=texts[l].eduTitle;
+  document.getElementById("education-text").innerText=texts[l].eduText;
+  document.getElementById("roastery-title").innerText=texts[l].roastTitle;
+  document.getElementById("roastery-text").innerText=texts[l].roastText;
 }
 </script>
 
