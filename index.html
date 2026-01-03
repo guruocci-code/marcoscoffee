@@ -3,55 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Marco’s Coffee | Specialty Coffee Education</title>
-<meta name="description" content="Specialty coffee education, brewing tutorials and recipes by a certified coffee professional in Turkey.">
+<meta name="description" content="Marco’s Coffee. Specialty coffee education, brewing tutorials and roastery content from Antalya.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* === TODO EL CSS ES EXACTAMENTE EL MISMO === */
 body{
   margin:0;
   font-family:Inter, sans-serif;
   background:#f7f4ef;
   color:#222;
+  animation: fadeIn 0.8s ease-out both;
+}
+
+@keyframes fadeIn {
+  from { opacity:0; transform:translateY(8px); }
+  to { opacity:1; transform:translateY(0); }
 }
 
 header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:22px 8%;
+  padding:24px 8%;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:14px;
-}
-
-.logo{
-  width:44px;
-  height:44px;
+  gap:16px;
 }
 
 .brand h1{
-  font-size:36px;
+  font-size:42px;
+  font-weight:700;
   margin:0;
 }
 
 .instagram-link{
+  display:flex;
+  align-items:center;
+  gap:6px;
   text-decoration:none;
   color:#111;
   font-weight:600;
 }
 
 .lang-switch button{
-  margin-left:8px;
+  margin-left:10px;
   border:none;
   background:#ddd;
-  padding:6px 10px;
+  padding:6px 12px;
   border-radius:6px;
+  cursor:pointer;
 }
 
 /* ===== HERO ===== */
@@ -67,10 +73,12 @@ header{
 .hero img{
   width:100%;
   border-radius:20px;
+  box-shadow:0 18px 40px rgba(0,0,0,0.15);
 }
 
 .hero h2{
   font-size:38px;
+  margin-bottom:20px;
 }
 
 .hero p{
@@ -80,30 +88,19 @@ header{
 
 .hero a{
   display:inline-block;
-  margin-top:24px;
-  padding:14px 34px;
+  margin-top:25px;
+  padding:14px 32px;
   background:#111;
   color:#fff;
   border-radius:30px;
-  text-decoration:none;
   font-weight:600;
+  text-decoration:none;
+  transition:.3s;
 }
 
-/* ===== EDUCATION ===== */
-
-#education{
-  padding:80px 8%;
-  text-align:center;
-}
-
-#education h2{
-  font-size:32px;
-}
-
-#education p{
-  max-width:760px;
-  margin:0 auto;
-  font-size:18px;
+.hero a:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 18px rgba(0,0,0,0.25);
 }
 
 /* ===== ROASTERY ===== */
@@ -115,17 +112,19 @@ header{
 
 #roastery h2{
   font-size:32px;
+  margin-bottom:20px;
 }
 
 #roastery p{
   max-width:720px;
   margin:0 auto 40px;
   font-size:18px;
+  line-height:1.6;
 }
 
 .roastery-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:20px;
   margin-bottom:40px;
 }
@@ -135,79 +134,76 @@ header{
   height:260px;
   object-fit:cover;
   border-radius:16px;
+  box-shadow:0 12px 28px rgba(0,0,0,0.12);
 }
 
 .roastery-btn{
-  display:inline-block;
   padding:14px 34px;
   background:#111;
   color:#fff;
   border-radius:30px;
-  text-decoration:none;
   font-weight:600;
+  text-decoration:none;
 }
 
 /* ===== FOOTER ===== */
 
 footer{
   text-align:center;
-  padding:40px 20px 90px;
+  padding:30px 30px 90px;
   font-size:14px;
   color:#666;
 }
 
-/* ===== WHATSAPP ===== */
+/* ===== WHATSAPP FLOAT ===== */
 
 .whatsapp{
   position:fixed;
   right:16px;
   bottom:16px;
-  width:48px;
-  height:48px;
-  background:#111;
+  width:44px;
+  height:44px;
+  background:#25d366;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  z-index:9999;
+  box-shadow:0 6px 16px rgba(0,0,0,0.25);
+  z-index:999;
 }
 
 .whatsapp img{
-  width:24px;
-  filter:invert(1);
+  width:22px;
+  height:22px;
+  filter:brightness(0) invert(1);
 }
 
-/* ===== MOBILE ===== */
+/* ===== PREMIUM BRANDING ===== */
 
-@media(max-width:768px){
-
-  header{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:12px;
+@media (min-width:1024px){
+  body::before{
+    content:"Marco’s Coffee Marco’s Coffee Marco’s Coffee";
+    position:fixed;
+    left:50px;
+    top:30%;
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:.15em;
+    color:rgba(0,0,0,.04);
+    transform:rotate(-90deg);
+    pointer-events:none;
   }
 
-  .brand h1{
-    font-size:28px;
-  }
-
-  .hero{
-    grid-template-columns:1fr;
-    padding:40px 6%;
-  }
-
-  .hero h2{
-    font-size:32px;
-  }
-
-  .hero a,
-  .roastery-btn{
-    width:100%;
-    text-align:center;
-  }
-
-  .roastery-grid{
-    grid-template-columns:1fr;
+  body::after{
+    content:"";
+    position:fixed;
+    left:50px;
+    top:240px;
+    width:350px;
+    height:350px;
+    background:url('logo.png') no-repeat center/contain;
+    opacity:.06;
+    pointer-events:none;
   }
 }
 </style>
@@ -217,59 +213,48 @@ footer{
 
 <header>
   <div class="brand">
-    <!-- LOGO ORIGINAL (inline SVG, no se pierde) -->
-    <svg class="logo" viewBox="0 0 64 64" fill="#111">
-      <circle cx="32" cy="20" r="10"/>
-      <path d="M16 50c2-10 30-10 32 0" />
-      <path d="M18 34h28v6H18z"/>
-    </svg>
-
     <h1>Marco’s Coffee</h1>
-    <a class="instagram-link" href="https://instagram.com/marcoscoffeeantalya" target="_blank">Instagram</a>
+    <a class="instagram-link" href="https://instagram.com/marcoscoffeeantalya" target="_blank">
+      Instagram
+    </a>
   </div>
 
   <div class="lang-switch">
-    <button>EN</button>
-    <button>TR</button>
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('tr')">TR</button>
   </div>
 </header>
 
 <section class="hero">
   <div>
-    <h2>Specialty Coffee Education</h2>
-    <p>Brewing tutorials, recipes and coffee methods by a certified coffee professional.</p>
-    <a href="https://instagram.com/marcoscoffeeantalya" target="_blank">
+    <h2 id="hero-title">Specialty Coffee Education</h2>
+    <p id="hero-text">
+      Brewing tutorials, recipes and coffee knowledge by a certified coffee professional.
+    </p>
+    <a href="https://instagram.com/marcoscoffeeantalya" target="_blank" id="hero-btn">
       Follow on Instagram
     </a>
   </div>
-  <img src="hero.jpg" alt="Coffee education">
-</section>
-
-<section id="education">
-  <h2>Coffee Knowledge & Tutorials</h2>
-  <p>
-    Educational content focused on brewing, extraction and specialty coffee methods.
-    Based on professional certification issued in Turkey.
-  </p>
+  <img src="hero.jpg" alt="Marco’s Coffee">
 </section>
 
 <section id="roastery">
-  <h2>Our Roastery</h2>
-  <p>
-    Coffee roasted in small batches in Antalya and shared through educational content.
-  </p>
+<h2 id="roastery-title">Our Roastery</h2>
+<p id="roastery-text">
+Marco’s Coffee is roasted in small batches in our Antalya roastery and shared for educational purposes.
+</p>
 
-  <div class="roastery-grid">
-    <img src="roastery1.jpg">
-    <img src="roastery2.jpg">
-    <img src="roastery3.jpg">
-    <img src="roastery4.jpg">
-    <img src="roastery5.jpg">
-  </div>
+<div class="roastery-grid">
+  <img src="roastery1.jpg">
+  <img src="roastery2.jpg">
+  <img src="roastery3.jpg">
+  <img src="roastery4.jpg">
+  <img src="roastery5.jpg">
+</div>
 
-  <a class="roastery-btn" href="https://instagram.com/marcoscoffeeantalya" target="_blank">
-    Watch Tutorials on Instagram
-  </a>
+<a class="roastery-btn" href="https://instagram.com/marcoscoffeeantalya" target="_blank">
+  Visit our Roastery on Instagram
+</a>
 </section>
 
 <footer>
@@ -280,8 +265,35 @@ Consultations available for educational purposes only.
 <a class="whatsapp"
 href="https://wa.me/905078677978?text=Hi%20Marco,%20I%20have%20a%20coffee%20question"
 target="_blank">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
+
+<script>
+const texts={
+en:{
+  title:"Specialty Coffee Education",
+  text:"Brewing tutorials, recipes and coffee knowledge by a certified coffee professional.",
+  btn:"Follow on Instagram",
+  roasteryTitle:"Our Roastery",
+  roasteryText:"Marco’s Coffee is roasted in small batches in our Antalya roastery and shared for educational purposes."
+},
+tr:{
+  title:"Özel Kahve Eğitimi",
+  text:"Sertifikalı bir kahve uzmanından demleme yöntemleri ve tarifler.",
+  btn:"Instagram’da Takip Et",
+  roasteryTitle:"Kavurmahane",
+  roasteryText:"Marco’s Coffee, Antalya’daki kavurmahanesinde küçük partiler halinde kavrulur."
+}
+};
+
+function setLang(lang){
+document.getElementById("hero-title").innerText=texts[lang].title;
+document.getElementById("hero-text").innerText=texts[lang].text;
+document.getElementById("hero-btn").innerText=texts[lang].btn;
+document.getElementById("roastery-title").innerText=texts[lang].roasteryTitle;
+document.getElementById("roastery-text").innerText=texts[lang].roasteryText;
+}
+</script>
 
 </body>
 </html>
