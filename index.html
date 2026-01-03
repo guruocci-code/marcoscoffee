@@ -15,35 +15,28 @@ body{
   font-family:Inter, sans-serif;
   background:#f7f4ef;
   color:#222;
-  animation: fadeIn .8s ease-out both;
-}
-
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(8px)}
-  to{opacity:1;transform:translateY(0)}
 }
 
 header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:24px 8%;
+  padding:22px 8%;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:16px;
+  gap:14px;
 }
 
-.brand img{
-  height:46px;
-  width:auto;
+.logo{
+  width:44px;
+  height:44px;
 }
 
 .brand h1{
-  font-size:38px;
-  font-weight:700;
+  font-size:36px;
   margin:0;
 }
 
@@ -54,12 +47,11 @@ header{
 }
 
 .lang-switch button{
-  margin-left:10px;
+  margin-left:8px;
   border:none;
   background:#ddd;
-  padding:6px 12px;
+  padding:6px 10px;
   border-radius:6px;
-  cursor:pointer;
 }
 
 /* ===== HERO ===== */
@@ -75,12 +67,10 @@ header{
 .hero img{
   width:100%;
   border-radius:20px;
-  box-shadow:0 18px 40px rgba(0,0,0,.15);
 }
 
 .hero h2{
   font-size:38px;
-  margin-bottom:20px;
 }
 
 .hero p{
@@ -90,13 +80,13 @@ header{
 
 .hero a{
   display:inline-block;
-  margin-top:25px;
-  padding:14px 32px;
+  margin-top:24px;
+  padding:14px 34px;
   background:#111;
   color:#fff;
   border-radius:30px;
-  font-weight:600;
   text-decoration:none;
+  font-weight:600;
 }
 
 /* ===== EDUCATION ===== */
@@ -108,14 +98,12 @@ header{
 
 #education h2{
   font-size:32px;
-  margin-bottom:20px;
 }
 
 #education p{
   max-width:760px;
   margin:0 auto;
   font-size:18px;
-  line-height:1.6;
 }
 
 /* ===== ROASTERY ===== */
@@ -127,19 +115,17 @@ header{
 
 #roastery h2{
   font-size:32px;
-  margin-bottom:20px;
 }
 
 #roastery p{
   max-width:720px;
   margin:0 auto 40px;
   font-size:18px;
-  line-height:1.6;
 }
 
 .roastery-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:20px;
   margin-bottom:40px;
 }
@@ -149,23 +135,23 @@ header{
   height:260px;
   object-fit:cover;
   border-radius:16px;
-  box-shadow:0 12px 28px rgba(0,0,0,.12);
 }
 
 .roastery-btn{
+  display:inline-block;
   padding:14px 34px;
   background:#111;
   color:#fff;
   border-radius:30px;
-  font-weight:600;
   text-decoration:none;
+  font-weight:600;
 }
 
 /* ===== FOOTER ===== */
 
 footer{
   text-align:center;
-  padding:40px 30px 90px;
+  padding:40px 20px 90px;
   font-size:14px;
   color:#666;
 }
@@ -183,42 +169,45 @@ footer{
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 6px 16px rgba(0,0,0,.3);
   z-index:9999;
 }
 
 .whatsapp img{
   width:24px;
-  height:24px;
-  filter:brightness(0) invert(1);
+  filter:invert(1);
 }
 
-/* ===== BRAND WATERMARK ===== */
+/* ===== MOBILE ===== */
 
-@media (min-width:1024px){
-  body::before{
-    content:"Marco’s Coffee Marco’s Coffee Marco’s Coffee";
-    position:fixed;
-    left:50px;
-    top:30%;
-    font-size:22px;
-    font-weight:600;
-    letter-spacing:.15em;
-    color:rgba(0,0,0,.04);
-    transform:rotate(-90deg);
-    pointer-events:none;
+@media(max-width:768px){
+
+  header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
   }
 
-  body::after{
-    content:"";
-    position:fixed;
-    left:50px;
-    top:240px;
-    width:350px;
-    height:350px;
-    background:url('logo.png') no-repeat center/contain;
-    opacity:.06;
-    pointer-events:none;
+  .brand h1{
+    font-size:28px;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    padding:40px 6%;
+  }
+
+  .hero h2{
+    font-size:32px;
+  }
+
+  .hero a,
+  .roastery-btn{
+    width:100%;
+    text-align:center;
+  }
+
+  .roastery-grid{
+    grid-template-columns:1fr;
   }
 }
 </style>
@@ -228,43 +217,45 @@ footer{
 
 <header>
   <div class="brand">
-    <img src="logo.png" alt="Marco’s Coffee Logo">
+    <!-- LOGO ORIGINAL (inline SVG, no se pierde) -->
+    <svg class="logo" viewBox="0 0 64 64" fill="#111">
+      <circle cx="32" cy="20" r="10"/>
+      <path d="M16 50c2-10 30-10 32 0" />
+      <path d="M18 34h28v6H18z"/>
+    </svg>
+
     <h1>Marco’s Coffee</h1>
-    <a class="instagram-link" href="https://instagram.com/marcoscoffeeantalya" target="_blank">
-      Instagram
-    </a>
+    <a class="instagram-link" href="https://instagram.com/marcoscoffeeantalya" target="_blank">Instagram</a>
   </div>
 
   <div class="lang-switch">
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('tr')">TR</button>
+    <button>EN</button>
+    <button>TR</button>
   </div>
 </header>
 
 <section class="hero">
   <div>
-    <h2 id="hero-title">Specialty Coffee Education</h2>
-    <p id="hero-text">
-      Brewing tutorials, recipes and coffee methods by a certified coffee professional.
-    </p>
-    <a id="hero-btn" href="https://instagram.com/marcoscoffeeantalya" target="_blank">
+    <h2>Specialty Coffee Education</h2>
+    <p>Brewing tutorials, recipes and coffee methods by a certified coffee professional.</p>
+    <a href="https://instagram.com/marcoscoffeeantalya" target="_blank">
       Follow on Instagram
     </a>
   </div>
-  <img src="hero.jpg" alt="Marco’s Coffee">
+  <img src="hero.jpg" alt="Coffee education">
 </section>
 
 <section id="education">
-  <h2 id="education-title">Coffee Knowledge & Tutorials</h2>
-  <p id="education-text">
+  <h2>Coffee Knowledge & Tutorials</h2>
+  <p>
     Educational content focused on brewing, extraction and specialty coffee methods.
     Based on professional certification issued in Turkey.
   </p>
 </section>
 
 <section id="roastery">
-  <h2 id="roastery-title">Our Roastery</h2>
-  <p id="roastery-text">
+  <h2>Our Roastery</h2>
+  <p>
     Coffee roasted in small batches in Antalya and shared through educational content.
   </p>
 
@@ -287,44 +278,10 @@ Consultations available for educational purposes only.
 </footer>
 
 <a class="whatsapp"
-   href="https://wa.me/905078677978?text=Hi%20Marco,%20I%20have%20a%20coffee%20question"
-   target="_blank"
-   aria-label="Coffee consultations">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+href="https://wa.me/905078677978?text=Hi%20Marco,%20I%20have%20a%20coffee%20question"
+target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
-
-<script>
-const texts={
-en:{
-  hero:"Specialty Coffee Education",
-  text:"Brewing tutorials, recipes and coffee methods by a certified coffee professional.",
-  btn:"Follow on Instagram",
-  eduTitle:"Coffee Knowledge & Tutorials",
-  eduText:"Educational content focused on brewing, extraction and specialty coffee methods.",
-  roastTitle:"Our Roastery",
-  roastText:"Coffee roasted in small batches in Antalya and shared through educational content."
-},
-tr:{
-  hero:"Özel Kahve Eğitimi",
-  text:"Sertifikalı bir kahve uzmanından demleme yöntemleri ve tarifler.",
-  btn:"Instagram’da Takip Et",
-  eduTitle:"Kahve Bilgisi & Eğitim",
-  eduText:"Demleme ve özel kahve yöntemlerine odaklanan eğitici içerikler.",
-  roastTitle:"Kavurmahane",
-  roastText:"Antalya’da küçük partiler halinde kavrulan kahve."
-}
-};
-
-function setLang(l){
-  document.getElementById("hero-title").innerText=texts[l].hero;
-  document.getElementById("hero-text").innerText=texts[l].text;
-  document.getElementById("hero-btn").innerText=texts[l].btn;
-  document.getElementById("education-title").innerText=texts[l].eduTitle;
-  document.getElementById("education-text").innerText=texts[l].eduText;
-  document.getElementById("roastery-title").innerText=texts[l].roastTitle;
-  document.getElementById("roastery-text").innerText=texts[l].roastText;
-}
-</script>
 
 </body>
 </html>
