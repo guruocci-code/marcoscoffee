@@ -27,7 +27,7 @@ body{
   color:#222;
 }
 
-/* ===== HEADER (ORIGINAL DESKTOP) ===== */
+/* ===== HEADER ===== */
 header{
   display:flex;
   justify-content:space-between;
@@ -77,15 +77,10 @@ header{
   box-shadow:0 18px 40px rgba(0,0,0,.15);
 }
 
-.hero h2{.hero a{
-  width:100%;
-  text-align:center;
-  padding:14px;
-  font-size:15px;
-}
-
+.hero h2{
   font-size:38px;
   margin-bottom:20px;
+  letter-spacing:-0.02em;
 }
 
 .hero p{
@@ -93,9 +88,24 @@ header{
   line-height:1.6;
 }
 
+.hero a{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 32px;
+  background:#111;
+  color:#fff;
+  border-radius:30px;
+  font-weight:600;
+  text-decoration:none;
+  transition:.25s ease;
+}
 
+.hero a:hover{
+  transform:translateY(-1px);
+  box-shadow:0 6px 16px rgba(0,0,0,.18);
+}
 
-/* ===== ROASTERY (DESKTOP INTACTO) ===== */
+/* ===== ROASTERY ===== */
 #roastery{
   padding:80px 8%;
   text-align:center;
@@ -104,6 +114,7 @@ header{
 #roastery h2{
   font-size:32px;
   margin-bottom:20px;
+  letter-spacing:-0.02em;
 }
 
 #roastery p{
@@ -129,12 +140,19 @@ header{
 }
 
 .roastery-btn{
+  display:inline-block;
   padding:14px 34px;
   background:#111;
   color:#fff;
   border-radius:30px;
   font-weight:600;
   text-decoration:none;
+  transition:.25s ease;
+}
+
+.roastery-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 6px 16px rgba(0,0,0,.18);
 }
 
 /* ===== FOOTER ===== */
@@ -166,7 +184,7 @@ footer{
   filter:brightness(0) invert(1);
 }
 
-/* ===== MOBILE (SOLO OVERRIDES) ===== */
+/* ===== MOBILE ===== */
 @media (max-width:768px){
 
   header{
@@ -200,10 +218,11 @@ footer{
   }
 
   .hero a{
-    width:100%;
-    text-align:center;
-    padding:14px;
-    font-size:15px;
+    width:auto;
+    align-self:center;
+    padding:11px 22px;
+    font-size:14px;
+    border-radius:24px;
   }
 
   #roastery{
@@ -236,7 +255,10 @@ footer{
   footer{
     padding-bottom:110px;
   }
-}@media (min-width:1024px){
+}
+
+/* ===== PREMIUM DESKTOP BRANDING ===== */
+@media (min-width:1024px){
   body::after{
     content:"";
     position:fixed;
@@ -264,7 +286,6 @@ footer{
     z-index:0;
   }
 }
-
 </style>
 </head>
 
