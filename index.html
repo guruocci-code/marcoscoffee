@@ -105,11 +105,6 @@ header{
   transition:.25s ease;
 }
 
-.hero a:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 22px rgba(0,0,0,.25);
-}
-
 /* ================= ROASTERY ================= */
 #roastery{
   padding:90px 8%;
@@ -154,12 +149,6 @@ header{
   font-weight:500;
   letter-spacing:.03em;
   text-decoration:none;
-  transition:.25s ease;
-}
-
-.roastery-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 22px rgba(0,0,0,.25);
 }
 
 /* ================= FOOTER ================= */
@@ -191,9 +180,8 @@ footer{
   filter:brightness(0) invert(1);
 }
 
-/* ================= MOBILE — QUIET LUXURY ================= */
+/* ================= MOBILE ================= */
 @media (max-width:768px){
-
   header{
     padding:18px 6%;
     flex-direction:column;
@@ -211,55 +199,12 @@ footer{
     gap:22px;
   }
 
-  .hero img{
-    height:320px;
-    object-fit:cover;
-    border-radius:18px;
-  }
-
   .hero h2{
     font-size:26px;
   }
 
   .hero p{
     font-size:15px;
-    max-width:none;
-  }
-
-  .hero a{
-    align-self:center;
-    padding:10px 22px;
-    font-size:13px;
-    border-radius:22px;
-    letter-spacing:.04em;
-  }
-
-  #roastery{
-    padding:56px 6%;
-  }
-
-  #roastery h2{
-    font-size:24px;
-  }
-
-  #roastery p{
-    font-size:15px;
-    margin-bottom:34px;
-  }
-
-  .roastery-grid{
-    grid-template-columns:1fr;
-  }
-
-  .roastery-grid img{
-    height:220px;
-  }
-
-  .roastery-btn{
-    width:auto;
-    padding:12px 26px;
-    font-size:13px;
-    border-radius:22px;
   }
 }
 
@@ -354,29 +299,29 @@ target="_blank">
 </a>
 
 <script>
-const texts={
-en:{
-  title:"Specialty Coffee Education",
-  text:"Brewing tutorials, recipes and coffee knowledge by a certified coffee professional.",
-  btn:"Follow on Instagram",
-  roasteryTitle:"Our Roastery",
-  roasteryText:"Marco’s Coffee is roasted in small batches in our Antalya roastery and shared for educational purposes."
-},
-tr:{
-  title:"Özel Kahve Eğitimi",
-  text:"Sertifikalı bir kahve uzmanından demleme yöntemleri ve tarifler.",
-  btn:"Instagram’da Takip Et",
-  roasteryTitle:"Kavurmahane",
-  roasteryText:"Marco’s Coffee, Antalya’daki kavurmahanesinde küçük partiler halinde kavrulur."
-}
+const texts = {
+  en: {
+    title: "Specialty Coffee Education",
+    text: "Brewing tutorials, recipes and coffee knowledge by a certified coffee professional.",
+    btn: "Follow on Instagram",
+    roasteryTitle: "Our Roastery",
+    roasteryText: "Marco’s Coffee is roasted in small batches in our Antalya roastery and shared for educational purposes."
+  },
+  tr: {
+    title: "Özel Kahve Eğitimi",
+    text: "Sertifikalı bir kahve uzmanından demleme yöntemleri ve tarifler.",
+    btn: "Instagram’da Takip Et",
+    roasteryTitle: "Kavurmahane",
+    roasteryText: "Marco’s Coffee, Antalya’daki kavurmahanesinde küçük partiler halinde kavrulur."
+  }
 };
 
 function setLang(lang){
-  hero-title.innerText=texts[lang].title;
-  hero-text.innerText=texts[lang].text;
-  hero-btn.innerText=texts[lang].btn;
-  roastery-title.innerText=texts[lang].roasteryTitle;
-  roastery-text.innerText=texts[lang].roasteryText;
+  document.getElementById("hero-title").innerText = texts[lang].title;
+  document.getElementById("hero-text").innerText = texts[lang].text;
+  document.getElementById("hero-btn").innerText = texts[lang].btn;
+  document.getElementById("roastery-title").innerText = texts[lang].roasteryTitle;
+  document.getElementById("roastery-text").innerText = texts[lang].roasteryText;
 }
 </script>
 
