@@ -7,13 +7,6 @@
 <title>Marco’s Coffee | Specialty Coffee Education</title>
 <meta name="description" content="Specialty coffee education, brewing tutorials and roastery insights by Marco’s Coffee.">
 
-<!-- Open Graph -->
-<meta property="og:title" content="Marco’s Coffee — Specialty Coffee Education">
-<meta property="og:description" content="Brewing tutorials and coffee knowledge by a certified coffee professional.">
-<meta property="og:image" content="hero.jpg">
-<meta property="og:type" content="website">
-
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -45,7 +38,6 @@ header{
   font-size:42px;
   font-weight:700;
   margin:0;
-  letter-spacing:-0.02em;
 }
 
 .instagram-link{
@@ -81,7 +73,6 @@ header{
 
 .hero h2{
   font-size:40px;
-  letter-spacing:-0.025em;
   margin-bottom:18px;
 }
 
@@ -89,7 +80,6 @@ header{
   font-size:18px;
   line-height:1.6;
   max-width:46ch;
-  opacity:.9;
 }
 
 .hero a{
@@ -100,9 +90,7 @@ header{
   color:#fff;
   border-radius:32px;
   font-weight:500;
-  letter-spacing:.03em;
   text-decoration:none;
-  transition:.25s ease;
 }
 
 /* ================= ROASTERY ================= */
@@ -113,7 +101,6 @@ header{
 
 #roastery h2{
   font-size:34px;
-  letter-spacing:-0.02em;
   margin-bottom:18px;
 }
 
@@ -122,7 +109,6 @@ header{
   margin:0 auto 46px;
   font-size:18px;
   line-height:1.6;
-  opacity:.9;
 }
 
 .roastery-grid{
@@ -147,7 +133,6 @@ header{
   color:#fff;
   border-radius:32px;
   font-weight:500;
-  letter-spacing:.03em;
   text-decoration:none;
 }
 
@@ -263,7 +248,7 @@ footer{
       Follow on Instagram
     </a>
   </div>
-  <img src="hero.jpg" alt="Marco’s Coffee" loading="lazy">
+  <img src="hero.jpg" alt="Marco’s Coffee">
 </section>
 
 <section id="roastery">
@@ -273,15 +258,18 @@ footer{
   </p>
 
   <div class="roastery-grid">
-    <img src="roastery1.jpg" loading="lazy">
-    <img src="roastery2.jpg" loading="lazy">
-    <img src="roastery3.jpg" loading="lazy">
-    <img src="roastery4.jpg" loading="lazy">
-    <img src="roastery5.jpg" loading="lazy">
+    <img src="roastery1.jpg">
+    <img src="roastery2.jpg">
+    <img src="roastery3.jpg">
+    <img src="roastery4.jpg">
+    <img src="roastery5.jpg">
   </div>
 
-  <a class="roastery-btn" href="https://instagram.com/marcoscoffeeantalya" target="_blank">
-    Visit our Roastery on Instagram
+  <a class="roastery-btn"
+     id="roastery-btn"
+     href="https://instagram.com/marcoscoffeeantalya"
+     target="_blank">
+     Visit our Roastery on Instagram
   </a>
 </section>
 
@@ -305,14 +293,16 @@ const texts = {
     text: "Brewing tutorials, recipes and coffee knowledge by a certified coffee professional.",
     btn: "Follow on Instagram",
     roasteryTitle: "Our Roastery",
-    roasteryText: "Marco’s Coffee is roasted in small batches in our Antalya roastery and shared for educational purposes."
+    roasteryText: "Marco’s Coffee is roasted in small batches in our Antalya roastery and shared for educational purposes.",
+    roasteryBtn: "Visit our Roastery on Instagram"
   },
   tr: {
     title: "Özel Kahve Eğitimi",
     text: "Sertifikalı bir kahve uzmanından demleme yöntemleri ve tarifler.",
     btn: "Instagram’da Takip Et",
     roasteryTitle: "Kavurmahane",
-    roasteryText: "Marco’s Coffee, Antalya’daki kavurmahanesinde küçük partiler halinde kavrulur."
+    roasteryText: "Marco’s Coffee, Antalya’daki kavurmahanesinde küçük partiler halinde kavrulur.",
+    roasteryBtn: "Kavurmahanemizi Instagram’da Ziyaret Et"
   }
 };
 
@@ -322,6 +312,7 @@ function setLang(lang){
   document.getElementById("hero-btn").innerText = texts[lang].btn;
   document.getElementById("roastery-title").innerText = texts[lang].roasteryTitle;
   document.getElementById("roastery-text").innerText = texts[lang].roasteryText;
+  document.getElementById("roastery-btn").innerText = texts[lang].roasteryBtn;
 }
 </script>
 
