@@ -12,214 +12,37 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ================= BASE ================= */
-body{
-  margin:0;
-  font-family:Inter, sans-serif;
-  background:#f7f4ef;
-  color:#1e1e1e;
-}
+body{margin:0;font-family:Inter, sans-serif;background:#f7f4ef;color:#1e1e1e}
+header{display:flex;justify-content:space-between;align-items:center;padding:26px 8%}
+.brand{display:flex;align-items:center;gap:16px}
+.brand h1{font-size:42px;font-weight:700;margin:0}
+.instagram-link{text-decoration:none;color:#1e1e1e;font-weight:500;opacity:.75}
+.lang-switch button{margin-left:10px;border:none;background:#e3e0da;padding:6px 12px;border-radius:6px;cursor:pointer}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;padding:70px 8%;align-items:center}
+.hero img{width:100%;border-radius:22px;box-shadow:0 22px 48px rgba(0,0,0,.14)}
+.hero h2{font-size:40px;margin-bottom:18px}
+.hero p{font-size:18px;line-height:1.6;max-width:46ch}
+.hero a{display:inline-block;margin-top:26px;padding:14px 34px;background:#1e1e1e;color:#fff;border-radius:32px;font-weight:500;text-decoration:none}
+#roastery{padding:90px 8%;text-align:center}
+#roastery h2{font-size:34px;margin-bottom:18px}
+#roastery p{max-width:52ch;margin:0 auto 46px;font-size:18px;line-height:1.6}
+.roastery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;margin-bottom:46px}
+.roastery-grid img{width:100%;height:260px;object-fit:cover;border-radius:18px;box-shadow:0 16px 36px rgba(0,0,0,.14)}
+.roastery-btn{display:inline-block;padding:14px 36px;background:#1e1e1e;color:#fff;border-radius:32px;font-weight:500;text-decoration:none}
 
-/* ================= HEADER ================= */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:26px 8%;
-}
+/* PRODUCTS */
+#products{padding:90px 8%;text-align:center}
+.products-grid{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.product-card{width:220px}
+.product-card img{width:100%;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.15)}
+.product-card h3{margin:12px 0}
+.product-card button{padding:10px 20px;background:#25d366;color:#fff;border:none;border-radius:8px;cursor:pointer}
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
+footer{text-align:center;padding:36px 20px 100px;font-size:14px;color:#666}
+.whatsapp{position:fixed;right:16px;bottom:16px;width:44px;height:44px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.25);z-index:999}
+.whatsapp img{width:22px;filter:brightness(0) invert(1)}
 
-.brand h1{
-  font-size:42px;
-  font-weight:700;
-  margin:0;
-}
-
-.instagram-link{
-  text-decoration:none;
-  color:#1e1e1e;
-  font-weight:500;
-  opacity:.75;
-}
-
-.lang-switch button{
-  margin-left:10px;
-  border:none;
-  background:#e3e0da;
-  padding:6px 12px;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-/* ================= HERO ================= */
-.hero{
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:48px;
-  padding:70px 8%;
-  align-items:center;
-}
-
-.hero img{
-  width:100%;
-  border-radius:22px;
-  box-shadow:0 22px 48px rgba(0,0,0,.14);
-}
-
-.hero h2{
-  font-size:40px;
-  margin-bottom:18px;
-}
-
-.hero p{
-  font-size:18px;
-  line-height:1.6;
-  max-width:46ch;
-}
-
-.hero a{
-  display:inline-block;
-  margin-top:26px;
-  padding:14px 34px;
-  background:#1e1e1e;
-  color:#fff;
-  border-radius:32px;
-  font-weight:500;
-  text-decoration:none;
-}
-
-/* ================= ROASTERY ================= */
-#roastery{
-  padding:90px 8%;
-  text-align:center;
-}
-
-#roastery h2{
-  font-size:34px;
-  margin-bottom:18px;
-}
-
-#roastery p{
-  max-width:52ch;
-  margin:0 auto 46px;
-  font-size:18px;
-  line-height:1.6;
-}
-
-.roastery-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:22px;
-  margin-bottom:46px;
-}
-
-.roastery-grid img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  border-radius:18px;
-  box-shadow:0 16px 36px rgba(0,0,0,.14);
-}
-
-.roastery-btn{
-  display:inline-block;
-  padding:14px 36px;
-  background:#1e1e1e;
-  color:#fff;
-  border-radius:32px;
-  font-weight:500;
-  text-decoration:none;
-}
-
-/* ================= FOOTER ================= */
-footer{
-  text-align:center;
-  padding:36px 20px 100px;
-  font-size:14px;
-  color:#666;
-}
-
-/* ================= WHATSAPP ================= */
-.whatsapp{
-  position:fixed;
-  right:16px;
-  bottom:16px;
-  width:44px;
-  height:44px;
-  background:#25d366;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 6px 16px rgba(0,0,0,.25);
-  z-index:999;
-}
-
-.whatsapp img{
-  width:22px;
-  filter:brightness(0) invert(1);
-}
-
-/* ================= MOBILE ================= */
-@media (max-width:768px){
-  header{
-    padding:18px 6%;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:10px;
-  }
-
-  .brand h1{
-    font-size:26px;
-  }
-
-  .hero{
-    grid-template-columns:1fr;
-    padding:34px 6%;
-    gap:22px;
-  }
-
-  .hero h2{
-    font-size:26px;
-  }
-
-  .hero p{
-    font-size:15px;
-  }
-}
-
-/* ================= DESKTOP BRANDING ================= */
-@media (min-width:1024px){
-  body::after{
-    content:"";
-    position:fixed;
-    left:48px;
-    top:240px;
-    width:360px;
-    height:360px;
-    background:url('logo.png') no-repeat center/contain;
-    opacity:.05;
-    pointer-events:none;
-  }
-
-  body::before{
-    content:"Marco’s Coffee Marco’s Coffee Marco’s Coffee";
-    position:fixed;
-    left:48px;
-    top:30%;
-    font-size:22px;
-    font-weight:600;
-    letter-spacing:.16em;
-    color:rgba(0,0,0,.035);
-    transform:rotate(-90deg);
-    pointer-events:none;
-  }
-}
+@media (max-width:768px){header{padding:18px 6%;flex-direction:column;align-items:flex-start;gap:10px}.brand h1{font-size:26px}.hero{grid-template-columns:1fr;padding:34px 6%;gap:22px}.hero h2{font-size:26px}.hero p{font-size:15px}}
 </style>
 </head>
 
@@ -241,21 +64,15 @@ footer{
 <section class="hero">
   <div>
     <h2 id="hero-title">Specialty Coffee Education</h2>
-    <p id="hero-text">
-      Brewing tutorials, recipes and coffee knowledge by a certified coffee professional.
-    </p>
-    <a id="hero-btn" href="https://instagram.com/marcoscoffeeantalya" target="_blank">
-      Follow on Instagram
-    </a>
+    <p id="hero-text">Brewing tutorials, recipes and coffee knowledge by a certified coffee professional.</p>
+    <a id="hero-btn" href="https://instagram.com/marcoscoffeeantalya" target="_blank">Follow on Instagram</a>
   </div>
   <img src="hero.jpg" alt="Marco’s Coffee">
 </section>
 
 <section id="roastery">
   <h2 id="roastery-title">Our Roastery</h2>
-  <p id="roastery-text">
-    Marco’s Coffee is roasted in small batches in our Antalya roastery and shared for educational purposes.
-  </p>
+  <p id="roastery-text">Marco’s Coffee is roasted in small batches in our Antalya roastery and shared for educational purposes.</p>
 
   <div class="roastery-grid">
     <img src="roastery1.jpg">
@@ -265,12 +82,47 @@ footer{
     <img src="roastery5.jpg">
   </div>
 
-  <a class="roastery-btn"
-     id="roastery-btn"
-     href="https://instagram.com/marcoscoffeeantalya"
-     target="_blank">
-     Visit our Roastery on Instagram
-  </a>
+  <a class="roastery-btn" id="roastery-btn" href="https://instagram.com/marcoscoffeeantalya" target="_blank">Visit our Roastery on Instagram</a>
+</section>
+
+<!-- PRODUCTS INTEGRATED -->
+<section id="products">
+  <h2>Order Coffee</h2>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <img src="producto1.jpg">
+      <h3>Honduras La Pastora</h3>
+      <a href="https://wa.me/905078677978?text=Hi%20Marco,%20I%20want%20Honduras%20La%20Pastora" target="_blank">
+        <button>Order</button>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <img src="producto2.jpg">
+      <h3>Colombia Supremo</h3>
+      <a href="https://wa.me/905078677978?text=Hi%20Marco,%20I%20want%20Colombia%20Supremo" target="_blank">
+        <button>Order</button>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <img src="producto3.jpg">
+      <h3>Ethiopia Yirgacheffe</h3>
+      <a href="https://wa.me/905078677978?text=Hi%20Marco,%20I%20want%20Ethiopia%20Yirgacheffe" target="_blank">
+        <button>Order</button>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <img src="producto4.jpg">
+      <h3>Marco's Blend</h3>
+      <a href="https://wa.me/905078677978?text=Hi%20Marco,%20I%20want%20Marco's%20Blend" target="_blank">
+        <button>Order</button>
+      </a>
+    </div>
+
+  </div>
 </section>
 
 </main>
@@ -280,40 +132,13 @@ footer{
 Consultations available for educational purposes only.
 </footer>
 
-<a class="whatsapp"
-href="https://wa.me/905078677978?text=Hi%20Marco,%20I%20have%20a%20coffee%20question"
-target="_blank">
+<a class="whatsapp" href="https://wa.me/905078677978?text=Hi%20Marco,%20I%20have%20a%20coffee%20question" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
 <script>
-const texts = {
-  en: {
-    title: "Specialty Coffee Education",
-    text: "Brewing tutorials, recipes and coffee knowledge by a certified coffee professional.",
-    btn: "Follow on Instagram",
-    roasteryTitle: "Our Roastery",
-    roasteryText: "Marco’s Coffee is roasted in small batches in our Antalya roastery and shared for educational purposes.",
-    roasteryBtn: "Visit our Roastery on Instagram"
-  },
-  tr: {
-    title: "Özel Kahve Eğitimi",
-    text: "Sertifikalı bir kahve uzmanından demleme yöntemleri ve tarifler.",
-    btn: "Instagram’da Takip Et",
-    roasteryTitle: "Kavurmahane",
-    roasteryText: "Marco’s Coffee, Antalya’daki kavurmahanesinde küçük partiler halinde kavrulur.",
-    roasteryBtn: "Kavurmahanemizi Instagram’da Ziyaret Et"
-  }
-};
-
-function setLang(lang){
-  document.getElementById("hero-title").innerText = texts[lang].title;
-  document.getElementById("hero-text").innerText = texts[lang].text;
-  document.getElementById("hero-btn").innerText = texts[lang].btn;
-  document.getElementById("roastery-title").innerText = texts[lang].roasteryTitle;
-  document.getElementById("roastery-text").innerText = texts[lang].roasteryText;
-  document.getElementById("roastery-btn").innerText = texts[lang].roasteryBtn;
-}
+const texts={en:{title:"Specialty Coffee Education",text:"Brewing tutorials, recipes and coffee knowledge by a certified coffee professional.",btn:"Follow on Instagram",roasteryTitle:"Our Roastery",roasteryText:"Marco’s Coffee is roasted in small batches in our Antalya roastery and shared for educational purposes.",roasteryBtn:"Visit our Roastery on Instagram"},tr:{title:"Özel Kahve Eğitimi",text:"Sertifikalı bir kahve uzmanından demleme yöntemleri ve tarifler.",btn:"Instagram’da Takip Et",roasteryTitle:"Kavurmahane",roasteryText:"Marco’s Coffee, Antalya’daki kavurmahanesinde küçük partiler halinde kavrulur.",roasteryBtn:"Kavurmahanemizi Instagram’da Ziyaret Et"}};
+function setLang(lang){document.getElementById("hero-title").innerText=texts[lang].title;document.getElementById("hero-text").innerText=texts[lang].text;document.getElementById("hero-btn").innerText=texts[lang].btn;document.getElementById("roastery-title").innerText=texts[lang].roasteryTitle;document.getElementById("roastery-text").innerText=texts[lang].roasteryText;document.getElementById("roastery-btn").innerText=texts[lang].roasteryBtn;}
 </script>
 
 </body>
