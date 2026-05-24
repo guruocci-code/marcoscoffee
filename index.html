@@ -9,254 +9,285 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Cargamos Playfair Display para un look editorial premium -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
 <style>
   :root {
-    --bg-light: #fbf9f6;
-    --bg-dark: #171614;
-    --text-main: #24221f;
-    --text-muted: #6b6661;
-    --accent-bronze: #8c7863;
-    --card-shadow: 0 16px 40px rgba(28, 26, 24, 0.08);
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --bg-cream: #f4ece1;
+    --bg-dark: #12110f;
+    --text-dark: #1c1a17;
+    --text-muted: #6e665c;
+    --accent: #8c755c;
+    --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background: var(--bg-light);
-    color: var(--text-main);
+    background: var(--bg-cream);
+    color: var(--text-dark);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
+  /* Header Minimalista Exterior */
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 8%;
+    padding: 40px 8%;
     max-width: 1400px;
     margin: 0 auto;
   }
 
-  .brand {
-    display: flex;
-    align-items: baseline;
-    gap: 20px;
-  }
-
   .brand h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 700;
+    font-size: 32px;
+    font-weight: 600;
     margin: 0;
     letter-spacing: -0.5px;
   }
 
   .instagram-link {
     text-decoration: none;
-    color: var(--accent-bronze);
+    color: var(--text-muted);
+    font-size: 13px;
     font-weight: 500;
-    font-size: 14px;
-    letter-spacing: 0.5px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    transition: var(--transition);
-    border-bottom: 1px solid transparent;
+    transition: var(--transition-smooth);
+    margin-left: 20px;
   }
 
   .instagram-link:hover {
-    border-bottom: 1px solid var(--accent-bronze);
+    color: var(--accent);
   }
 
   .lang-switch button {
-    margin-left: 6px;
-    border: 1px solid #e3dec3;
+    border: none;
     background: transparent;
-    padding: 6px 14px;
-    border-radius: 20px;
+    padding: 8px 16px;
     cursor: pointer;
-    font-weight: 500;
-    font-size: 12px;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1px;
     color: var(--text-muted);
-    transition: var(--transition);
+    transition: var(--transition-smooth);
+    opacity: 0.5;
   }
 
   .lang-switch button.active, .lang-switch button:hover {
-    background: var(--text-main);
-    color: #fff;
-    border-color: var(--text-main);
+    opacity: 1;
+    color: var(--text-dark);
   }
 
-  /* Hero Section */
+  /* Hero Section Asimétrico (Estilo Revista de Lujo) */
   .hero {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 60px;
-    padding: 60px 8% 100px;
-    align-items: center;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    padding: 40px 8% 140px;
     max-width: 1400px;
     margin: 0 auto;
+    align-items: center;
+    position: relative;
   }
 
   .hero-content {
-    animation: fadeIn 0.8s ease;
+    z-index: 2;
+    position: relative;
+  }
+
+  .hero-subtitle {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: block;
+    font-weight: 600;
   }
 
   .hero h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 52px;
-    font-weight: 600;
-    line-height: 1.15;
-    margin: 0 0 24px 0;
-    color: var(--text-main);
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0 0 30px 0;
+    letter-spacing: -1px;
   }
 
   .hero p {
     font-size: 18px;
-    line-height: 1.7;
+    line-height: 1.8;
     color: var(--text-muted);
-    max-width: 44ch;
-    margin-bottom: 34px;
+    max-width: 42ch;
+    margin-bottom: 40px;
+    font-weight: 300;
   }
 
-  .btn-primary {
+  .btn-editorial {
     display: inline-block;
-    padding: 16px 36px;
-    background: var(--bg-dark);
+    padding: 18px 40px;
+    background: var(--text-dark);
     color: #fff;
-    border-radius: 4px;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 14px;
     text-decoration: none;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: var(--transition);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: var(--transition-smooth);
+    border: 1px solid var(--text-dark);
   }
 
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    background: #2a2825;
+  .btn-editorial:hover {
+    background: transparent;
+    color: var(--text-dark);
+    transform: translateY(-4px);
   }
 
-  .hero-img-wrapper {
+  .hero-img-container {
     position: relative;
+    width: 100%;
+    height: 600px;
     overflow: hidden;
-    border-radius: 12px;
-    box-shadow: var(--card-shadow);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
   }
 
   .hero img {
     width: 100%;
-    display: block;
+    height: 100%;
     object-fit: cover;
-    transition: var(--transition);
+    transition: var(--transition-smooth);
   }
 
-  /* Roastery Section - Cinematic Dark Mode Break */
+  .hero-img-container:hover img {
+    transform: scale(1.04);
+  }
+
+  /* Sección Roastery: Oscuridad Cinematográfica */
   #roastery {
     background: var(--bg-dark);
-    color: #f7f4ef;
-    padding: 100px 8%;
-    text-align: center;
+    color: #f4ece1;
+    padding: 140px 8%;
   }
 
-  #roastery .container {
-    max-width: 1200px;
-    margin: 0 auto;
+  .roastery-header {
+    text-align: center;
+    margin-bottom: 80px;
   }
 
   #roastery h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    font-weight: 600;
-    margin: 0 0 20px 0;
+    font-size: 48px;
+    font-weight: 400;
+    margin: 0 0 24px 0;
     letter-spacing: -0.5px;
   }
 
   #roastery p {
-    max-width: 54ch;
-    margin: 0 auto 50px;
+    max-width: 50ch;
+    margin: 0 auto;
     font-size: 18px;
-    line-height: 1.7;
-    color: #b0aaa4;
+    line-height: 1.8;
+    color: #a39c94;
+    font-weight: 300;
   }
 
+  /* Grid Asimétrico Vanguardista */
   .roastery-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-    margin-bottom: 50px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 220px;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto 80px;
   }
 
   .grid-item {
     overflow: hidden;
-    border-radius: 8px;
-    height: 320px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   }
 
-  .roastery-grid img {
+  .grid-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: var(--transition-smooth);
+    filter: grayscale(20%) brightness(90%);
   }
 
   .grid-item:hover img {
-    transform: scale(1.06);
+    transform: scale(1.05);
+    filter: grayscale(0%) brightness(100%);
   }
 
-  .btn-secondary {
+  /* Distribución de tamaños asimétricos */
+  .item-1 { grid-column: span 3; grid-row: span 2; }
+  .item-2 { grid-column: span 3; grid-row: span 1; }
+  .item-3 { grid-column: span 2; grid-row: span 1; }
+  .item-4 { grid-column: span 2; grid-row: span 2; }
+  .item-5 { grid-column: span 4; grid-row: span 1; }
+
+  .roastery-footer {
+    text-align: center;
+  }
+
+  .btn-editorial-light {
     display: inline-block;
-    padding: 16px 36px;
+    padding: 18px 40px;
     background: transparent;
-    color: #f7f4ef;
-    border: 1px solid rgba(247, 244, 239, 0.3);
-    border-radius: 4px;
+    color: #f4ece1;
+    border: 1px solid rgba(244, 236, 225, 0.3);
     font-weight: 500;
-    font-size: 15px;
+    font-size: 14px;
     text-decoration: none;
-    letter-spacing: 0.5px;
-    transition: var(--transition);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: var(--transition-smooth);
   }
 
-  .btn-secondary:hover {
-    background: #f7f4ef;
+  .btn-editorial-light:hover {
+    background: #f4ece1;
     color: var(--bg-dark);
-    border-color: #f7f4ef;
+    border-color: #f4ece1;
+    transform: translateY(-4px);
   }
 
   /* Footer */
   footer {
     text-align: center;
-    padding: 60px 20px 120px;
-    font-size: 14px;
+    padding: 80px 20px 140px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
     color: var(--text-muted);
-    line-height: 1.6;
-    background: var(--bg-light);
+    line-height: 1.8;
+    background: var(--bg-cream);
+    border-top: 1px solid rgba(0,0,0,0.05);
   }
 
-  /* Floating elements */
+  /* WhatsApp Minimalista Floating */
   .whatsapp {
     position: fixed;
-    right: 24px;
-    bottom: 24px;
-    width: 50px;
-    height: 50px;
-    background: #25d366;
+    right: 30px;
+    bottom: 30px;
+    width: 56px;
+    height: 56px;
+    background: #1c1a17;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     z-index: 999;
-    transition: var(--transition);
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(255,255,255,0.1);
   }
 
   .whatsapp:hover {
-    transform: scale(1.08) translateY(-2px);
+    transform: scale(1.1) rotate(10deg);
+    background: #25d366;
   }
 
   .whatsapp img {
@@ -264,28 +295,28 @@
     filter: brightness(0) invert(1);
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Responsive Design */
+  /* Adaptabilidad Móvil */
   @media (max-width: 1024px) {
-    .roastery-grid { grid-template-columns: repeat(3, 1fr); }
-    .grid-item:nth-child(4), .grid-item:nth-child(5) { display: none; } /* Oculta excedentes estéticamente */
+    .hero { grid-template-columns: 1fr; padding-bottom: 80px; }
+    .hero h2 { font-size: 48px; }
+    .hero-img-container { height: 450px; }
+    .roastery-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 180px; }
+    .item-1 { grid-column: span 4; grid-row: span 2; }
+    .item-2 { grid-column: span 2; grid-row: span 1; }
+    .item-3 { grid-column: span 2; grid-row: span 1; }
+    .item-4 { grid-column: span 2; grid-row: span 2; }
+    .item-5 { grid-column: span 2; grid-row: span 2; }
   }
 
   @media (max-width: 768px) {
-    header { padding: 24px 6%; }
-    .brand h1 { font-size: 28px; }
-    .hero { grid-template-columns: 1fr; padding: 20px 6% 60px; gap: 40px; }
+    header { padding: 30px 6%; flex-direction: column; gap: 20px; text-align: center; }
+    .instagram-link { margin: 10px 0 0 0; display: inline-block; }
+    .hero { padding: 20px 6% 60px; }
     .hero h2 { font-size: 38px; }
-    .hero p { font-size: 16px; }
-    #roastery { padding: 60px 6%; }
-    #roastery h2 { font-size: 32px; }
-    #roastery p { font-size: 16px; }
-    .roastery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .grid-item { height: 220px; }
+    #roastery { padding: 80px 6%; }
+    #roastery h2 { font-size: 34px; }
+    .roastery-grid { grid-template-columns: 1fr; grid-auto-rows: 240px; gap: 16px; }
+    .grid-item { grid-column: span 1 !important; grid-row: span 1 !important; }
   }
 </style>
 </head>
@@ -306,29 +337,33 @@
 <main>
   <section class="hero">
     <div class="hero-content">
+      <span class="hero-subtitle" id="hero-sub">CRAFT & KNOWLEDGE</span>
       <h2 id="hero-title">Specialty Coffee Education</h2>
       <p id="hero-text">Brewing tutorials, recipes and coffee knowledge by a certified coffee professional.</p>
-      <a id="hero-btn" class="btn-primary" href="https://instagram.com/marcoscoffeeantalya" target="_blank">Follow on Instagram</a>
+      <a id="hero-btn" class="btn-editorial" href="https://instagram.com/marcoscoffeeantalya" target="_blank">Follow on Instagram</a>
     </div>
-    <div class="hero-img-wrapper">
-      <img src="hero.jpg" alt="Marco’s Coffee Experience">
+    <div class="hero-img-container">
+      <img src="hero.jpg" alt="Marco’s Coffee Art">
     </div>
   </section>
 
   <section id="roastery">
-    <div class="container">
+    <div class="roastery-header">
       <h2 id="roastery-title">Our Roastery</h2>
       <p id="roastery-text">Marco’s Coffee is roasted in small batches in our Antalya roastery and shared for educational purposes.</p>
+    </div>
 
-      <div class="roastery-grid">
-        <div class="grid-item"><img src="roastery1.jpg" alt="Roastery Gallery 1"></div>
-        <div class="grid-item"><img src="roastery2.jpg" alt="Roastery Gallery 2"></div>
-        <div class="grid-item"><img src="roastery3.jpg" alt="Roastery Gallery 3"></div>
-        <div class="grid-item"><img src="roastery4.jpg" alt="Roastery Gallery 4"></div>
-        <div class="grid-item"><img src="roastery5.jpg" alt="Roastery Gallery 5"></div>
-      </div>
+    <!-- Módulo de fotos asimétrico vanguardista -->
+    <div class="roastery-grid">
+      <div class="grid-item item-1"><img src="roastery1.jpg" alt="Roastery 1"></div>
+      <div class="grid-item item-2"><img src="roastery2.jpg" alt="Roastery 2"></div>
+      <div class="grid-item item-3"><img src="roastery3.jpg" alt="Roastery 3"></div>
+      <div class="grid-item item-4"><img src="roastery4.jpg" alt="Roastery 4"></div>
+      <div class="grid-item item-5"><img src="roastery5.jpg" alt="Roastery 5"></div>
+    </div>
 
-      <a class="btn-secondary" id="roastery-btn" href="https://instagram.com/marcoscoffeeantalya" target="_blank">Visit our Roastery on Instagram</a>
+    <div class="roastery-footer">
+      <a class="btn-editorial-light" id="roastery-btn" href="https://instagram.com/marcoscoffeeantalya" target="_blank">Visit our Roastery on Instagram</a>
     </div>
   </section>
 </main>
@@ -339,16 +374,17 @@
 </footer>
 
 <a class="whatsapp" href="https://wa.me/905078677978?text=Hi%20Marco,%20I%20have%20a%20coffee%20question" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Contact">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
 
 <script>
 const texts={
-  en:{title:"Specialty Coffee Education",text:"Brewing tutorials, recipes and coffee knowledge by a certified coffee professional.",btn:"Follow on Instagram",roasteryTitle:"Our Roastery",roasteryText:"Marco’s Coffee is roasted in small batches in our Antalya roastery and shared for educational purposes.",roasteryBtn:"Visit our Roastery on Instagram"},
-  tr:{title:"Özel Kahve Eğitimi",text:"Sertifikalı bir kahve uzmanından demleme yöntemleri ve tarifler.",btn:"Instagram’da Takip Et",roasteryTitle:"Kavurmahane",roasteryText:"Marco’s Coffee, Antalya’daki kavurmahanesinde küçük partiler halinde kavrulur.",roasteryBtn:"Kavurmahanemizi Instagram’da Ziyaret Et"}
+  en:{sub:"CRAFT & KNOWLEDGE",title:"Specialty Coffee Education",text:"Brewing tutorials, recipes and coffee knowledge by a certified coffee professional.",btn:"Follow on Instagram",roasteryTitle:"Our Roastery",roasteryText:"Marco’s Coffee is roasted in small batches in our Antalya roastery and shared for educational purposes.",roasteryBtn:"Visit our Roastery on Instagram"},
+  tr:{sub:"ZANAAT & BİLGİ",title:"Özel Kahve Eğitimi",text:"Sertifikalı bir kahve uzmanından demleme yöntemleri ve tarifler.",btn:"Instagram’da Takip Et",roasteryTitle:"Kavurmahane",roasteryText:"Marco’s Coffee, Antalya’daki kavurmahanesinde küçük partiler halinde kavrulur.",roasteryBtn:"Kavurmahanemizi Instagram’da Ziyaret Et"}
 };
 
 function setLang(lang){
+  document.getElementById("hero-sub").innerText=texts[lang].sub;
   document.getElementById("hero-title").innerText=texts[lang].title;
   document.getElementById("hero-text").innerText=texts[lang].text;
   document.getElementById("hero-btn").innerText=texts[lang].btn;
@@ -356,7 +392,6 @@ function setLang(lang){
   document.getElementById("roastery-text").innerText=texts[lang].roasteryText;
   document.getElementById("roastery-btn").innerText=texts[lang].roasteryBtn;
   
-  // Cambiar estado visual de los botones de idioma
   if(lang === 'en'){
     document.getElementById("btn-en").classList.add("active");
     document.getElementById("btn-tr").classList.remove("active");
