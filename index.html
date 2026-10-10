@@ -1,406 +1,880 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Marco’s Coffee | Specialty Coffee Education</title>
-<meta name="description" content="Specialty coffee education, brewing tutorials and roastery insights by Marco’s Coffee.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-
-<style>
-  :root {
-    --bg-cream: #f4ece1;
-    --bg-dark: #12110f;
-    --text-dark: #1c1a17;
-    --text-muted: #6e665c;
-    --accent: #8c755c;
-    --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: var(--bg-cream);
-    color: var(--text-dark);
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  /* Header Minimalista Exterior */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 8%;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .brand h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    font-weight: 600;
-    margin: 0;
-    letter-spacing: -0.5px;
-  }
-
-  .instagram-link {
-    text-decoration: none;
-    color: var(--text-muted);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    transition: var(--transition-smooth);
-    margin-left: 20px;
-  }
-
-  .instagram-link:hover {
-    color: var(--accent);
-  }
-
-  .lang-switch button {
-    border: none;
-    background: transparent;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 11px;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    transition: var(--transition-smooth);
-    opacity: 0.5;
-  }
-
-  .lang-switch button.active, .lang-switch button:hover {
-    opacity: 1;
-    color: var(--text-dark);
-  }
-
-  /* Hero Section Asimétrico (Estilo Revista de Lujo) */
-  .hero {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 40px;
-    padding: 40px 8% 140px;
-    max-width: 1400px;
-    margin: 0 auto;
-    align-items: center;
-    position: relative;
-  }
-
-  .hero-content {
-    z-index: 2;
-    position: relative;
-  }
-
-  .hero-subtitle {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--accent);
-    margin-bottom: 20px;
-    display: block;
-    font-weight: 600;
-  }
-
-  .hero h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 64px;
-    font-weight: 400;
-    line-height: 1.1;
-    margin: 0 0 30px 0;
-    letter-spacing: -1px;
-  }
-
-  .hero p {
-    font-size: 18px;
-    line-height: 1.8;
-    color: var(--text-muted);
-    max-width: 42ch;
-    margin-bottom: 40px;
-    font-weight: 300;
-  }
-
-  .btn-editorial {
-    display: inline-block;
-    padding: 18px 40px;
-    background: var(--text-dark);
-    color: #fff;
-    font-weight: 500;
-    font-size: 14px;
-    text-decoration: none;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: var(--transition-smooth);
-    border: 1px solid var(--text-dark);
-  }
-
-  .btn-editorial:hover {
-    background: transparent;
-    color: var(--text-dark);
-    transform: translateY(-4px);
-  }
-
-  .hero-img-container {
-    position: relative;
-    width: 100%;
-    height: 600px;
-    overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
-  }
-
-  .hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition-smooth);
-  }
-
-  .hero-img-container:hover img {
-    transform: scale(1.04);
-  }
-
-  /* Sección Roastery: Oscuridad Cinematográfica */
-  #roastery {
-    background: var(--bg-dark);
-    color: #f4ece1;
-    padding: 140px 8%;
-  }
-
-  .roastery-header {
-    text-align: center;
-    margin-bottom: 80px;
-  }
-
-  #roastery h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    font-weight: 400;
-    margin: 0 0 24px 0;
-    letter-spacing: -0.5px;
-  }
-
-  #roastery p {
-    max-width: 50ch;
-    margin: 0 auto;
-    font-size: 18px;
-    line-height: 1.8;
-    color: #a39c94;
-    font-weight: 300;
-  }
-
-  /* Grid Asimétrico Vanguardista */
-  .roastery-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: 220px;
-    gap: 24px;
-    max-width: 1200px;
-    margin: 0 auto 80px;
-  }
-
-  .grid-item {
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  }
-
-  .grid-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition-smooth);
-    filter: grayscale(20%) brightness(90%);
-  }
-
-  .grid-item:hover img {
-    transform: scale(1.05);
-    filter: grayscale(0%) brightness(100%);
-  }
-
-  /* Distribución de tamaños asimétricos */
-  .item-1 { grid-column: span 3; grid-row: span 2; }
-  .item-2 { grid-column: span 3; grid-row: span 1; }
-  .item-3 { grid-column: span 2; grid-row: span 1; }
-  .item-4 { grid-column: span 2; grid-row: span 2; }
-  .item-5 { grid-column: span 4; grid-row: span 1; }
-
-  .roastery-footer {
-    text-align: center;
-  }
-
-  .btn-editorial-light {
-    display: inline-block;
-    padding: 18px 40px;
-    background: transparent;
-    color: #f4ece1;
-    border: 1px solid rgba(244, 236, 225, 0.3);
-    font-weight: 500;
-    font-size: 14px;
-    text-decoration: none;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: var(--transition-smooth);
-  }
-
-  .btn-editorial-light:hover {
-    background: #f4ece1;
-    color: var(--bg-dark);
-    border-color: #f4ece1;
-    transform: translateY(-4px);
-  }
-
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 80px 20px 140px;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    color: var(--text-muted);
-    line-height: 1.8;
-    background: var(--bg-cream);
-    border-top: 1px solid rgba(0,0,0,0.05);
-  }
-
-  /* WhatsApp Minimalista Floating */
-  .whatsapp {
-    position: fixed;
-    right: 30px;
-    bottom: 30px;
-    width: 56px;
-    height: 56px;
-    background: #1c1a17;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    z-index: 999;
-    transition: var(--transition-smooth);
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .whatsapp:hover {
-    transform: scale(1.1) rotate(10deg);
-    background: #25d366;
-  }
-
-  .whatsapp img {
-    width: 24px;
-    filter: brightness(0) invert(1);
-  }
-
-  /* Adaptabilidad Móvil */
-  @media (max-width: 1024px) {
-    .hero { grid-template-columns: 1fr; padding-bottom: 80px; }
-    .hero h2 { font-size: 48px; }
-    .hero-img-container { height: 450px; }
-    .roastery-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 180px; }
-    .item-1 { grid-column: span 4; grid-row: span 2; }
-    .item-2 { grid-column: span 2; grid-row: span 1; }
-    .item-3 { grid-column: span 2; grid-row: span 1; }
-    .item-4 { grid-column: span 2; grid-row: span 2; }
-    .item-5 { grid-column: span 2; grid-row: span 2; }
-  }
-
-  @media (max-width: 768px) {
-    header { padding: 30px 6%; flex-direction: column; gap: 20px; text-align: center; }
-    .instagram-link { margin: 10px 0 0 0; display: inline-block; }
-    .hero { padding: 20px 6% 60px; }
-    .hero h2 { font-size: 38px; }
-    #roastery { padding: 80px 6%; }
-    #roastery h2 { font-size: 34px; }
-    .roastery-grid { grid-template-columns: 1fr; grid-auto-rows: 240px; gap: 16px; }
-    .grid-item { grid-column: span 1 !important; grid-row: span 1 !important; }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marco's Coffee | Specialty Coffee Education & Roastery - Antalya</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slatebg: '#0B0F15',
+                        panelbg: '#131A24',
+                        cardbg: '#18202C',
+                        panelborder: '#243042',
+                        accentblue: '#3B82F6',
+                        iceblue: '#60A5FA',
+                        subtleblue: '#93C5FD',
+                        coolgrey: '#94A3B8',
+                        lightgrey: '#E2E8F0',
+                        purewhite: '#FFFFFF'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F15;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3B82F6;
+        }
+        .backdrop-blur-md-custom {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
 </head>
+<body class="bg-slatebg text-lightgrey font-sans antialiased selection:bg-accentblue selection:text-white min-h-screen flex flex-col justify-between">
 
-<body>
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-slatebg/90 backdrop-blur-md-custom border-b border-panelborder/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shadow-lg shadow-white/10 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                    <img src="1234.png" alt="Marco's Coffee Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x100/ffffff/000000?text=MC';">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-iceblue transition-colors">Marco's Coffee</span>
+                    <span class="text-[10px] tracking-widest uppercase text-coolgrey font-semibold">Specialty Roastery & Education</span>
+                </div>
+            </a>
 
-<header>
-  <div class="brand">
-    <h1>Marco’s Coffee</h1>
-    <a class="instagram-link" href="https://instagram.com/marcoscoffeeantalya" target="_blank">Instagram</a>
-  </div>
-  <div class="lang-switch">
-    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
-    <button id="btn-tr" onclick="setLang('tr')">TR</button>
-  </div>
-</header>
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#recipes" class="hover:text-iceblue transition-colors py-2" data-i18n="nav-recipes">Recipes</a>
+                <a href="#education" class="hover:text-iceblue transition-colors py-2" data-i18n="nav-education">Education</a>
+                <a href="#roastery" class="hover:text-iceblue transition-colors py-2" data-i18n="nav-roastery">Antalya Roastery</a>
+                <a href="#consulting" class="hover:text-iceblue transition-colors py-2" data-i18n="nav-consulting">Consulting</a>
+            </div>
 
-<main>
-  <section class="hero">
-    <div class="hero-content">
-      <span class="hero-subtitle" id="hero-sub">CRAFT & KNOWLEDGE</span>
-      <h2 id="hero-title">Specialty Coffee Education</h2>
-      <p id="hero-text">Brewing tutorials, recipes and coffee knowledge by a certified coffee professional.</p>
-      <a id="hero-btn" class="btn-editorial" href="https://instagram.com/marcoscoffeeantalya" target="_blank">Follow on Instagram</a>
+            <!-- Right Controls: Language Switcher & CTA -->
+            <div class="hidden sm:flex items-center space-x-4">
+                <!-- Language Selector -->
+                <div class="relative group">
+                    <button class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg border border-panelborder text-xs font-semibold hover:border-accentblue transition-colors bg-panelbg/80">
+                        <i class="fa-solid fa-globe text-iceblue"></i>
+                        <span id="current-lang-text">EN</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] text-coolgrey"></i>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-28 bg-panelbg border border-panelborder rounded-lg shadow-xl py-2 hidden group-hover:block backdrop-blur-md z-50">
+                        <button onclick="setLanguage('en')" class="w-full text-left px-4 py-1.5 text-xs hover:bg-cardbg hover:text-iceblue flex items-center justify-between">
+                            <span>English</span><span class="text-[10px] opacity-60">EN</span>
+                        </button>
+                        <button onclick="setLanguage('es')" class="w-full text-left px-4 py-1.5 text-xs hover:bg-cardbg hover:text-iceblue flex items-center justify-between">
+                            <span>Español</span><span class="text-[10px] opacity-60">ES</span>
+                        </button>
+                        <button onclick="setLanguage('tr')" class="w-full text-left px-4 py-1.5 text-xs hover:bg-cardbg hover:text-iceblue flex items-center justify-between">
+                            <span>Türkçe</span><span class="text-[10px] opacity-60">TR</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Direct Action -->
+                <a href="https://wa.me/905078677978?text=Hello%20Marco's%20Coffee,%20I'd%20like%20to%20inquire%20about..." target="_blank" rel="noopener noreferrer" 
+                   class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow-md shadow-blue-600/20 transition-all flex items-center space-x-2">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                    <span data-i18n="cta-whatsapp">Contact Marco</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2 focus:outline-none">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobile-menu" class="hidden md:hidden bg-panelbg border-b border-panelborder px-6 py-6 space-y-4">
+            <a href="#recipes" class="block text-white hover:text-iceblue font-medium py-1" onclick="toggleMobileMenu()" data-i18n="nav-recipes">Recipes</a>
+            <a href="#education" class="block text-white hover:text-iceblue font-medium py-1" onclick="toggleMobileMenu()" data-i18n="nav-education">Education</a>
+            <a href="#roastery" class="block text-white hover:text-iceblue font-medium py-1" onclick="toggleMobileMenu()" data-i18n="nav-roastery">Antalya Roastery</a>
+            <a href="#consulting" class="block text-white hover:text-iceblue font-medium py-1" onclick="toggleMobileMenu()" data-i18n="nav-consulting">Consulting</a>
+            <div class="pt-4 border-t border-panelborder flex items-center justify-between">
+                <div class="flex space-x-2">
+                    <button onclick="setLanguage('en')" class="px-2.5 py-1 text-xs border border-panelborder rounded text-white hover:bg-cardbg">EN</button>
+                    <button onclick="setLanguage('es')" class="px-2.5 py-1 text-xs border border-panelborder rounded text-white hover:bg-cardbg">ES</button>
+                    <button onclick="setLanguage('tr')" class="px-2.5 py-1 text-xs border border-panelborder rounded text-white hover:bg-cardbg">TR</button>
+                </div>
+                <a href="https://wa.me/905078677978" target="_blank" class="bg-blue-600 text-white px-3 py-1.5 rounded text-xs font-medium flex items-center space-x-1">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-b from-slatebg via-panelbg to-slatebg">
+        <!-- Ambient Cool Lighting Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accentblue/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-panelbg border border-panelborder px-3.5 py-1.5 rounded-full text-xs font-medium text-iceblue">
+                        <span class="w-2 h-2 rounded-full bg-accentblue animate-pulse"></span>
+                        <span data-i18n="hero-tagline">Antalya, Turkey • Specialty Coffee Culture</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+                        <span data-i18n="hero-title-1">Elevate Your</span> <br class="hidden sm:inline">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-iceblue to-accentblue" data-i18n="hero-title-2">Coffee Craftsmanship</span>
+                    </h1>
+
+                    <p class="text-coolgrey text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed" data-i18n="hero-description">
+                        Explore precision extraction recipes, specialty bean roasting insights, and professional barista education directly from Marco's Coffee roastery in Antalya.
+                    </p>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#recipes" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white font-semibold px-7 py-3.5 rounded-xl shadow-lg shadow-blue-600/20 transition-all flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-solid fa-book-open text-xs"></i>
+                            <span data-i18n="hero-cta-recipes">Explore Specialty Recipes</span>
+                        </a>
+                        <a href="https://www.instagram.com/marcoscoffeeantalya" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-panelbg hover:bg-cardbg text-white border border-panelborder font-semibold px-7 py-3.5 rounded-xl transition-all flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-brands fa-instagram text-lg text-iceblue"></i>
+                            <span data-i18n="hero-cta-instagram">Follow on Instagram</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats -->
+                    <div class="pt-8 grid grid-cols-3 gap-4 border-t border-panelborder max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <p class="text-2xl font-bold text-white font-serif">100%</p>
+                            <p class="text-xs text-coolgrey" data-i18n="stat-arabica">Specialty Arabica</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-white font-serif">85+</p>
+                            <p class="text-xs text-coolgrey" data-i18n="stat-score">Cupping Score</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-white font-serif">Global</p>
+                            <p class="text-xs text-coolgrey" data-i18n="stat-education">Coffee Education</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Card Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-2xl bg-panelbg p-3 border border-panelborder shadow-2xl overflow-hidden group">
+                        
+                        <!-- Featured Recipe Hero Card Preview -->
+                        <div class="relative h-96 sm:h-[420px] rounded-xl overflow-hidden bg-slatebg">
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1000&auto=format&fit=crop" 
+                                 alt="Italian Bicerin Marco's Coffee" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
+                                 onerror="this.src='https://placehold.co/600x800/131A24/FFFFFF?text=Italian+Bicerin'"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-slatebg via-slatebg/40 to-transparent"></div>
+                            
+                            <div class="absolute bottom-6 left-6 right-6 space-y-2">
+                                <span class="bg-blue-600 text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-md">
+                                    Signature Recipe
+                                </span>
+                                <h3 class="font-serif text-2xl font-bold text-white">Traditional Italian Bicerin</h3>
+                                <p class="text-xs text-coolgrey line-clamp-2">Three layered masterpiece: dense hot chocolate, double espresso shot, and chilled semi-whipped cream.</p>
+                                <button onclick="openRecipeModal('bicerin')" class="mt-3 inline-flex items-center space-x-2 text-xs font-semibold text-iceblue hover:text-white transition-colors">
+                                    <span>View Full Recipe & Ratio</span>
+                                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipes Section -->
+    <section id="recipes" class="py-20 bg-slatebg relative border-t border-panelborder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <div class="inline-flex items-center space-x-2 text-iceblue text-xs font-semibold uppercase tracking-widest mb-2">
+                        <i class="fa-solid fa-mug-saucer"></i>
+                        <span data-i18n="recipes-section-tag">Barista Hub</span>
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white" data-i18n="recipes-section-title">Specialty Coffee Recipes</h2>
+                </div>
+                <p class="text-coolgrey text-sm max-w-md mt-2 md:mt-0 font-light" data-i18n="recipes-section-desc">
+                    Tested extraction ratios, precise water temperatures, and step-by-step techniques curated for espresso lovers & manual brewers.
+                </p>
+            </div>
+
+            <!-- Recipe Category Filters -->
+            <div class="flex flex-wrap gap-2 sm:gap-3 mb-10 border-b border-panelborder pb-4">
+                <button onclick="filterRecipes('all')" class="recipe-tab active px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-blue-600 text-white" data-filter="all" data-i18n="filter-all">
+                    All Recipes
+                </button>
+                <button onclick="filterRecipes('espresso')" class="recipe-tab px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-panelbg text-coolgrey hover:bg-cardbg hover:text-white border border-panelborder" data-filter="espresso" data-i18n="filter-espresso">
+                    Espresso Drinks
+                </button>
+                <button onclick="filterRecipes('manual')" class="recipe-tab px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-panelbg text-coolgrey hover:bg-cardbg hover:text-white border border-panelborder" data-filter="manual" data-i18n="filter-manual">
+                    Manual Brews (Filter)
+                </button>
+                <button onclick="filterRecipes('signature')" class="recipe-tab px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-panelbg text-coolgrey hover:bg-cardbg hover:text-white border border-panelborder" data-filter="signature" data-i18n="filter-signature">
+                    Signature & Cold Drinks
+                </button>
+            </div>
+
+            <!-- Recipe Grid -->
+            <div id="recipe-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Italian Bicerin -->
+                <div class="recipe-card bg-panelbg rounded-2xl overflow-hidden border border-panelborder hover:border-accentblue/50 transition-all duration-300 flex flex-col justify-between group" data-category="signature espresso">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" 
+                                 alt="Italian Bicerin" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.src='https://placehold.co/600x400/131A24/FFFFFF?text=Italian+Bicerin'"
+                            >
+                            <span class="absolute top-4 left-4 bg-slatebg/80 backdrop-blur-md border border-panelborder text-iceblue text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                                Layered Italian
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-serif text-xl font-bold text-white group-hover:text-iceblue transition-colors">Italian Bicerin</h3>
+                            <p class="text-xs text-coolgrey mt-2 font-light line-clamp-2">The classic Turin layered coffee drink with dense Italian hot chocolate, double espresso, and cold cream.</p>
+                            
+                            <div class="mt-4 pt-4 border-t border-panelborder flex items-center justify-between text-[11px] text-iceblue">
+                                <span><i class="fa-solid fa-clock mr-1"></i> 8 mins</span>
+                                <span><i class="fa-solid fa-layer-group mr-1"></i> 3 Layers</span>
+                                <span><i class="fa-solid fa-fire-flame-curved mr-1"></i> Medium Roast</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openRecipeModal('bicerin')" class="w-full py-2.5 bg-cardbg hover:bg-blue-600 text-white text-xs font-semibold rounded-xl border border-panelborder hover:border-transparent transition-all flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-receipt text-[11px]"></i>
+                            <span data-i18n="btn-view-recipe">View Full Guide</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2: V60 Pour Over -->
+                <div class="recipe-card bg-panelbg rounded-2xl overflow-hidden border border-panelborder hover:border-accentblue/50 transition-all duration-300 flex flex-col justify-between group" data-category="manual">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=600&auto=format&fit=crop" 
+                                 alt="V60 Pour Over" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.src='https://placehold.co/600x400/131A24/FFFFFF?text=V60+Pour+Over'"
+                            >
+                            <span class="absolute top-4 left-4 bg-slatebg/80 backdrop-blur-md border border-panelborder text-iceblue text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                                Filter Technique
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-serif text-xl font-bold text-white group-hover:text-iceblue transition-colors">V60 Precision Pour Over</h3>
+                            <p class="text-xs text-coolgrey mt-2 font-light line-clamp-2">Highlight bright acidity and floral clarity with our 1:16 ratio single-origin extraction recipe.</p>
+                            
+                            <div class="mt-4 pt-4 border-t border-panelborder flex items-center justify-between text-[11px] text-iceblue">
+                                <span><i class="fa-solid fa-clock mr-1"></i> 3.5 mins</span>
+                                <span><i class="fa-solid fa-scale-balanced mr-1"></i> 1:16 Ratio</span>
+                                <span><i class="fa-solid fa-temperature-three-quarters mr-1"></i> 93°C Water</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openRecipeModal('v60')" class="w-full py-2.5 bg-cardbg hover:bg-blue-600 text-white text-xs font-semibold rounded-xl border border-panelborder hover:border-transparent transition-all flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-receipt text-[11px]"></i>
+                            <span data-i18n="btn-view-recipe">View Full Guide</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3: Espresso Doppio -->
+                <div class="recipe-card bg-panelbg rounded-2xl overflow-hidden border border-panelborder hover:border-accentblue/50 transition-all duration-300 flex flex-col justify-between group" data-category="espresso">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=600&auto=format&fit=crop" 
+                                 alt="Espresso Doppio" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.src='https://placehold.co/600x400/131A24/FFFFFF?text=Espresso+Doppio'"
+                            >
+                            <span class="absolute top-4 left-4 bg-slatebg/80 backdrop-blur-md border border-panelborder text-iceblue text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                                Foundation
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-serif text-xl font-bold text-white group-hover:text-iceblue transition-colors">Perfect Espresso Doppio</h3>
+                            <p class="text-xs text-coolgrey mt-2 font-light line-clamp-2">Mastering grind size, puck preparation, and 1:2 extraction yield for rich golden crema.</p>
+                            
+                            <div class="mt-4 pt-4 border-t border-panelborder flex items-center justify-between text-[11px] text-iceblue">
+                                <span><i class="fa-solid fa-stopwatch mr-1"></i> 27-30 sec</span>
+                                <span><i class="fa-solid fa-weight-scale mr-1"></i> 18g In / 36g Out</span>
+                                <span><i class="fa-solid fa-gauge mr-1"></i> 9 Bar</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openRecipeModal('espresso')" class="w-full py-2.5 bg-cardbg hover:bg-blue-600 text-white text-xs font-semibold rounded-xl border border-panelborder hover:border-transparent transition-all flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-receipt text-[11px]"></i>
+                            <span data-i18n="btn-view-recipe">View Full Guide</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Roastery Section -->
+    <section id="education" class="py-20 bg-panelbg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left Narrative -->
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2 text-iceblue text-xs font-semibold uppercase tracking-widest">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span data-i18n="edu-tag">Barista Education & Consulting</span>
+                    </div>
+
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight" data-i18n="edu-title">
+                        Empowering Coffee Enthusiasts & Cafe Owners
+                    </h2>
+
+                    <p class="text-coolgrey text-sm sm:text-base leading-relaxed font-light" data-i18n="edu-desc-1">
+                        At Marco's Coffee, we believe great coffee isn't luck—it's science, art, and consistency. From dialing in espresso grinders to roast profile optimization, we offer personalized consulting and practical coffee workshops.
+                    </p>
+
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-cardbg text-iceblue flex items-center justify-center flex-shrink-0 mt-0.5 border border-panelborder">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white" data-i18n="edu-point-1-title">Espresso Dialing-In & Sensorials</h4>
+                                <p class="text-xs text-coolgrey font-light" data-i18n="edu-point-1-desc">Understand channeling, extraction yield, and tasting notes balance.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-cardbg text-iceblue flex items-center justify-center flex-shrink-0 mt-0.5 border border-panelborder">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white" data-i18n="edu-point-2-title">Menu Development & Specialty Recipes</h4>
+                                <p class="text-xs text-coolgrey font-light" data-i18n="edu-point-2-desc">Design signature drinks (like Bicerin & cold brew infusions) that stand out.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-cardbg text-iceblue flex items-center justify-center flex-shrink-0 mt-0.5 border border-panelborder">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white" data-i18n="edu-point-3-title">Roastery Setup & Bean Sourcing</h4>
+                                <p class="text-xs text-coolgrey font-light" data-i18n="edu-point-3-desc">Guiding new coffee shops in Antalya and internationally.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="https://wa.me/905078677978?text=Hi%20Marco,%20I'd%20like%20to%20book%20a%20coffee%20consultation" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl transition-colors text-xs shadow-lg shadow-blue-600/20">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                            <span data-i18n="btn-book-consultation">Book Consultation via WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Feature Cards / Location Focus -->
+                <div id="roastery" class="bg-cardbg rounded-3xl p-8 border border-panelborder space-y-6 shadow-xl">
+                    <div class="flex items-center justify-between border-b border-panelborder pb-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-location-dot text-iceblue text-xl"></i>
+                            <div>
+                                <h3 class="font-serif text-lg font-bold text-white">Antalya Roastery Hub</h3>
+                                <p class="text-xs text-coolgrey">Antalya, Türkiye</p>
+                            </div>
+                        </div>
+                        <span class="bg-slatebg text-iceblue text-[10px] font-semibold px-3 py-1 rounded-full border border-panelborder">
+                            Micro-Batch
+                        </span>
+                    </div>
+
+                    <p class="text-xs text-coolgrey font-light leading-relaxed">
+                        Roasted in small batches in Antalya to guarantee freshness and preserve delicate floral and fruity aroma compounds in every single origin lot.
+                    </p>
+
+                    <!-- Mock Feed Grid -->
+                    <div class="grid grid-cols-3 gap-2 pt-2">
+                        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=300&auto=format&fit=crop" alt="Roasting Coffee" class="rounded-lg h-24 w-full object-cover hover:opacity-80 transition-opacity">
+                        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=300&auto=format&fit=crop" alt="Coffee Beans" class="rounded-lg h-24 w-full object-cover hover:opacity-80 transition-opacity">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=300&auto=format&fit=crop" alt="Pour Over Barista" class="rounded-lg h-24 w-full object-cover hover:opacity-80 transition-opacity">
+                    </div>
+
+                    <div class="pt-2 text-center">
+                        <a href="https://www.marcoscoffee.shop" class="text-xs text-iceblue hover:text-white font-medium underline underline-offset-4">
+                            www.marcoscoffee.shop
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipe Detail Modal -->
+    <div id="recipe-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+        <div class="bg-cardbg border border-panelborder w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl relative animate-fadeIn my-8">
+            
+            <!-- Close Button -->
+            <button onclick="closeRecipeModal()" class="absolute top-4 right-4 z-10 w-9 h-9 bg-slatebg/80 hover:bg-panelbg text-white rounded-full flex items-center justify-center border border-panelborder transition-colors">
+                <i class="fa-solid fa-xmark text-sm"></i>
+            </button>
+
+            <!-- Modal Header Image -->
+            <div class="relative h-64 sm:h-72 w-full overflow-hidden">
+                <img id="modal-img" src="" alt="Recipe Detail" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-cardbg via-cardbg/30 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 right-6">
+                    <span id="modal-tag" class="bg-blue-600 text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-md mb-2 inline-block">
+                        Tag
+                    </span>
+                    <h2 id="modal-title" class="font-serif text-2xl sm:text-3xl font-bold text-white">Recipe Title</h2>
+                </div>
+            </div>
+
+            <!-- Modal Body Content -->
+            <div class="p-6 sm:p-8 space-y-6 max-h-[60vh] overflow-y-auto">
+                
+                <!-- Quick Specs -->
+                <div id="modal-specs" class="grid grid-cols-3 gap-3 p-4 bg-slatebg rounded-xl border border-panelborder text-center text-xs">
+                    <!-- Dynamic Specs -->
+                </div>
+
+                <!-- Layer / Ingredients breakdown -->
+                <div>
+                    <h4 class="text-sm font-semibold text-iceblue uppercase tracking-wider mb-3 flex items-center space-x-2">
+                        <i class="fa-solid fa-list-check text-accentblue"></i>
+                        <span>Ingredients & Exact Ratios</span>
+                    </h4>
+                    <ul id="modal-ingredients" class="space-y-2 text-xs text-coolgrey">
+                        <!-- Dynamic List -->
+                    </ul>
+                </div>
+
+                <!-- Steps -->
+                <div>
+                    <h4 class="text-sm font-semibold text-iceblue uppercase tracking-wider mb-3 flex items-center space-x-2">
+                        <i class="fa-solid fa-circle-play text-accentblue"></i>
+                        <span>Step-by-Step Preparation</span>
+                    </h4>
+                    <ol id="modal-steps" class="space-y-3 text-xs text-coolgrey list-decimal list-inside leading-relaxed">
+                        <!-- Dynamic Steps -->
+                    </ol>
+                </div>
+
+                <!-- Pro Barista Tip -->
+                <div class="p-4 bg-panelbg border-l-4 border-accentblue rounded-r-xl text-xs text-coolgrey">
+                    <span class="font-semibold text-iceblue block mb-1">💡 Barista Pro Tip:</span>
+                    <p id="modal-tip">Tip content...</p>
+                </div>
+
+            </div>
+
+            <!-- Modal Footer CTA -->
+            <div class="p-4 bg-slatebg border-t border-panelborder flex items-center justify-between">
+                <span class="text-[11px] text-coolgrey">Marco's Coffee Recipe Guide</span>
+                <button onclick="closeRecipeModal()" class="px-5 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-semibold transition-colors">
+                    Close Guide
+                </button>
+            </div>
+
+        </div>
     </div>
-    <div class="hero-img-container">
-      <img src="hero.jpg" alt="Marco’s Coffee Art">
-    </div>
-  </section>
 
-  <section id="roastery">
-    <div class="roastery-header">
-      <h2 id="roastery-title">Our Roastery</h2>
-      <p id="roastery-text">Marco’s Coffee is roasted in small batches in our Antalya roastery and shared for educational purposes.</p>
-    </div>
+    <!-- Footer Section -->
+    <footer class="bg-slatebg border-t border-panelborder pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="space-y-4 md:col-span-2">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white">
+                            <i class="fa-solid fa-mug-hot text-sm"></i>
+                        </div>
+                        <span class="font-serif text-xl font-bold text-white">Marco's Coffee</span>
+                    </div>
+                    <p class="text-xs text-coolgrey max-w-sm font-light leading-relaxed">
+                        Specialty Coffee Roastery and Education Center based in Antalya, Turkey. Dedicated to extraction precision, barista training, and signature beverage craft.
+                    </p>
+                    <div class="flex space-x-3 pt-2">
+                        <a href="https://www.instagram.com/marcoscoffeeantalya" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-panelbg hover:bg-cardbg text-coolgrey hover:text-white flex items-center justify-center transition-colors border border-panelborder" title="Instagram">
+                            <i class="fa-brands fa-instagram text-sm"></i>
+                        </a>
+                        <a href="https://wa.me/905078677978" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-panelbg hover:bg-cardbg text-coolgrey hover:text-white flex items-center justify-center transition-colors border border-panelborder" title="WhatsApp">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                        </a>
+                        <a href="mailto:marcoacachoduran@gmail.com" class="w-8 h-8 rounded-lg bg-panelbg hover:bg-cardbg text-coolgrey hover:text-white flex items-center justify-center transition-colors border border-panelborder" title="Email Marco">
+                            <i class="fa-solid fa-envelope text-sm"></i>
+                        </a>
+                    </div>
+                </div>
 
-    <!-- Módulo de fotos asimétrico vanguardista -->
-    <div class="roastery-grid">
-      <div class="grid-item item-1"><img src="roastery1.jpg" alt="Roastery 1"></div>
-      <div class="grid-item item-2"><img src="roastery2.jpg" alt="Roastery 2"></div>
-      <div class="grid-item item-3"><img src="roastery3.jpg" alt="Roastery 3"></div>
-      <div class="grid-item item-4"><img src="roastery4.jpg" alt="Roastery 4"></div>
-      <div class="grid-item item-5"><img src="roastery5.jpg" alt="Roastery 5"></div>
-    </div>
+                <!-- Col 2: Navigation -->
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-2 text-xs text-coolgrey font-light">
+                        <li><a href="#recipes" class="hover:text-iceblue transition-colors">Specialty Recipes</a></li>
+                        <li><a href="#education" class="hover:text-iceblue transition-colors">Barista Education</a></li>
+                        <li><a href="#roastery" class="hover:text-iceblue transition-colors">Antalya Roastery</a></li>
+                        <li><a href="https://www.marcoscoffee.shop" class="hover:text-iceblue transition-colors">Official Shop</a></li>
+                    </ul>
+                </div>
 
-    <div class="roastery-footer">
-      <a class="btn-editorial-light" id="roastery-btn" href="https://instagram.com/marcoscoffeeantalya" target="_blank">Visit our Roastery on Instagram</a>
-    </div>
-  </section>
-</main>
+                <!-- Col 3: Contact & Location -->
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Contact & Location</h4>
+                    <p class="text-xs text-coolgrey font-light">
+                        <i class="fa-solid fa-location-dot text-iceblue mr-1"></i> Antalya, Türkiye
+                    </p>
+                    <p class="text-xs text-coolgrey font-light">
+                        <i class="fa-solid fa-envelope text-iceblue mr-1"></i> marcoacachoduran@gmail.com
+                    </p>
+                    <p class="text-xs text-coolgrey font-light">
+                        <i class="fa-brands fa-whatsapp text-iceblue mr-1"></i> +90 507 867 79 78
+                    </p>
+                </div>
 
-<footer>
-  © Marco’s Coffee — Specialty Coffee Education<br>
-  Consultations available for educational purposes only.
-</footer>
+            </div>
 
-<a class="whatsapp" href="https://wa.me/905078677978?text=Hi%20Marco,%20I%20have%20a%20coffee%20question" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-</a>
+            <!-- Bottom Copyright -->
+            <div class="border-t border-panelborder pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-coolgrey">
+                <p>© 2026 Marco's Coffee. All rights reserved.</p>
+                <p class="mt-2 sm:mt-0">Crafted for Specialty Coffee Enthusiasts worldwide.</p>
+            </div>
+        </div>
+    </footer>
 
-<script>
-const texts={
-  en:{sub:"CRAFT & KNOWLEDGE",title:"Specialty Coffee Education",text:"Brewing tutorials, recipes and coffee knowledge by a certified coffee professional.",btn:"Follow on Instagram",roasteryTitle:"Our Roastery",roasteryText:"Marco’s Coffee is roasted in small batches in our Antalya roastery and shared for educational purposes.",roasteryBtn:"Visit our Roastery on Instagram"},
-  tr:{sub:"ZANAAT & BİLGİ",title:"Özel Kahve Eğitimi",text:"Sertifikalı bir kahve uzmanından demleme yöntemleri ve tarifler.",btn:"Instagram’da Takip Et",roasteryTitle:"Kavurmahane",roasteryText:"Marco’s Coffee, Antalya’daki kavurmahanesinde küçük partiler halinde kavrulur.",roasteryBtn:"Kavurmahanemizi Instagram’da Ziyaret Et"}
-};
+    <script>
+        /* ==================== RECIPE DATA ==================== */
+        const recipesData = {
+            'bicerin': {
+                title: 'Traditional Italian Bicerin',
+                tag: 'Signature Italian Drink',
+                img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop',
+                specs: [
+                    { label: 'Base', val: '50 ml Hot Chocolate' },
+                    { label: 'Mid', val: '50-60 ml Double Espresso' },
+                    { label: 'Top', val: '40-50 ml Chilled Cream' }
+                ],
+                ingredients: [
+                    '<strong>50 ml</strong> Thick Italian Hot Chocolate (dense dark chocolate base)',
+                    '<strong>50-60 ml</strong> Fresh Double Espresso Shot (Medium roast)',
+                    '<strong>40-50 ml</strong> Semi-whipped chilled heavy cream (not overly stiff)',
+                    'Dusting of pure unsweetened cocoa powder'
+                ],
+                steps: [
+                    'Pre-warm a clear glass mug to maintain layer stability.',
+                    'Pour 50 ml of dense hot chocolate into the bottom layer.',
+                    'Extract a double espresso (18g in / 36-50g out) into a small pitcher.',
+                    'Gently pour the espresso over the back of a warm spoon onto the chocolate layer.',
+                    'Gently float the chilled semi-whipped cream on top.',
+                    'Dust lightly with cocoa powder and serve without mixing.'
+                ],
+                tip: 'Never stir a Bicerin! Sip directly through the cold cream, hot espresso, and sweet chocolate layers for the full sensory contrast.'
+            },
+            'v60': {
+                title: 'V60 Precision Pour Over',
+                tag: 'Manual Filter Technique',
+                img: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop',
+                specs: [
+                    { label: 'Ratio', val: '1:16 (15g : 240g)' },
+                    { label: 'Water Temp', val: '93°C / 199°F' },
+                    { label: 'Brew Time', val: '3:00 - 3:30 mins' }
+                ],
+                ingredients: [
+                    '<strong>15g</strong> Lightly roasted specialty coffee beans (medium-fine grind)',
+                    '<strong>240g</strong> Filtered water heated to 93°C',
+                    'V60 paper filter rinsed with hot water'
+                ],
+                steps: [
+                    'Rinse paper filter with hot water to remove paper taste and preheat the server.',
+                    'Add 15g ground coffee, level the bed, and tare your digital scale.',
+                    '<strong>Bloom:</strong> Pour 45g of water in circular motion. Wait 45 seconds.',
+                    '<strong>First Pour:</strong> Pour gently up to 140g in concentric spirals.',
+                    '<strong>Final Pour:</strong> Pour steadily up to 240g total weight.',
+                    'Give a gentle swirl at the end for an even bed drawdown.'
+                ],
+                tip: 'Use soft water with 50-80 PPM mineral hardness to highlight delicate floral and berry notes.'
+            },
+            'espresso': {
+                title: 'Golden Crema Espresso Doppio',
+                tag: 'Espresso Core',
+                img: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=800&auto=format&fit=crop',
+                specs: [
+                    { label: 'Dose', val: '18.0g Ground Coffee' },
+                    { label: 'Yield', val: '36.0g Liquid' },
+                    { label: 'Extraction', val: '27 - 30 seconds' }
+                ],
+                ingredients: [
+                    '<strong>18g</strong> Freshly roasted specialty coffee (Medium or Espresso roast)',
+                    '<strong>9 Bar</strong> Pump pressure at 92.5°C'
+                ],
+                steps: [
+                    'Grind 18g coffee into double portafilter basket.',
+                    'Distribute evenly using a WDT tool to eliminate clumping and channeling.',
+                    'Tamp firmly and level with consistent 15kg pressure.',
+                    'Flush brew group head for 2 seconds before locking portafilter.',
+                    'Start extraction immediately: aim for 36g in 27-30 seconds with tiger stripe crema.'
+                ],
+                tip: 'If extraction runs faster than 25s, grind finer. If it chokes over 32s, loosen the grind slightly.'
+            }
+        };
 
-function setLang(lang){
-  document.getElementById("hero-sub").innerText=texts[lang].sub;
-  document.getElementById("hero-title").innerText=texts[lang].title;
-  document.getElementById("hero-text").innerText=texts[lang].text;
-  document.getElementById("hero-btn").innerText=texts[lang].btn;
-  document.getElementById("roastery-title").innerText=texts[lang].roasteryTitle;
-  document.getElementById("roastery-text").innerText=texts[lang].roasteryText;
-  document.getElementById("roastery-btn").innerText=texts[lang].roasteryBtn;
-  
-  if(lang === 'en'){
-    document.getElementById("btn-en").classList.add("active");
-    document.getElementById("btn-tr").classList.remove("active");
-  } else {
-    document.getElementById("btn-tr").classList.add("active");
-    document.getElementById("btn-en").classList.remove("active");
-  }
-}
-</script>
+        /* ==================== TRANSLATIONS (i18n) ==================== */
+        const i18n = {
+            en: {
+                'nav-recipes': 'Recipes',
+                'nav-education': 'Education',
+                'nav-roastery': 'Antalya Roastery',
+                'nav-consulting': 'Consulting',
+                'cta-whatsapp': 'Contact Marco',
+                'hero-tagline': 'Antalya, Turkey • Specialty Coffee Culture',
+                'hero-title-1': 'Elevate Your',
+                'hero-title-2': 'Coffee Craftsmanship',
+                'hero-description': 'Explore precision extraction recipes, specialty bean roasting insights, and professional barista education directly from Marco\'s Coffee roastery in Antalya.',
+                'hero-cta-recipes': 'Explore Specialty Recipes',
+                'hero-cta-instagram': 'Follow on Instagram',
+                'stat-arabica': 'Specialty Arabica',
+                'stat-score': 'Cupping Score',
+                'stat-education': 'Coffee Education',
+                'recipes-section-tag': 'Barista Hub',
+                'recipes-section-title': 'Specialty Coffee Recipes',
+                'recipes-section-desc': 'Tested extraction ratios, precise water temperatures, and step-by-step techniques curated for espresso lovers & manual brewers.',
+                'filter-all': 'All Recipes',
+                'filter-espresso': 'Espresso Drinks',
+                'filter-manual': 'Manual Brews (Filter)',
+                'filter-signature': 'Signature & Cold Drinks',
+                'btn-view-recipe': 'View Full Guide',
+                'edu-tag': 'Barista Education & Consulting',
+                'edu-title': 'Empowering Coffee Enthusiasts & Cafe Owners',
+                'edu-desc-1': 'At Marco\'s Coffee, we believe great coffee isn\'t luck—it\'s science, art, and consistency. From dialing in espresso grinders to roast profile optimization, we offer personalized consulting and practical coffee workshops.',
+                'edu-point-1-title': 'Espresso Dialing-In & Sensorials',
+                'edu-point-1-desc': 'Understand channeling, extraction yield, and tasting notes balance.',
+                'edu-point-2-title': 'Menu Development & Specialty Recipes',
+                'edu-point-2-desc': 'Design signature drinks (like Bicerin & cold brew infusions) that stand out.',
+                'edu-point-3-title': 'Roastery Setup & Bean Sourcing',
+                'edu-point-3-desc': 'Guiding new coffee shops in Antalya and internationally.',
+                'btn-book-consultation': 'Book Consultation via WhatsApp'
+            },
+            es: {
+                'nav-recipes': 'Recetas',
+                'nav-education': 'Educación',
+                'nav-roastery': 'Tostaduría Antalya',
+                'nav-consulting': 'Consultoría',
+                'cta-whatsapp': 'Contactar a Marco',
+                'hero-tagline': 'Antalya, Turquía • Cultura del Café de Especialidad',
+                'hero-title-1': 'Eleva tu',
+                'hero-title-2': 'Arte del Café',
+                'hero-description': 'Explora recetas con extracción de precisión, consejos de tueste y educación profesional de barista directamente desde Marco\'s Coffee en Antalya.',
+                'hero-cta-recipes': 'Explorar Recetas',
+                'hero-cta-instagram': 'Seguir en Instagram',
+                'stat-arabica': 'Arábica de Especialidad',
+                'stat-score': 'Puntaje de Cata',
+                'stat-education': 'Educación de Café',
+                'recipes-section-tag': 'Centro del Barista',
+                'recipes-section-title': 'Recetas de Café de Especialidad',
+                'recipes-section-desc': 'Ratios probados, temperaturas exactas de agua y técnicas paso a paso diseñadas para amantes del espresso y filtrado.',
+                'filter-all': 'Todas las Recetas',
+                'filter-espresso': 'Bebidas con Espresso',
+                'filter-manual': 'Métodos Manuales (Filtrado)',
+                'filter-signature': 'Bebidas de Firma',
+                'btn-view-recipe': 'Ver Guía Completa',
+                'edu-tag': 'Educación de Barista y Consultoría',
+                'edu-title': 'Impulsando a Apasionados del Café y Cafeterías',
+                'edu-desc-1': 'En Marco\'s Coffee creemos que el gran café no es suerte: es ciencia, arte y consistencia. Desde calibrar moliendas hasta perfiles de tueste, ofrecemos consultoría personalizada.',
+                'edu-point-1-title': 'Calibración de Espresso y Sensoriales',
+                'edu-point-1-desc': 'Aprende sobre canalización, rendimiento de extracción y equilibrio de notas.',
+                'edu-point-2-title': 'Desarrollo de Menú y Recetas de Autor',
+                'edu-point-2-desc': 'Diseña bebidas exclusivas (como el Bicerin) que destaquen en tu menú.',
+                'edu-point-3-title': 'Montaje de Tostadurías y Granos',
+                'edu-point-3-desc': 'Asesoría para nuevas cafeterías en Antalya e internacionalmente.',
+                'btn-book-consultation': 'Reservar Consultoría por WhatsApp'
+            },
+            tr: {
+                'nav-recipes': 'Tarifler',
+                'nav-education': 'Eğitim',
+                'nav-roastery': 'Antalya Roastery',
+                'nav-consulting': 'Danışmanlık',
+                'cta-whatsapp': 'Marco ile İletişime Geç',
+                'hero-tagline': 'Antalya, Türkiye • Nitelikli Kahve Kültürü',
+                'hero-title-1': 'Kahve Sanatınızı',
+                'hero-title-2': 'Zirveye Taşıyın',
+                'hero-description': 'Hassas demleme tarifleri, nitelikli çekirdek kavurma detayları ve profesyonel barista eğitimlerini Antalya\'daki Marco\'s Coffee roastery\'den keşfedin.',
+                'hero-cta-recipes': 'Tarifleri Keşfet',
+                'hero-cta-instagram': 'Instagram\'da Takip Et',
+                'stat-arabica': 'Nitelikli Arabica',
+                'stat-score': 'Tadım Puanı',
+                'stat-education': 'Kahve Eğitimi',
+                'recipes-section-tag': 'Barista Merkezi',
+                'recipes-section-title': 'Nitelikli Kahve Tarifleri',
+                'recipes-section-desc': 'Espresso tutkunları ve filtre demleyiciler için test edilmiş oranlar, hassas su sıcaklıkları ve adım adım teknikler.',
+                'filter-all': 'Tüm Tarifler',
+                'filter-espresso': 'Espresso İçecekleri',
+                'filter-manual': 'Manuel Demleme (Filtre)',
+                'filter-signature': 'Imza İçecekler',
+                'btn-view-recipe': 'Kılavuzu İncele',
+                'edu-tag': 'Barista Eğitimi & Danışmanlık',
+                'edu-title': 'Kahve Tutkunlarına ve İşletmelere Rehberlik',
+                'edu-desc-1': 'Marco\'s Coffee\'de mükemmel kahvenin tesadüf olmadığına inanıyoruz. Öğütüm ayarlarından kavurma profillerine kadar kişiselleştirilmiş danışmanlık sunuyoruz.',
+                'edu-point-1-title': 'Espresso Kalibrasyonu & Sensöriyel',
+                'edu-point-1-desc': 'Kanallanma, ekstraksiyon verimi ve tat dengesini kavrayın.',
+                'edu-point-2-title': 'Menü Geliştirme & Özel Tarifleri',
+                'edu-point-2-desc': 'Bicerin gibi öne çıkan imza içecekler tasarlayın.',
+                'edu-point-3-title': 'Roastery Kurulumu & Çekirdek Tedariki',
+                'edu-point-3-desc': 'Antalya ve uluslararası yeni kahve dükkanlarına rehberlik.',
+                'btn-book-consultation': 'WhatsApp ile Danışmanlık Al'
+            }
+        };
 
+        /* ==================== INTERACTION LOGIC ==================== */
+        
+        // Language Setter
+        function setLanguage(lang) {
+            if (!i18n[lang]) return;
+            document.getElementById('current-lang-text').innerText = lang.toUpperCase();
+            
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang][key]) {
+                    el.innerText = i18n[lang][key];
+                }
+            });
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        // Filter Recipes Logic
+        function filterRecipes(category) {
+            // Update active tab buttons
+            const tabs = document.querySelectorAll('.recipe-tab');
+            tabs.forEach(tab => {
+                if (tab.getAttribute('data-filter') === category) {
+                    tab.classList.add('bg-blue-600', 'text-white');
+                    tab.classList.remove('bg-panelbg', 'text-coolgrey');
+                } else {
+                    tab.classList.remove('bg-blue-600', 'text-white');
+                    tab.classList.add('bg-panelbg', 'text-coolgrey');
+                }
+            });
+
+            // Filter recipe cards
+            const cards = document.querySelectorAll('.recipe-card');
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat.includes(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Recipe Modal Controls
+        function openRecipeModal(recipeKey) {
+            const data = recipesData[recipeKey];
+            if (!data) return;
+
+            document.getElementById('modal-img').src = data.img;
+            document.getElementById('modal-tag').innerText = data.tag;
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-tip').innerText = data.tip;
+
+            // Render Specs
+            const specsContainer = document.getElementById('modal-specs');
+            specsContainer.innerHTML = data.specs.map(s => `
+                <div>
+                    <span class="text-coolgrey block text-[10px]">${s.label}</span>
+                    <span class="font-semibold text-white">${s.val}</span>
+                </div>
+            `).join('');
+
+            // Render Ingredients
+            const ingContainer = document.getElementById('modal-ingredients');
+            ingContainer.innerHTML = data.ingredients.map(i => `
+                <li class="flex items-start space-x-2">
+                    <i class="fa-solid fa-angle-right text-accentblue mt-0.5"></i>
+                    <span>${i}</span>
+                </li>
+            `).join('');
+
+            // Render Steps
+            const stepsContainer = document.getElementById('modal-steps');
+            stepsContainer.innerHTML = data.steps.map(s => `
+                <li class="pl-1">${s}</li>
+            `).join('');
+
+            document.getElementById('recipe-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeRecipeModal() {
+            document.getElementById('recipe-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close Modal on clicking outside card
+        document.getElementById('recipe-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeRecipeModal();
+            }
+        });
+    </script>
 </body>
 </html>
