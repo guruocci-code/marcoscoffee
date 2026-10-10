@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marco's Coffee | Specialty Coffee Education & Roastery - Antalya</title>
+    
+    <!-- PWA Primary Meta Tags -->
+    <meta name="theme-color" content="#0B0F15">
+    <meta name="description" content="Specialty Coffee Education, Precision Recipes & Roastery in Antalya.">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Marco's Coffee">
+    <link rel="apple-touch-icon" href="1234.png">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -39,19 +49,10 @@
         }
     </script>
     <style>
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0B0F15;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1E293B;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #3B82F6;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0F15; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
         .backdrop-blur-md-custom {
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -83,8 +84,15 @@
                 <a href="#consulting" class="hover:text-iceblue transition-colors py-2" data-i18n="nav-consulting">Consulting</a>
             </div>
 
-            <!-- Right Controls: Language Switcher & CTA -->
-            <div class="hidden sm:flex items-center space-x-4">
+            <!-- Right Controls: PWA Install, Language Switcher & CTA -->
+            <div class="hidden sm:flex items-center space-x-3">
+                
+                <!-- PWA Install Button -->
+                <button id="pwa-install-btn" onclick="triggerPwaInstall()" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg border border-accentblue/50 text-xs font-semibold text-iceblue bg-blue-600/10 hover:bg-blue-600/20 transition-all">
+                    <i class="fa-solid fa-download text-xs"></i>
+                    <span>Install App</span>
+                </button>
+
                 <!-- Language Selector -->
                 <div class="relative id-lang-dropdown-container">
                     <button id="lang-dropdown-btn" onclick="toggleLangDropdown(event)" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg border border-panelborder text-xs font-semibold hover:border-accentblue transition-colors bg-panelbg/80 focus:outline-none">
@@ -125,6 +133,12 @@
             <a href="#education" class="block text-white hover:text-iceblue font-medium py-1" onclick="toggleMobileMenu()" data-i18n="nav-education">Education</a>
             <a href="#roastery" class="block text-white hover:text-iceblue font-medium py-1" onclick="toggleMobileMenu()" data-i18n="nav-roastery">Antalya Roastery</a>
             <a href="#consulting" class="block text-white hover:text-iceblue font-medium py-1" onclick="toggleMobileMenu()" data-i18n="nav-consulting">Consulting</a>
+            
+            <button id="mobile-pwa-install-btn" onclick="triggerPwaInstall()" class="w-full py-2 bg-blue-600/20 border border-blue-500/40 text-iceblue text-xs font-semibold rounded-lg text-center flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-download"></i>
+                <span>Install Web App (Offline Mode)</span>
+            </button>
+
             <div class="pt-4 border-t border-panelborder flex items-center justify-between">
                 <div class="flex space-x-2">
                     <button onclick="setLanguage('en')" class="px-2.5 py-1 text-xs border border-panelborder rounded text-white hover:bg-cardbg">EN</button>
@@ -141,14 +155,12 @@
 
     <!-- Hero Section -->
     <section class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-b from-slatebg via-panelbg to-slatebg">
-        <!-- Ambient Cool Lighting Glows -->
         <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accentblue/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute top-1/3 right-10 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
-                <!-- Left Text Content -->
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                     <div class="inline-flex items-center space-x-2 bg-panelbg border border-panelborder px-3.5 py-1.5 rounded-full text-xs font-medium text-iceblue">
                         <span class="w-2 h-2 rounded-full bg-accentblue animate-pulse"></span>
@@ -175,7 +187,6 @@
                         </a>
                     </div>
 
-                    <!-- Trust Stats -->
                     <div class="pt-8 grid grid-cols-3 gap-4 border-t border-panelborder max-w-lg mx-auto lg:mx-0">
                         <div>
                             <p class="text-2xl font-bold text-white font-serif">100%</p>
@@ -192,11 +203,8 @@
                     </div>
                 </div>
 
-                <!-- Right Visual Card Showcase -->
                 <div class="lg:col-span-5 relative">
                     <div class="relative rounded-2xl bg-panelbg p-3 border border-panelborder shadow-2xl overflow-hidden group">
-                        
-                        <!-- Featured Recipe Hero Card Preview -->
                         <div class="relative h-96 sm:h-[420px] rounded-xl overflow-hidden bg-slatebg">
                             <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1000&auto=format&fit=crop" 
                                  alt="Italian Bicerin Marco's Coffee" 
@@ -212,12 +220,11 @@
                                 <h3 class="font-serif text-2xl font-bold text-white">Traditional Italian Bicerin</h3>
                                 <p class="text-xs text-coolgrey line-clamp-2">Three layered masterpiece: dense hot chocolate, double espresso shot, and chilled semi-whipped cream.</p>
                                 <button onclick="openRecipeModal('bicerin')" class="mt-3 inline-flex items-center space-x-2 text-xs font-semibold text-iceblue hover:text-white transition-colors">
-                                    <span>View Full Recipe & Ratio</span>
+                                    <span>View Interactive Recipe & Video</span>
                                     <i class="fa-solid fa-arrow-right text-[10px]"></i>
                                 </button>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
@@ -229,7 +236,6 @@
     <section id="recipes" class="py-20 bg-slatebg relative border-t border-panelborder">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <!-- Section Header -->
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                 <div>
                     <div class="inline-flex items-center space-x-2 text-iceblue text-xs font-semibold uppercase tracking-widest mb-2">
@@ -239,11 +245,10 @@
                     <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white" data-i18n="recipes-section-title">Specialty Coffee Recipes</h2>
                 </div>
                 <p class="text-coolgrey text-sm max-w-md mt-2 md:mt-0 font-light" data-i18n="recipes-section-desc">
-                    Tested extraction ratios, precise water temperatures, and step-by-step techniques curated for espresso lovers & manual brewers.
+                    Tested extraction ratios, dynamic dose calculators, timer guides, and video reels curated for espresso lovers & manual brewers.
                 </p>
             </div>
 
-            <!-- Recipe Category Filters -->
             <div class="flex flex-wrap gap-2 sm:gap-3 mb-10 border-b border-panelborder pb-4">
                 <button onclick="filterRecipes('all')" class="recipe-tab active px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-blue-600 text-white" data-filter="all" data-i18n="filter-all">
                     All Recipes
@@ -259,10 +264,9 @@
                 </button>
             </div>
 
-            <!-- Recipe Grid -->
             <div id="recipe-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- Card 1: Italian Bicerin -->
+                <!-- Bicerin -->
                 <div class="recipe-card bg-panelbg rounded-2xl overflow-hidden border border-panelborder hover:border-accentblue/50 transition-all duration-300 flex flex-col justify-between group" data-category="signature espresso">
                     <div>
                         <div class="relative h-56 overflow-hidden">
@@ -280,21 +284,21 @@
                             <p class="text-xs text-coolgrey mt-2 font-light line-clamp-2">The classic Turin layered coffee drink with dense Italian hot chocolate, double espresso, and cold cream.</p>
                             
                             <div class="mt-4 pt-4 border-t border-panelborder flex items-center justify-between text-[11px] text-iceblue">
-                                <span><i class="fa-solid fa-clock mr-1"></i> 8 mins</span>
+                                <span><i class="fa-solid fa-calculator mr-1"></i> Dose Calculator</span>
+                                <span><i class="fa-brands fa-instagram mr-1"></i> Video Reel</span>
                                 <span><i class="fa-solid fa-layer-group mr-1"></i> 3 Layers</span>
-                                <span><i class="fa-solid fa-fire-flame-curved mr-1"></i> Medium Roast</span>
                             </div>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
                         <button onclick="openRecipeModal('bicerin')" class="w-full py-2.5 bg-cardbg hover:bg-blue-600 text-white text-xs font-semibold rounded-xl border border-panelborder hover:border-transparent transition-all flex items-center justify-center space-x-2">
-                            <i class="fa-solid fa-receipt text-[11px]"></i>
-                            <span data-i18n="btn-view-recipe">View Full Guide</span>
+                            <i class="fa-solid fa-sliders text-[11px]"></i>
+                            <span data-i18n="btn-view-recipe">Open Recipe & Reel</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- Card 2: V60 Pour Over -->
+                <!-- V60 Pour Over -->
                 <div class="recipe-card bg-panelbg rounded-2xl overflow-hidden border border-panelborder hover:border-accentblue/50 transition-all duration-300 flex flex-col justify-between group" data-category="manual">
                     <div>
                         <div class="relative h-56 overflow-hidden">
@@ -309,10 +313,10 @@
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-bold text-white group-hover:text-iceblue transition-colors">V60 Precision Pour Over</h3>
-                            <p class="text-xs text-coolgrey mt-2 font-light line-clamp-2">Highlight bright acidity and floral clarity with our 1:16 ratio single-origin extraction recipe.</p>
+                            <p class="text-xs text-coolgrey mt-2 font-light line-clamp-2">Highlight bright acidity and floral clarity with our 1:16 ratio single-origin extraction recipe & timer.</p>
                             
                             <div class="mt-4 pt-4 border-t border-panelborder flex items-center justify-between text-[11px] text-iceblue">
-                                <span><i class="fa-solid fa-clock mr-1"></i> 3.5 mins</span>
+                                <span><i class="fa-solid fa-stopwatch mr-1"></i> Brew Timer</span>
                                 <span><i class="fa-solid fa-scale-balanced mr-1"></i> 1:16 Ratio</span>
                                 <span><i class="fa-solid fa-temperature-three-quarters mr-1"></i> 93°C Water</span>
                             </div>
@@ -320,13 +324,13 @@
                     </div>
                     <div class="p-6 pt-0">
                         <button onclick="openRecipeModal('v60')" class="w-full py-2.5 bg-cardbg hover:bg-blue-600 text-white text-xs font-semibold rounded-xl border border-panelborder hover:border-transparent transition-all flex items-center justify-center space-x-2">
-                            <i class="fa-solid fa-receipt text-[11px]"></i>
-                            <span data-i18n="btn-view-recipe">View Full Guide</span>
+                            <i class="fa-solid fa-sliders text-[11px]"></i>
+                            <span data-i18n="btn-view-recipe">Open Recipe & Timer</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- Card 3: Espresso Doppio -->
+                <!-- Espresso Doppio -->
                 <div class="recipe-card bg-panelbg rounded-2xl overflow-hidden border border-panelborder hover:border-accentblue/50 transition-all duration-300 flex flex-col justify-between group" data-category="espresso">
                     <div>
                         <div class="relative h-56 overflow-hidden">
@@ -344,16 +348,16 @@
                             <p class="text-xs text-coolgrey mt-2 font-light line-clamp-2">Mastering grind size, puck preparation, and 1:2 extraction yield for rich golden crema.</p>
                             
                             <div class="mt-4 pt-4 border-t border-panelborder flex items-center justify-between text-[11px] text-iceblue">
-                                <span><i class="fa-solid fa-stopwatch mr-1"></i> 27-30 sec</span>
-                                <span><i class="fa-solid fa-weight-scale mr-1"></i> 18g In / 36g Out</span>
+                                <span><i class="fa-solid fa-stopwatch mr-1"></i> Shot Timer</span>
+                                <span><i class="fa-solid fa-weight-scale mr-1"></i> 1:2 Ratio</span>
                                 <span><i class="fa-solid fa-gauge mr-1"></i> 9 Bar</span>
                             </div>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
                         <button onclick="openRecipeModal('espresso')" class="w-full py-2.5 bg-cardbg hover:bg-blue-600 text-white text-xs font-semibold rounded-xl border border-panelborder hover:border-transparent transition-all flex items-center justify-center space-x-2">
-                            <i class="fa-solid fa-receipt text-[11px]"></i>
-                            <span data-i18n="btn-view-recipe">View Full Guide</span>
+                            <i class="fa-solid fa-sliders text-[11px]"></i>
+                            <span data-i18n="btn-view-recipe">Open Recipe & Timer</span>
                         </button>
                     </div>
                 </div>
@@ -367,7 +371,6 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 
-                <!-- Left Narrative -->
                 <div class="space-y-6">
                     <div class="inline-flex items-center space-x-2 text-iceblue text-xs font-semibold uppercase tracking-widest">
                         <i class="fa-solid fa-graduation-cap"></i>
@@ -423,26 +426,51 @@
                     </div>
                 </div>
 
-                <!-- Right Feature Cards / Location Focus -->
                 <div id="roastery" class="bg-cardbg rounded-3xl p-8 border border-panelborder space-y-6 shadow-xl">
                     <div class="flex items-center justify-between border-b border-panelborder pb-4">
                         <div class="flex items-center space-x-3">
-                            <i class="fa-solid fa-location-dot text-iceblue text-xl"></i>
+                            <i class="fa-solid fa-fire-burner text-iceblue text-xl"></i>
                             <div>
-                                <h3 class="font-serif text-lg font-bold text-white">Antalya Roastery Hub</h3>
-                                <p class="text-xs text-coolgrey">Antalya, Türkiye</p>
+                                <h3 class="font-serif text-lg font-bold text-white">Antalya Roastery Spotlight</h3>
+                                <p class="text-xs text-coolgrey">Freshly Roasted • Small Batches</p>
                             </div>
                         </div>
-                        <span class="bg-slatebg text-iceblue text-[10px] font-semibold px-3 py-1 rounded-full border border-panelborder">
-                            Micro-Batch
+                        <span class="bg-blue-600/20 text-iceblue text-[10px] font-bold px-3 py-1 rounded-full border border-blue-500/30">
+                            ON THE BAR
                         </span>
                     </div>
 
-                    <p class="text-xs text-coolgrey font-light leading-relaxed">
-                        Roasted in small batches in Antalya to guarantee freshness and preserve delicate floral and fruity aroma compounds in every single origin lot.
-                    </p>
+                    <div class="bg-slatebg p-4 rounded-2xl border border-panelborder space-y-3">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-[10px] uppercase tracking-widest text-iceblue font-semibold">Single Origin Lot</span>
+                                <h4 class="font-serif text-base font-bold text-white">Ethiopia Yirgacheffe G1</h4>
+                            </div>
+                            <span class="text-xs font-bold text-white bg-panelbg px-2.5 py-1 rounded-lg border border-panelborder">87.5 PTS</span>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-1.5 text-[10px]">
+                            <span class="bg-panelbg text-coolgrey px-2 py-0.5 rounded border border-panelborder">Jasmine Flower</span>
+                            <span class="bg-panelbg text-coolgrey px-2 py-0.5 rounded border border-panelborder">Peach Nectar</span>
+                            <span class="bg-panelbg text-coolgrey px-2 py-0.5 rounded border border-panelborder">Wild Honey</span>
+                        </div>
 
-                    <!-- Mock Feed Grid -->
+                        <div class="grid grid-cols-3 gap-2 pt-1 text-[11px] text-center">
+                            <div class="bg-panelbg p-2 rounded-lg border border-panelborder">
+                                <span class="text-coolgrey block text-[9px]">Acidity</span>
+                                <span class="text-iceblue font-semibold">Bright Citric</span>
+                            </div>
+                            <div class="bg-panelbg p-2 rounded-lg border border-panelborder">
+                                <span class="text-coolgrey block text-[9px]">Body</span>
+                                <span class="text-iceblue font-semibold">Silky Tea-like</span>
+                            </div>
+                            <div class="bg-panelbg p-2 rounded-lg border border-panelborder">
+                                <span class="text-coolgrey block text-[9px]">Grind Rec</span>
+                                <span class="text-iceblue font-semibold">Medium-Fine</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="grid grid-cols-3 gap-2 pt-2">
                         <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=300&auto=format&fit=crop" alt="Roasting Coffee" class="rounded-lg h-24 w-full object-cover hover:opacity-80 transition-opacity">
                         <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=300&auto=format&fit=crop" alt="Coffee Beans" class="rounded-lg h-24 w-full object-cover hover:opacity-80 transition-opacity">
@@ -460,17 +488,15 @@
         </div>
     </section>
 
-    <!-- Recipe Detail Modal -->
+    <!-- Interactive Recipe Detail Modal with Reel Light Embed -->
     <div id="recipe-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
         <div class="bg-cardbg border border-panelborder w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl relative animate-fadeIn my-8">
             
-            <!-- Close Button -->
             <button onclick="closeRecipeModal()" class="absolute top-4 right-4 z-10 w-9 h-9 bg-slatebg/80 hover:bg-panelbg text-white rounded-full flex items-center justify-center border border-panelborder transition-colors">
                 <i class="fa-solid fa-xmark text-sm"></i>
             </button>
 
-            <!-- Modal Header Image -->
-            <div class="relative h-64 sm:h-72 w-full overflow-hidden">
+            <div class="relative h-56 sm:h-64 w-full overflow-hidden">
                 <img id="modal-img" src="" alt="Recipe Detail" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-cardbg via-cardbg/30 to-transparent"></div>
                 <div class="absolute bottom-6 left-6 right-6">
@@ -481,34 +507,78 @@
                 </div>
             </div>
 
-            <!-- Modal Body Content -->
             <div class="p-6 sm:p-8 space-y-6 max-h-[60vh] overflow-y-auto">
                 
-                <!-- Quick Specs -->
-                <div id="modal-specs" class="grid grid-cols-3 gap-3 p-4 bg-slatebg rounded-xl border border-panelborder text-center text-xs">
-                    <!-- Dynamic Specs -->
+                <!-- Dynamic Dose / Servings Slider -->
+                <div class="p-4 bg-slatebg rounded-2xl border border-panelborder space-y-3">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-iceblue font-semibold flex items-center space-x-1.5">
+                            <i class="fa-solid fa-scale-balanced text-accentblue"></i>
+                            <span>Interactive Dose Calculator</span>
+                        </span>
+                        <span class="text-white font-bold bg-panelbg px-3 py-1 rounded-lg border border-panelborder" id="dose-val-display">
+                            1 Servings (15g Coffee)
+                        </span>
+                    </div>
+                    <input type="range" id="dose-slider" min="1" max="4" value="1" step="1" oninput="updateRecipeCalculations()" class="w-full h-2 bg-panelbg rounded-lg appearance-none cursor-pointer accent-blue-500">
+                    <div class="flex justify-between text-[10px] text-coolgrey">
+                        <span>1 Serving</span>
+                        <span>2 Servings</span>
+                        <span>3 Servings</span>
+                        <span>4 Servings</span>
+                    </div>
                 </div>
 
-                <!-- Layer / Ingredients breakdown -->
+                <!-- Brew Timer Bar -->
+                <div class="p-4 bg-panelbg rounded-2xl border border-panelborder flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-wider text-coolgrey block">Barista Brew Timer</span>
+                        <span id="timer-display" class="font-mono text-2xl font-bold text-white">00:00</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button id="timer-start-btn" onclick="toggleBrewTimer()" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-xl transition-all flex items-center space-x-1">
+                            <i class="fa-solid fa-play text-[10px]" id="timer-icon"></i>
+                            <span id="timer-btn-text">Start</span>
+                        </button>
+                        <button onclick="resetBrewTimer()" class="px-3 py-2 bg-slatebg hover:bg-cardbg text-coolgrey text-xs rounded-xl border border-panelborder">
+                            <i class="fa-solid fa-rotate-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Specs -->
+                <div id="modal-specs" class="grid grid-cols-3 gap-3 p-4 bg-slatebg rounded-xl border border-panelborder text-center text-xs">
+                </div>
+
+                <!-- Ingredients breakdown -->
                 <div>
                     <h4 class="text-sm font-semibold text-iceblue uppercase tracking-wider mb-3 flex items-center space-x-2">
                         <i class="fa-solid fa-list-check text-accentblue"></i>
-                        <span>Ingredients & Exact Ratios</span>
+                        <span>Recalculated Ingredients & Quantities</span>
                     </h4>
                     <ul id="modal-ingredients" class="space-y-2 text-xs text-coolgrey">
-                        <!-- Dynamic List -->
                     </ul>
                 </div>
 
-                <!-- Steps -->
+                <!-- Step-by-Step -->
                 <div>
                     <h4 class="text-sm font-semibold text-iceblue uppercase tracking-wider mb-3 flex items-center space-x-2">
                         <i class="fa-solid fa-circle-play text-accentblue"></i>
-                        <span>Step-by-Step Preparation</span>
+                        <span>Step-by-Step Technique</span>
                     </h4>
                     <ol id="modal-steps" class="space-y-3 text-xs text-coolgrey list-decimal list-inside leading-relaxed">
-                        <!-- Dynamic Steps -->
                     </ol>
+                </div>
+
+                <!-- Reel Video Embed Light Section -->
+                <div id="reel-container" class="space-y-2 pt-2 border-t border-panelborder">
+                    <h4 class="text-sm font-semibold text-iceblue uppercase tracking-wider flex items-center space-x-2">
+                        <i class="fa-brands fa-instagram text-accentblue"></i>
+                        <span>Instagram Video Guide (Reel)</span>
+                    </h4>
+                    <div class="relative w-full overflow-hidden rounded-2xl bg-slatebg border border-panelborder flex justify-center py-2">
+                        <iframe id="reel-iframe" loading="lazy" class="w-full max-w-sm h-80 sm:h-96 rounded-xl border-0" src="" allowfullscreen></iframe>
+                    </div>
                 </div>
 
                 <!-- Pro Barista Tip -->
@@ -519,9 +589,8 @@
 
             </div>
 
-            <!-- Modal Footer CTA -->
             <div class="p-4 bg-slatebg border-t border-panelborder flex items-center justify-between">
-                <span class="text-[11px] text-coolgrey">Marco's Coffee Recipe Guide</span>
+                <span class="text-[11px] text-coolgrey">Marco's Coffee Interactive Recipe Hub</span>
                 <button onclick="closeRecipeModal()" class="px-5 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-semibold transition-colors">
                     Close Guide
                 </button>
@@ -535,7 +604,6 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                 
-                <!-- Col 1: Brand Info -->
                 <div class="space-y-4 md:col-span-2">
                     <div class="flex items-center space-x-3">
                         <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white">
@@ -559,7 +627,6 @@
                     </div>
                 </div>
 
-                <!-- Col 2: Navigation -->
                 <div class="space-y-3">
                     <h4 class="text-xs font-bold text-white uppercase tracking-wider">Quick Links</h4>
                     <ul class="space-y-2 text-xs text-coolgrey font-light">
@@ -570,7 +637,6 @@
                     </ul>
                 </div>
 
-                <!-- Col 3: Contact & Location -->
                 <div class="space-y-3">
                     <h4 class="text-xs font-bold text-white uppercase tracking-wider">Contact & Location</h4>
                     <p class="text-xs text-coolgrey font-light">
@@ -586,7 +652,6 @@
 
             </div>
 
-            <!-- Bottom Copyright -->
             <div class="border-t border-panelborder pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-coolgrey">
                 <p>© 2026 Marco's Coffee. All rights reserved.</p>
                 <p class="mt-2 sm:mt-0">Crafted for Specialty Coffee Enthusiasts worldwide.</p>
@@ -595,54 +660,83 @@
     </footer>
 
     <script>
-        /* ==================== RECIPE DATA ==================== */
+        /* ==================== DYNAMIC PWA & SERVICE WORKER ==================== */
+        if ('serviceWorker' in navigator) {
+            const swCode = `
+                const CACHE_NAME = 'marcos-coffee-v2';
+                const urlsToCache = ['/', '/index.html', '/1234.png'];
+                self.addEventListener('install', e => e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(urlsToCache))));
+                self.addEventListener('fetch', e => e.respondWith(caches.match(e.request).then(r => r || fetch(e.request))));
+            `;
+            const blob = new Blob([swCode], { type: 'application/javascript' });
+            navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(() => {});
+        }
+
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+        });
+
+        function triggerPwaInstall() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then(() => { deferredPrompt = null; });
+            } else {
+                alert("To install Marco's Coffee app:\n\n• On iPhone/Safari: Tap Share -> 'Add to Home Screen'\n• On Android/Chrome: Tap 3 dots -> 'Install app' or 'Add to Home screen'");
+            }
+        }
+
+        /* ==================== RECIPE DATA WITH INSTAGRAM REEL URLS ==================== */
         const recipesData = {
             'bicerin': {
                 title: 'Traditional Italian Bicerin',
                 tag: 'Signature Italian Drink',
                 img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop',
-                specs: [
-                    { label: 'Base', val: '50 ml Hot Chocolate' },
-                    { label: 'Mid', val: '50-60 ml Double Espresso' },
-                    { label: 'Top', val: '40-50 ml Chilled Cream' }
-                ],
-                ingredients: [
-                    '<strong>50 ml</strong> Thick Italian Hot Chocolate (dense dark chocolate base)',
-                    '<strong>50-60 ml</strong> Fresh Double Espresso Shot (Medium roast)',
-                    '<strong>40-50 ml</strong> Semi-whipped chilled heavy cream (not overly stiff)',
+                baseCoffeeGrams: 18,
+                reelUrl: 'https://www.instagram.com/p/C-BicerinEmbed/embed',
+                calcIngredients: (multiplier) => [
+                    `<strong>${50 * multiplier} ml</strong> Thick Italian Hot Chocolate (dense dark chocolate base)`,
+                    `<strong>${50 * multiplier} ml</strong> Fresh Double Espresso Shot (${18 * multiplier}g coffee in)`,
+                    `<strong>${40 * multiplier} ml</strong> Semi-whipped chilled heavy cream (not overly stiff)`,
                     'Dusting of pure unsweetened cocoa powder'
                 ],
+                specs: (m) => [
+                    { label: 'Hot Chocolate', val: `${50 * m} ml` },
+                    { label: 'Espresso Liquid', val: `${50 * m} ml` },
+                    { label: 'Chilled Cream', val: `${40 * m} ml` }
+                ],
                 steps: [
-                    'Pre-warm a clear glass mug to maintain layer stability.',
-                    'Pour 50 ml of dense hot chocolate into the bottom layer.',
-                    'Extract a double espresso (18g in / 36-50g out) into a small pitcher.',
-                    'Gently pour the espresso over the back of a warm spoon onto the chocolate layer.',
-                    'Gently float the chilled semi-whipped cream on top.',
+                    'Pre-warm clear glass mugs to maintain layer stability.',
+                    'Pour dense hot chocolate into the bottom layer.',
+                    'Extract double espresso directly over a warm spoon onto the chocolate layer.',
+                    'Gently float chilled semi-whipped cream on top.',
                     'Dust lightly with cocoa powder and serve without mixing.'
                 ],
-                tip: 'Never stir a Bicerin! Sip directly through the cold cream, hot espresso, and sweet chocolate layers for the full sensory contrast.'
+                tip: 'Never stir a Bicerin! Sip directly through the cold cream, hot espresso, and sweet chocolate layers for maximum sensory contrast.'
             },
             'v60': {
                 title: 'V60 Precision Pour Over',
                 tag: 'Manual Filter Technique',
                 img: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop',
-                specs: [
-                    { label: 'Ratio', val: '1:16 (15g : 240g)' },
-                    { label: 'Water Temp', val: '93°C / 199°F' },
-                    { label: 'Brew Time', val: '3:00 - 3:30 mins' }
+                baseCoffeeGrams: 15,
+                reelUrl: 'https://www.instagram.com/marcoscoffeeantalya/embed',
+                calcIngredients: (m) => [
+                    `<strong>${15 * m}g</strong> Lightly roasted specialty coffee (medium-fine grind)`,
+                    `<strong>${240 * m}g</strong> Filtered water heated to 93°C (1:16 ratio)`,
+                    'Rinsed V60 paper filter'
                 ],
-                ingredients: [
-                    '<strong>15g</strong> Lightly roasted specialty coffee beans (medium-fine grind)',
-                    '<strong>240g</strong> Filtered water heated to 93°C',
-                    'V60 paper filter rinsed with hot water'
+                specs: (m) => [
+                    { label: 'Coffee Dose', val: `${15 * m}g` },
+                    { label: 'Total Water', val: `${240 * m}g` },
+                    { label: 'Bloom Water', val: `${45 * m}g` }
                 ],
                 steps: [
                     'Rinse paper filter with hot water to remove paper taste and preheat the server.',
-                    'Add 15g ground coffee, level the bed, and tare your digital scale.',
-                    '<strong>Bloom:</strong> Pour 45g of water in circular motion. Wait 45 seconds.',
-                    '<strong>First Pour:</strong> Pour gently up to 140g in concentric spirals.',
-                    '<strong>Final Pour:</strong> Pour steadily up to 240g total weight.',
-                    'Give a gentle swirl at the end for an even bed drawdown.'
+                    'Add ground coffee, level the bed, and tare your digital scale.',
+                    'Bloom: Pour 3x coffee weight in water in circular motion. Wait 45 seconds.',
+                    'First Pour: Pour gently up to 60% total weight in concentric spirals.',
+                    'Final Pour: Pour steadily up to total target weight and swirl gently at drawdown.'
                 ],
                 tip: 'Use soft water with 50-80 PPM mineral hardness to highlight delicate floral and berry notes.'
             },
@@ -650,21 +744,24 @@
                 title: 'Golden Crema Espresso Doppio',
                 tag: 'Espresso Core',
                 img: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=800&auto=format&fit=crop',
-                specs: [
-                    { label: 'Dose', val: '18.0g Ground Coffee' },
-                    { label: 'Yield', val: '36.0g Liquid' },
-                    { label: 'Extraction', val: '27 - 30 seconds' }
+                baseCoffeeGrams: 18,
+                reelUrl: 'https://www.instagram.com/marcoscoffeeantalya/embed',
+                calcIngredients: (m) => [
+                    `<strong>${18 * m}g</strong> Freshly roasted specialty coffee (Medium or Espresso roast)`,
+                    `<strong>${36 * m}g</strong> Target liquid yield out (1:2 ratio)`,
+                    '9 Bar Pump pressure at 92.5°C'
                 ],
-                ingredients: [
-                    '<strong>18g</strong> Freshly roasted specialty coffee (Medium or Espresso roast)',
-                    '<strong>9 Bar</strong> Pump pressure at 92.5°C'
+                specs: (m) => [
+                    { label: 'Dose In', val: `${18 * m}g` },
+                    { label: 'Yield Out', val: `${36 * m}g` },
+                    { label: 'Time Target', val: '27-30 sec' }
                 ],
                 steps: [
-                    'Grind 18g coffee into double portafilter basket.',
+                    'Grind coffee into portafilter basket.',
                     'Distribute evenly using a WDT tool to eliminate clumping and channeling.',
                     'Tamp firmly and level with consistent 15kg pressure.',
-                    'Flush brew group head for 2 seconds before locking portafilter.',
-                    'Start extraction immediately: aim for 36g in 27-30 seconds with tiger stripe crema.'
+                    'Flush group head before locking portafilter.',
+                    'Start extraction immediately: aim for 1:2 yield in 27-30 seconds.'
                 ],
                 tip: 'If extraction runs faster than 25s, grind finer. If it chokes over 32s, loosen the grind slightly.'
             }
@@ -689,12 +786,12 @@
                 'stat-education': 'Coffee Education',
                 'recipes-section-tag': 'Barista Hub',
                 'recipes-section-title': 'Specialty Coffee Recipes',
-                'recipes-section-desc': 'Tested extraction ratios, precise water temperatures, and step-by-step techniques curated for espresso lovers & manual brewers.',
+                'recipes-section-desc': 'Tested extraction ratios, dynamic dose calculators, timer guides, and video reels curated for espresso lovers & manual brewers.',
                 'filter-all': 'All Recipes',
                 'filter-espresso': 'Espresso Drinks',
                 'filter-manual': 'Manual Brews (Filter)',
                 'filter-signature': 'Signature & Cold Drinks',
-                'btn-view-recipe': 'View Full Guide',
+                'btn-view-recipe': 'Open Recipe & Reel',
                 'edu-tag': 'Barista Education & Consulting',
                 'edu-title': 'Empowering Coffee Enthusiasts & Cafe Owners',
                 'edu-desc-1': 'At Marco\'s Coffee, we believe great coffee isn\'t luck—it\'s science, art, and consistency. From dialing in espresso grinders to roast profile optimization, we offer personalized consulting and practical coffee workshops.',
@@ -723,12 +820,12 @@
                 'stat-education': 'Educación de Café',
                 'recipes-section-tag': 'Centro del Barista',
                 'recipes-section-title': 'Recetas de Café de Especialidad',
-                'recipes-section-desc': 'Ratios probados, temperaturas exactas de agua y técnicas paso a paso diseñadas para amantes del espresso y filtrado.',
+                'recipes-section-desc': 'Ratios probados, calculadora de dosis e ingredientes, temporizador y reels en video para espresso y filtrado.',
                 'filter-all': 'Todas las Recetas',
                 'filter-espresso': 'Bebidas con Espresso',
                 'filter-manual': 'Métodos Manuales (Filtrado)',
                 'filter-signature': 'Bebidas de Firma',
-                'btn-view-recipe': 'Ver Guía Completa',
+                'btn-view-recipe': 'Abrir Receta y Video',
                 'edu-tag': 'Educación de Barista y Consultoría',
                 'edu-title': 'Impulsando a Apasionados del Café y Cafeterías',
                 'edu-desc-1': 'En Marco\'s Coffee creemos que el gran café no es suerte: es ciencia, arte y consistencia. Desde calibrar moliendas hasta perfiles de tueste, ofrecemos consultoría personalizada.',
@@ -757,12 +854,12 @@
                 'stat-education': 'Kahve Eğitimi',
                 'recipes-section-tag': 'Barista Merkezi',
                 'recipes-section-title': 'Nitelikli Kahve Tarifleri',
-                'recipes-section-desc': 'Espresso tutkunları ve filtre demleyiciler için test edilmiş oranlar, hassas su sıcaklıkları ve adım adım teknikler.',
+                'recipes-section-desc': 'Espresso tutkunları ve filtre demleyiciler için dinamik doz hesaplayıcı, video rehberler ve zamanlayıcılar.',
                 'filter-all': 'Tüm Tarifler',
                 'filter-espresso': 'Espresso İçecekleri',
                 'filter-manual': 'Manuel Demleme (Filtre)',
                 'filter-signature': 'Imza İçecekler',
-                'btn-view-recipe': 'Kılavuzu İncele',
+                'btn-view-recipe': 'Tarifi ve Videoyu Aç',
                 'edu-tag': 'Barista Eğitimi & Danışmanlık',
                 'edu-title': 'Kahve Tutkunlarına ve İşletmelere Rehberlik',
                 'edu-desc-1': 'Marco\'s Coffee\'de mükemmel kahvenin tesadüf olmadığına inanıyoruz. Öğütüm ayarlarından kavurma profillerine kadar kişiselleştirilmiş danışmanlık sunuyoruz.',
@@ -776,9 +873,12 @@
             }
         };
 
-        /* ==================== INTERACTION LOGIC ==================== */
-        
-        // Language Dropdown Toggle
+        /* ==================== CURRENT MODAL STATE & BREW TIMER ==================== */
+        let activeRecipeKey = 'bicerin';
+        let timerInterval = null;
+        let timerSeconds = 0;
+        let isTimerRunning = false;
+
         function toggleLangDropdown(event) {
             if (event) event.stopPropagation();
             const menu = document.getElementById('lang-dropdown-menu');
@@ -787,63 +887,40 @@
 
         function closeLangDropdown() {
             const menu = document.getElementById('lang-dropdown-menu');
-            if (menu && !menu.classList.contains('hidden')) {
-                menu.classList.add('hidden');
-            }
+            if (menu && !menu.classList.contains('hidden')) menu.classList.add('hidden');
         }
 
-        // Close language dropdown if user clicks anywhere outside
         document.addEventListener('click', function(e) {
             const container = document.querySelector('.id-lang-dropdown-container');
-            if (container && !container.contains(e.target)) {
-                closeLangDropdown();
-            }
+            if (container && !container.contains(e.target)) closeLangDropdown();
         });
 
-        // Language Setter with Persistence
         function setLanguage(lang) {
             if (!i18n[lang]) return;
-
-            // Save preference to localStorage
-            try {
-                localStorage.setItem('marcos_coffee_lang', lang);
-            } catch(e) {}
-
-            // Update Header Display Indicator
+            try { localStorage.setItem('marcos_coffee_lang', lang); } catch(e) {}
             const langLabel = document.getElementById('current-lang-text');
             if (langLabel) langLabel.innerText = lang.toUpperCase();
             
-            // Translate all elements with data-i18n attribute
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (i18n[lang][key]) {
-                    el.innerText = i18n[lang][key];
-                }
+                if (i18n[lang][key]) el.innerText = i18n[lang][key];
             });
-
             closeLangDropdown();
         }
 
-        // Initialize language on page load
         document.addEventListener('DOMContentLoaded', function() {
             const savedLang = localStorage.getItem('marcos_coffee_lang') || 'en';
             setLanguage(savedLang);
         });
 
-        // Mobile Menu Toggle
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
         document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
 
-        // Filter Recipes Logic
         function filterRecipes(category) {
-            // Update active tab buttons
-            const tabs = document.querySelectorAll('.recipe-tab');
-            tabs.forEach(tab => {
+            document.querySelectorAll('.recipe-tab').forEach(tab => {
                 if (tab.getAttribute('data-filter') === category) {
                     tab.classList.add('bg-blue-600', 'text-white');
                     tab.classList.remove('bg-panelbg', 'text-coolgrey');
@@ -853,66 +930,103 @@
                 }
             });
 
-            // Filter recipe cards
-            const cards = document.querySelectorAll('.recipe-card');
-            cards.forEach(card => {
+            document.querySelectorAll('.recipe-card').forEach(card => {
                 const cardCat = card.getAttribute('data-category');
-                if (category === 'all' || cardCat.includes(category)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
+                card.style.display = (category === 'all' || cardCat.includes(category)) ? 'flex' : 'none';
             });
         }
 
-        // Recipe Modal Controls
-        function openRecipeModal(recipeKey) {
-            const data = recipesData[recipeKey];
+        function updateRecipeCalculations() {
+            const data = recipesData[activeRecipeKey];
             if (!data) return;
 
-            document.getElementById('modal-img').src = data.img;
-            document.getElementById('modal-tag').innerText = data.tag;
-            document.getElementById('modal-title').innerText = data.title;
-            document.getElementById('modal-tip').innerText = data.tip;
+            const multiplier = parseInt(document.getElementById('dose-slider').value) || 1;
+            const totalCoffee = data.baseCoffeeGrams * multiplier;
 
-            // Render Specs
+            document.getElementById('dose-val-display').innerText = `${multiplier} Serving${multiplier > 1 ? 's' : ''} (${totalCoffee}g Coffee)`;
+
             const specsContainer = document.getElementById('modal-specs');
-            specsContainer.innerHTML = data.specs.map(s => `
+            specsContainer.innerHTML = data.specs(multiplier).map(s => `
                 <div>
                     <span class="text-coolgrey block text-[10px]">${s.label}</span>
                     <span class="font-semibold text-white">${s.val}</span>
                 </div>
             `).join('');
 
-            // Render Ingredients
             const ingContainer = document.getElementById('modal-ingredients');
-            ingContainer.innerHTML = data.ingredients.map(i => `
+            ingContainer.innerHTML = data.calcIngredients(multiplier).map(i => `
                 <li class="flex items-start space-x-2">
                     <i class="fa-solid fa-angle-right text-accentblue mt-0.5"></i>
                     <span>${i}</span>
                 </li>
             `).join('');
+        }
 
-            // Render Steps
+        function toggleBrewTimer() {
+            if (isTimerRunning) {
+                clearInterval(timerInterval);
+                isTimerRunning = false;
+                document.getElementById('timer-btn-text').innerText = 'Resume';
+                document.getElementById('timer-icon').className = 'fa-solid fa-play text-[10px]';
+            } else {
+                isTimerRunning = true;
+                document.getElementById('timer-btn-text').innerText = 'Pause';
+                document.getElementById('timer-icon').className = 'fa-solid fa-pause text-[10px]';
+                timerInterval = setInterval(() => {
+                    timerSeconds++;
+                    const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+                    const secs = String(timerSeconds % 60).padStart(2, '0');
+                    document.getElementById('timer-display').innerText = `${mins}:${secs}`;
+                }, 1000);
+            }
+        }
+
+        function resetBrewTimer() {
+            clearInterval(timerInterval);
+            isTimerRunning = false;
+            timerSeconds = 0;
+            document.getElementById('timer-display').innerText = '00:00';
+            document.getElementById('timer-btn-text').innerText = 'Start';
+            document.getElementById('timer-icon').className = 'fa-solid fa-play text-[10px]';
+        }
+
+        function openRecipeModal(recipeKey) {
+            activeRecipeKey = recipeKey;
+            const data = recipesData[recipeKey];
+            if (!data) return;
+
+            resetBrewTimer();
+
+            document.getElementById('modal-img').src = data.img;
+            document.getElementById('modal-tag').innerText = data.tag;
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-tip').innerText = data.tip;
+
+            // Handle Reel Embed
+            const reelIframe = document.getElementById('reel-iframe');
+            if (data.reelUrl) {
+                reelIframe.src = data.reelUrl;
+            }
+
+            document.getElementById('dose-slider').value = 1;
+            updateRecipeCalculations();
+
             const stepsContainer = document.getElementById('modal-steps');
-            stepsContainer.innerHTML = data.steps.map(s => `
-                <li class="pl-1">${s}</li>
-            `).join('');
+            stepsContainer.innerHTML = data.steps.map(s => `<li class="pl-1">${s}</li>`).join('');
 
             document.getElementById('recipe-modal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
 
         function closeRecipeModal() {
+            resetBrewTimer();
+            document.getElementById('reel-iframe').src = '';
             document.getElementById('recipe-modal').classList.add('hidden');
             document.body.style.overflow = 'auto';
         }
 
-        // Close Modal on clicking outside card
         document.getElementById('recipe-modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeRecipeModal();
-            }
+            if (e.target === this) closeRecipeModal();
         });
     </script>
 </body>
