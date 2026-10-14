@@ -194,9 +194,10 @@
                         <span data-i18n="hero-tagline">Antalya, Turkey • Specialty Coffee Culture</span>
                     </div>
 
+                    <!-- NUEVO ENCABEZADO DE ALTO IMPACTO -->
                     <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-                        <span data-i18n="hero-title-1">Elevate Your</span> <br class="hidden sm:inline">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-iceblue to-accentblue" data-i18n="hero-title-2">Coffee Craftsmanship</span>
+                        <span data-i18n="hero-title-1">Más que café,</span> <br class="hidden sm:inline">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-iceblue to-accentblue" data-i18n="hero-title-2">Ciencia, Arte y Pasión.</span>
                     </h1>
 
                     <p class="text-coolgrey text-sm sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed" data-i18n="hero-description">
@@ -214,7 +215,7 @@
                         </a>
                     </div>
 
-                    <!-- Trust Stats - Simplified for Mobile -->
+                    <!-- Trust Stats -->
                     <div class="pt-6 grid grid-cols-3 gap-2 sm:gap-4 border-t border-panelborder max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
                         <div>
                             <p class="text-xl sm:text-2xl font-bold text-white font-serif">100%</p>
@@ -702,7 +703,7 @@
         /* ==================== DYNAMIC PWA & SERVICE WORKER ==================== */
         if ('serviceWorker' in navigator) {
             const swCode = `
-                const CACHE_NAME = 'marcos-coffee-v3';
+                const CACHE_NAME = 'marcos-coffee-v4';
                 const urlsToCache = ['/', '/index.html', '/1234.png'];
                 self.addEventListener('install', e => e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(urlsToCache))));
                 self.addEventListener('fetch', e => e.respondWith(caches.match(e.request).then(r => r || fetch(e.request))));
@@ -815,8 +816,8 @@
                 'nav-consulting': 'Consulting',
                 'cta-whatsapp': 'Contact Marco',
                 'hero-tagline': 'Antalya, Turkey • Specialty Coffee Culture',
-                'hero-title-1': 'Elevate Your',
-                'hero-title-2': 'Coffee Craftsmanship',
+                'hero-title-1': 'More than coffee,',
+                'hero-title-2': 'Science, Art & Passion.',
                 'hero-description': 'Explore precision extraction recipes, specialty bean roasting insights, and professional barista education directly from Marco\'s Coffee.',
                 'hero-cta-recipes': 'Explore Specialty Recipes',
                 'hero-cta-instagram': 'Follow on Instagram',
@@ -849,8 +850,8 @@
                 'nav-consulting': 'Consultoría',
                 'cta-whatsapp': 'Contactar a Marco',
                 'hero-tagline': 'Antalya, Turquía • Cultura del Café de Especialidad',
-                'hero-title-1': 'Eleva tu',
-                'hero-title-2': 'Arte del Café',
+                'hero-title-1': 'Más que café,',
+                'hero-title-2': 'Ciencia, Arte y Pasión.',
                 'hero-description': 'Explora recetas con extracción de precisión, consejos de tueste y educación profesional de barista directamente desde Marco\'s Coffee.',
                 'hero-cta-recipes': 'Explorar Recetas',
                 'hero-cta-instagram': 'Seguir en Instagram',
@@ -883,8 +884,8 @@
                 'nav-consulting': 'Danışmanlık',
                 'cta-whatsapp': 'Marco ile İletişime Geç',
                 'hero-tagline': 'Antalya, Türkiye • Nitelikli Kahve Kültürü',
-                'hero-title-1': 'Kahve Sanatınızı',
-                'hero-title-2': 'Zirveye Taşıyın',
+                'hero-title-1': 'Kahveden fazlası,',
+                'hero-title-2': 'Bilim, Sanat ve Tutku.',
                 'hero-description': 'Hassas demleme tarifleri, nitelikli çekirdek kavurma detayları ve profesyonel barista eğitimlerini Marco\'s Coffee\'den keşfedin.',
                 'hero-cta-recipes': 'Tarifleri Keşfet',
                 'hero-cta-instagram': 'Instagram\'da Takip Et',
