@@ -3,16 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Marco's Coffee | Specialty Coffee Education & Roastery - Antalya</title>
     
+    <!-- Primary SEO Meta Tags -->
+    <title>Marco's Coffee | Specialty Coffee Recipes & Barista Education - Antalya</title>
+    <meta name="description" content="Master specialty coffee brewing in Antalya: Precision Espresso Doppio, V60 Pour-Over, and Traditional Italian Bicerin recipes with interactive dose calculators and timer guides.">
+    <meta name="keywords" content="Specialty Coffee Antalya, Espresso Recipe, V60 Brew Guide, Italian Bicerin, Barista Education, Coffee Roastery Antalya, Marco's Coffee">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://marcoscoffee.shop/">
+
+    <!-- Open Graph / Facebook / WhatsApp / Instagram Previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marcoscoffee.shop/">
+    <meta property="og:title" content="Marco's Coffee | Specialty Coffee Recipes & Education">
+    <meta property="og:description" content="Precision coffee extraction guides, interactive dose calculators, and video reels by Marco's Coffee in Antalya.">
+    <meta property="og:image" content="https://marcoscoffee.shop/1234.png">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://marcoscoffee.shop/">
+    <meta name="twitter:title" content="Marco's Coffee | Specialty Coffee Education">
+    <meta name="twitter:description" content="Interactive specialty coffee brew guides and barista consulting.">
+    <meta name="twitter:image" content="https://marcoscoffee.shop/1234.png">
+
     <!-- PWA Primary Meta Tags -->
     <meta name="theme-color" content="#0B0F15">
-    <meta name="description" content="Specialty Coffee Education, Precision Recipes & Roastery in Antalya.">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Marco's Coffee">
     <link rel="apple-touch-icon" href="1234.png">
+
+    <!-- Schema.org Structured Data (JSON-LD for Google Rich Snippets & Local Business) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CoffeeRoaster",
+          "@id": "https://marcoscoffee.shop/#organization",
+          "name": "Marco's Coffee",
+          "url": "https://marcoscoffee.shop/",
+          "logo": "https://marcoscoffee.shop/1234.png",
+          "image": "https://marcoscoffee.shop/1234.png",
+          "description": "Specialty Coffee Education, Precision Recipes & Roastery in Antalya.",
+          "telephone": "+905078677978",
+          "email": "marcoacachoduran@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Antalya",
+            "addressCountry": "TR"
+          },
+          "sameAs": [
+            "https://www.instagram.com/marcoscoffeeantalya"
+          ]
+        },
+        {
+          "@type": "Recipe",
+          "@id": "https://marcoscoffee.shop/#espresso-recipe",
+          "name": "Golden Crema Espresso Doppio",
+          "author": {
+            "@type": "Person",
+            "name": "Marco"
+          },
+          "description": "Sweet, full-bodied & perfectly balanced double espresso extraction with 6s pre-infusion and 27s total time.",
+          "prepTime": "PT1M",
+          "cookTime": "PT27S",
+          "totalTime": "PT1M27S",
+          "keywords": "Espresso, Specialty Coffee, Espresso Doppio, Marco's Coffee",
+          "recipeYield": "1 serving",
+          "recipeCategory": "Beverage",
+          "recipeCuisine": "Italian / Specialty",
+          "recipeIngredient": [
+            "18.0g freshly roasted specialty coffee beans",
+            "34.0g filtered water yield in cup"
+          ]
+        }
+      ]
+    }
+    </script>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -194,7 +262,6 @@
                         <span data-i18n="hero-tagline">Antalya, Turkey • Specialty Coffee Culture</span>
                     </div>
 
-                    <!-- ENCABEZADO DE ALTO IMPACTO -->
                     <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
                         <span data-i18n="hero-title-1">Más que café,</span> <br class="hidden sm:inline">
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-iceblue to-accentblue" data-i18n="hero-title-2">Ciencia, Arte y Pasión.</span>
@@ -703,7 +770,7 @@
         /* ==================== DYNAMIC PWA & SERVICE WORKER ==================== */
         if ('serviceWorker' in navigator) {
             const swCode = `
-                const CACHE_NAME = 'marcos-coffee-v6';
+                const CACHE_NAME = 'marcos-coffee-v7';
                 const urlsToCache = ['/', '/index.html', '/1234.png'];
                 self.addEventListener('install', e => e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(urlsToCache))));
                 self.addEventListener('fetch', e => e.respondWith(caches.match(e.request).then(r => r || fetch(e.request))));
