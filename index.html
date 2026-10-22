@@ -47,7 +47,6 @@
           "image": "https://marcoscoffee.shop/1234.png",
           "description": "Specialty Coffee Education, Precision Recipes & Roastery in Antalya.",
           "telephone": "+905078677978",
-          "email": "marcoacachoduran@gmail.com",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Antalya",
@@ -370,7 +369,7 @@
             <!-- Recipe Grid / Mobile Horizontal Snap Carousel -->
             <div id="recipe-grid" class="flex md:grid overflow-x-auto md:overflow-visible snap-carousel no-scrollbar md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 -mx-4 px-4 sm:mx-0 sm:px-0 pb-4">
                 
-                <!-- Espresso Doppio (OPCIÓN 1 AL FRENTE CON MEDIDAS EXACTAS) -->
+                <!-- Espresso Doppio -->
                 <div class="recipe-card snap-carousel-item min-w-[85vw] sm:min-w-0 bg-panelbg rounded-2xl overflow-hidden border border-panelborder hover:border-accentblue/50 transition-all duration-300 flex flex-col justify-between group" data-category="espresso">
                     <div>
                         <div class="relative h-48 sm:h-56 overflow-hidden">
@@ -728,9 +727,6 @@
                         <a href="https://wa.me/905078677978" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-panelbg text-coolgrey hover:text-white flex items-center justify-center transition-colors border border-panelborder">
                             <i class="fa-brands fa-whatsapp text-sm"></i>
                         </a>
-                        <a href="mailto:marcoacachoduran@gmail.com" class="w-8 h-8 rounded-lg bg-panelbg text-coolgrey hover:text-white flex items-center justify-center transition-colors border border-panelborder">
-                            <i class="fa-solid fa-envelope text-sm"></i>
-                        </a>
                     </div>
                 </div>
 
@@ -750,9 +746,6 @@
                         <i class="fa-solid fa-location-dot text-iceblue mr-1"></i> Antalya, Türkiye
                     </p>
                     <p class="text-xs text-coolgrey font-light">
-                        <i class="fa-solid fa-envelope text-iceblue mr-1"></i> marcoacachoduran@gmail.com
-                    </p>
-                    <p class="text-xs text-coolgrey font-light">
                         <i class="fa-brands fa-whatsapp text-iceblue mr-1"></i> +90 507 867 79 78
                     </p>
                 </div>
@@ -770,7 +763,7 @@
         /* ==================== DYNAMIC PWA & SERVICE WORKER ==================== */
         if ('serviceWorker' in navigator) {
             const swCode = `
-                const CACHE_NAME = 'marcos-coffee-v7';
+                const CACHE_NAME = 'marcos-coffee-v8';
                 const urlsToCache = ['/', '/index.html', '/1234.png'];
                 self.addEventListener('install', e => e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(urlsToCache))));
                 self.addEventListener('fetch', e => e.respondWith(caches.match(e.request).then(r => r || fetch(e.request))));
