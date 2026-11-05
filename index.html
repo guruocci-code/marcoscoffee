@@ -61,7 +61,6 @@
         .view-section { display: none; opacity: 0; transition: opacity 0.3s ease-in-out; }
         .view-section.active { display: block; opacity: 1; }
         
-        /* Smooth Video Splash Animation */
         #splash-screen {
             transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
         }
@@ -81,14 +80,21 @@
     <!-- ==================== CINEMATIC VIDEO SPLASH ENTRANCE ==================== -->
     <div id="splash-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-black overflow-hidden">
         
-        <!-- Video de la mirilla de la tostadora (roastery.mp4) -->
-        <video id="roaster-video" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover object-center opacity-70 scale-105 transform transition-transform duration-1000">
+        <!-- Video de fondo local -->
+        <video id="roaster-video" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover object-center opacity-65 scale-105 transform transition-transform duration-1000">
             <source src="roastery.mp4" type="video/mp4">
             Tu navegador no soporta la reproducción de video HTML5.
         </video>
 
-        <!-- Overlay de gradiente oscuro para legibilidad del texto -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/70"></div>
+        <!-- Overlay de gradiente oscuro -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/60"></div>
+
+        <!-- Selector de Idioma en la pantalla de bienvenida (Arriba a la derecha) -->
+        <div class="absolute top-6 right-6 z-20 flex space-x-1.5 bg-black/40 backdrop-blur-md p-1 rounded-full border border-white/20">
+            <button onclick="setLanguage('es')" class="px-3 py-1 rounded-full text-xs font-semibold text-white hover:bg-white/20 transition-colors" id="splash-lang-es">ES</button>
+            <button onclick="setLanguage('en')" class="px-3 py-1 rounded-full text-xs font-semibold text-white/70 hover:bg-white/20 transition-colors" id="splash-lang-en">EN</button>
+            <button onclick="setLanguage('tr')" class="px-3 py-1 rounded-full text-xs font-semibold text-white/70 hover:bg-white/20 transition-colors" id="splash-lang-tr">TR</button>
+        </div>
 
         <!-- Contenido central de bienvenida -->
         <div class="relative z-10 text-center px-6 max-w-xl space-y-6 text-white">
@@ -136,7 +142,7 @@
                 </div>
             </button>
 
-            <!-- Menú de Navegación por Pestañas (Desktop) -->
+            <!-- Menú Desktop -->
             <nav class="hidden md:flex items-center space-x-1 bg-softgrey p-1 rounded-full border border-bordergrey">
                 <button onclick="switchView('home')" id="nav-home" class="nav-btn px-5 py-1.5 rounded-full text-xs font-semibold text-darktext transition-all bg-cardwhite shadow-sm" data-i18n="nav-home">
                     Inicio
@@ -152,13 +158,13 @@
                 </button>
             </nav>
 
-            <!-- Controles: Ver Video de nuevo, Idioma & WhatsApp -->
+            <!-- Controles: Video, Idioma & WhatsApp -->
             <div class="hidden sm:flex items-center space-x-3">
                 <button onclick="replaySplash()" title="Ver Video Tostadora" class="w-8 h-8 rounded-lg border border-bordergrey bg-cardwhite text-mutedtext hover:text-darktext flex items-center justify-center transition-colors">
                     <i class="fa-solid fa-film text-xs"></i>
                 </button>
 
-                <!-- Selector de Idioma -->
+                <!-- Selector de Idioma Navbar -->
                 <div class="relative id-lang-dropdown-container">
                     <button onclick="toggleLangDropdown(event)" class="px-3 py-1.5 rounded-lg border border-bordergrey text-xs font-semibold bg-cardwhite hover:bg-softgrey transition-colors flex items-center space-x-1.5">
                         <i class="fa-solid fa-globe text-mutedtext"></i>
@@ -178,13 +184,12 @@
                 </a>
             </div>
 
-            <!-- Botón Menú Móvil -->
             <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-darktext p-2 rounded-lg border border-bordergrey bg-cardwhite">
                 <i class="fa-solid fa-bars text-sm"></i>
             </button>
         </div>
 
-        <!-- Menú Desplegable Móvil -->
+        <!-- Menú Móvil -->
         <div id="mobile-menu" class="hidden md:hidden bg-cardwhite border-b border-bordergrey px-4 py-4 space-y-3">
             <div class="grid grid-cols-2 gap-2 text-xs font-semibold">
                 <button onclick="switchView('home'); toggleMobileMenu()" class="p-3 rounded-xl bg-softgrey text-darktext text-left">
@@ -231,7 +236,6 @@
                     Explora recetas de extracción de precisión, guías interactivas para baristas y consultoría especializada directamente desde Marco's Coffee.
                 </p>
 
-                <!-- Tarjetas de Navegación Rápida -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 text-left">
                     <button onclick="switchView('recipes')" class="p-5 bg-cardwhite rounded-2xl border border-bordergrey hover:border-coffeebrown transition-all group shadow-sm">
                         <i class="fa-solid fa-mug-saucer text-coffeebrown text-xl mb-3 block"></i>
@@ -252,7 +256,6 @@
                     </button>
                 </div>
 
-                <!-- Estadísticas de Confianza -->
                 <div class="pt-8 border-t border-bordergrey grid grid-cols-3 gap-4 text-center">
                     <div>
                         <p class="text-xl font-bold text-darktext">100%</p>
@@ -280,17 +283,13 @@
                 </div>
             </div>
 
-            <!-- Filtros de Receta -->
             <div class="flex space-x-2 border-b border-bordergrey pb-3 overflow-x-auto">
                 <button onclick="filterRecipes('all')" class="recipe-tab px-4 py-1.5 rounded-full text-xs font-semibold bg-darktext text-white shrink-0" data-filter="all" data-i18n="filter-all">Todas</button>
                 <button onclick="filterRecipes('espresso')" class="recipe-tab px-4 py-1.5 rounded-full text-xs font-semibold bg-cardwhite text-mutedtext border border-bordergrey shrink-0" data-filter="espresso" data-i18n="filter-espresso">Espresso</button>
                 <button onclick="filterRecipes('manual')" class="recipe-tab px-4 py-1.5 rounded-full text-xs font-semibold bg-cardwhite text-mutedtext border border-bordergrey shrink-0" data-filter="manual" data-i18n="filter-manual">Filtrados</button>
             </div>
 
-            <!-- Grid de Recetas -->
             <div id="recipe-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Espresso -->
                 <div class="recipe-card bg-cardwhite rounded-2xl border border-bordergrey overflow-hidden shadow-sm flex flex-col justify-between" data-category="espresso">
                     <div class="p-5 space-y-3">
                         <span class="text-[10px] uppercase font-bold text-coffeebrown bg-softgrey px-2.5 py-1 rounded-md">Espresso Core</span>
@@ -308,7 +307,6 @@
                     </div>
                 </div>
 
-                <!-- Bicerin -->
                 <div class="recipe-card bg-cardwhite rounded-2xl border border-bordergrey overflow-hidden shadow-sm flex flex-col justify-between" data-category="espresso">
                     <div class="p-5 space-y-3">
                         <span class="text-[10px] uppercase font-bold text-coffeebrown bg-softgrey px-2.5 py-1 rounded-md">Bebida de Autor</span>
@@ -326,7 +324,6 @@
                     </div>
                 </div>
 
-                <!-- V60 -->
                 <div class="recipe-card bg-cardwhite rounded-2xl border border-bordergrey overflow-hidden shadow-sm flex flex-col justify-between" data-category="manual">
                     <div class="p-5 space-y-3">
                         <span class="text-[10px] uppercase font-bold text-coffeebrown bg-softgrey px-2.5 py-1 rounded-md">Método Manual</span>
@@ -343,7 +340,6 @@
                         </button>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -445,7 +441,7 @@
     </main>
 
 
-    <!-- ==================== MODAL DE RECETAS & CALCULADORA ==================== -->
+    <!-- ==================== MODAL DE RECETAS ==================== -->
     <div id="recipe-modal" class="fixed inset-0 z-50 hidden bg-darktext/30 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
         <div class="bg-cardwhite border-t sm:border border-bordergrey w-full max-w-lg rounded-t-3xl sm:rounded-3xl overflow-hidden shadow-xl max-h-[90vh] flex flex-col">
             
@@ -459,7 +455,6 @@
             <div class="p-6 space-y-5 overflow-y-auto">
                 <h2 id="modal-title" class="font-display text-xl font-bold text-darktext">Título Receta</h2>
 
-                <!-- Calculadora -->
                 <div class="p-4 bg-softgrey rounded-2xl border border-bordergrey space-y-2">
                     <div class="flex justify-between text-xs font-semibold">
                         <span class="text-darktext" data-i18n="calc-title">Calculadora de Dosis</span>
@@ -468,7 +463,6 @@
                     <input type="range" id="dose-slider" min="1" max="4" value="1" step="1" oninput="updateRecipeCalculations()" class="w-full accent-coffeebrown">
                 </div>
 
-                <!-- Temporizador Barista -->
                 <div class="p-4 border border-bordergrey rounded-2xl flex items-center justify-between">
                     <div>
                         <span class="text-[10px] text-mutedtext block font-semibold uppercase" data-i18n="timer-title">Temporizador</span>
@@ -484,19 +478,16 @@
                     </div>
                 </div>
 
-                <!-- Ingredientes -->
                 <div>
                     <h4 class="text-xs font-bold uppercase text-mutedtext mb-2" data-i18n="ingredients-title">Ingredientes Recalculados</h4>
                     <ul id="modal-ingredients" class="space-y-1.5 text-xs text-darktext"></ul>
                 </div>
 
-                <!-- Pasos -->
                 <div>
                     <h4 class="text-xs font-bold uppercase text-mutedtext mb-2" data-i18n="steps-title">Pasos de Extracción</h4>
                     <ol id="modal-steps" class="space-y-1.5 text-xs text-mutedtext list-decimal list-inside leading-relaxed"></ol>
                 </div>
 
-                <!-- Embed Reel -->
                 <div id="reel-container" class="pt-2 border-t border-bordergrey">
                     <h4 class="text-xs font-bold uppercase text-mutedtext mb-2" data-i18n="video-title">Video Guía</h4>
                     <div class="w-full rounded-2xl overflow-hidden bg-softgrey flex justify-center py-2">
@@ -523,7 +514,6 @@
 
     <!-- ==================== JAVASCRIPT LOGIC ==================== -->
     <script>
-        /* --- 1. CONTROLES DEL VIDEO HERO DE ENTRADA --- */
         function enterSite() {
             const splash = document.getElementById('splash-screen');
             splash.classList.add('hidden-splash');
@@ -548,7 +538,7 @@
             }
         }
 
-        /* --- 2. DICCIONARIO DE TRADUCCIONES (i18n) --- */
+        /* --- TRADUCCIONES EN TIEMPO REAL --- */
         const i18n = {
             es: {
                 'nav-home': 'Inicio',
@@ -691,17 +681,33 @@
             currentLang = lang;
             try { localStorage.setItem('marcos_coffee_lang', lang); } catch(e) {}
             
+            // Actualizar etiqueta navbar
             document.getElementById('current-lang-text').innerText = lang.toUpperCase();
             
+            // Reemplazar textos traducibles
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (i18n[lang][key]) el.innerHTML = i18n[lang][key];
             });
 
-            document.getElementById('lang-dropdown-menu').classList.add('hidden');
+            // Resaltar idioma activo en el Splash Screen
+            ['es', 'en', 'tr'].forEach(l => {
+                const btn = document.getElementById(`splash-lang-${l}`);
+                if (btn) {
+                    if (l === lang) {
+                        btn.classList.remove('text-white/70');
+                        btn.classList.add('text-white', 'bg-white/20');
+                    } else {
+                        btn.classList.remove('text-white', 'bg-white/20');
+                        btn.classList.add('text-white/70');
+                    }
+                }
+            });
+
+            const langDropdown = document.getElementById('lang-dropdown-menu');
+            if (langDropdown) langDropdown.classList.add('hidden');
         }
 
-        /* --- 3. NAVEGACIÓN SPA ENTRE PESTAÑAS --- */
         function switchView(viewId) {
             document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(btn => {
@@ -721,7 +727,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        /* --- 4. DATOS DE RECETAS Y CALCULADORA --- */
         const recipesData = {
             'espresso': {
                 title: 'Golden Crema Espresso Doppio',
@@ -867,7 +872,8 @@
         });
 
         document.addEventListener('click', () => {
-            document.getElementById('lang-dropdown-menu').classList.add('hidden');
+            const langDropdown = document.getElementById('lang-dropdown-menu');
+            if (langDropdown) langDropdown.classList.add('hidden');
         });
     </script>
 </body>
