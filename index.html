@@ -1,4 +1,4 @@
-html_content = '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="h-full">
 <head>
     <meta charset="UTF-8">
@@ -32,7 +32,7 @@ html_content = '''<!DOCTYPE html>
     <!-- Google Fonts: Playfair Display & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -46,7 +46,7 @@ html_content = '''<!DOCTYPE html>
                         iceblue: '#E0F2FE',       /* Azul helado claro */
                         icebluehover: '#BAE6FD',  /* Azul helado para hover */
                         accentblue: '#0284C7',    /* Azul profesional elegante */
-                        darktext: '#0F172A',      /* Azul pizarra muy oscuro para lectura legible */
+                        darktext: '#0F172A',      /* Azul pizarra muy oscuro */
                         mutedtext: '#64748B'      /* Gris medio elegante */
                     },
                     fontFamily: {
@@ -106,7 +106,7 @@ html_content = '''<!DOCTYPE html>
                 <span data-i18n="hero-tagline">Antalya, Turkey • Specialty Coffee Culture</span>
             </div>
 
-            <h1 class="font-serif italic text-4xl sm:text-6xl font-normal tracking-tight text-white leading-tight">
+            <h1 class="font-serif text-4xl sm:text-6xl font-normal tracking-tight text-white leading-tight">
                 Marco's Coffee
             </h1>
 
@@ -231,7 +231,7 @@ html_content = '''<!DOCTYPE html>
                 
                 <h1 class="font-serif text-3xl sm:text-5xl font-medium tracking-tight text-darktext leading-tight">
                     <span data-i18n="hero-title-1">Más que café,</span> <br>
-                    <span class="italic text-slate-600 font-normal" data-i18n="hero-title-2">Ciencia, Arte y Pasión.</span>
+                    <span class="text-slate-600 font-normal" data-i18n="hero-title-2">Ciencia, Arte y Pasión.</span>
                 </h1>
 
                 <p class="text-mutedtext text-sm sm:text-base leading-relaxed font-normal max-w-lg mx-auto" data-i18n="hero-description">
@@ -891,9 +891,4 @@ html_content = '''<!DOCTYPE html>
         });
     </script>
 </body>
-</html>'''
-
-with open('index.html', 'w', encoding='utf-8') as f:
-    f.write(html_content)
-
-print("Plantilla clara actualizada en index.html exitosamente.")
+</html>
