@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_content = '''<!DOCTYPE html>
 <html lang="es" class="h-full">
 <head>
     <meta charset="UTF-8">
@@ -18,7 +18,7 @@
     <meta property="og:image" content="https://marcoscoffee.shop/1234.png">
 
     <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#F7F5F0">
+    <meta name="theme-color" content="#F8FAFC">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -29,27 +29,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Inter & Outfit -->
+    <!-- Google Fonts: Playfair Display & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        sandbg: '#F7F5F0',
-                        cardwhite: '#FFFFFF',
-                        softgrey: '#EFECE6',
-                        bordergrey: '#E2DDD5',
-                        coffeebrown: '#A35C37',
-                        darktext: '#1C1917',
-                        mutedtext: '#78716C'
+                        sitebg: '#F8FAFC',        /* Blanco slate / gris ultra claro */
+                        cardwhite: '#FFFFFF',     /* Blanco puro para tarjetas */
+                        softslate: '#F1F5F9',     /* Gris claro suave para bordes/botones */
+                        bordergrey: '#E2E8F0',    /* Gris de estructura */
+                        iceblue: '#E0F2FE',       /* Azul helado claro */
+                        icebluehover: '#BAE6FD',  /* Azul helado para hover */
+                        accentblue: '#0284C7',    /* Azul profesional elegante */
+                        darktext: '#0F172A',      /* Azul pizarra muy oscuro para lectura legible */
+                        mutedtext: '#64748B'      /* Gris medio elegante */
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        display: ['Outfit', 'sans-serif']
+                        serif: ['Playfair Display', 'serif']
                     }
                 }
             }
@@ -57,7 +59,7 @@
     </script>
     <style>
         body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, .font-display { font-family: 'Outfit', sans-serif; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
         .view-section { display: none; opacity: 0; transition: opacity 0.3s ease-in-out; }
         .view-section.active { display: block; opacity: 1; }
         
@@ -71,49 +73,49 @@
         }
 
         ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #F7F5F0; }
-        ::-webkit-scrollbar-thumb { background: #E2DDD5; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #F8FAFC; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
     </style>
 </head>
-<body class="bg-sandbg text-darktext antialiased min-h-screen flex flex-col justify-between selection:bg-coffeebrown selection:text-white">
+<body class="bg-sitebg text-darktext antialiased min-h-screen flex flex-col justify-between selection:bg-iceblue selection:text-darktext">
 
     <!-- ==================== CINEMATIC VIDEO SPLASH ENTRANCE ==================== -->
-    <div id="splash-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-black overflow-hidden">
+    <div id="splash-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950 overflow-hidden">
         
         <!-- Video de fondo local -->
-        <video id="roaster-video" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover object-center opacity-65 scale-105 transform transition-transform duration-1000">
+        <video id="roaster-video" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover object-center opacity-70 scale-105 transform transition-transform duration-1000">
             <source src="roastery.mp4" type="video/mp4">
             Tu navegador no soporta la reproducción de video HTML5.
         </video>
 
-        <!-- Overlay de gradiente oscuro -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/60"></div>
+        <!-- Overlay de filtro profesional -->
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-slate-950/70"></div>
 
-        <!-- Selector de Idioma en la pantalla de bienvenida (Arriba a la derecha) -->
-        <div class="absolute top-6 right-6 z-20 flex space-x-1.5 bg-black/40 backdrop-blur-md p-1 rounded-full border border-white/20">
-            <button onclick="setLanguage('es')" class="px-3 py-1 rounded-full text-xs font-semibold text-white hover:bg-white/20 transition-colors" id="splash-lang-es">ES</button>
-            <button onclick="setLanguage('en')" class="px-3 py-1 rounded-full text-xs font-semibold text-white/70 hover:bg-white/20 transition-colors" id="splash-lang-en">EN</button>
-            <button onclick="setLanguage('tr')" class="px-3 py-1 rounded-full text-xs font-semibold text-white/70 hover:bg-white/20 transition-colors" id="splash-lang-tr">TR</button>
+        <!-- Selector de Idioma en el Splash -->
+        <div class="absolute top-6 right-6 z-20 flex space-x-1.5 bg-slate-900/50 backdrop-blur-md p-1 rounded-full border border-slate-700/50">
+            <button onclick="setLanguage('es')" class="px-3 py-1 rounded-full text-xs font-semibold text-white hover:bg-slate-700/50 transition-colors" id="splash-lang-es">ES</button>
+            <button onclick="setLanguage('en')" class="px-3 py-1 rounded-full text-xs font-semibold text-slate-300 hover:bg-slate-700/50 transition-colors" id="splash-lang-en">EN</button>
+            <button onclick="setLanguage('tr')" class="px-3 py-1 rounded-full text-xs font-semibold text-slate-300 hover:bg-slate-700/50 transition-colors" id="splash-lang-tr">TR</button>
         </div>
 
         <!-- Contenido central de bienvenida -->
         <div class="relative z-10 text-center px-6 max-w-xl space-y-6 text-white">
             
-            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-medium tracking-widest uppercase">
-                <span class="w-2 h-2 rounded-full bg-coffeebrown animate-pulse"></span>
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-slate-800/60 backdrop-blur-md border border-slate-600/50 text-xs font-medium tracking-widest uppercase">
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
                 <span data-i18n="hero-tagline">Antalya, Turkey • Specialty Coffee Culture</span>
             </div>
 
-            <h1 class="font-display text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
+            <h1 class="font-serif italic text-4xl sm:text-6xl font-normal tracking-tight text-white leading-tight">
                 Marco's Coffee
             </h1>
 
-            <p class="text-white/80 text-sm sm:text-base font-light leading-relaxed max-w-md mx-auto" data-i18n="splash-subtitle">
+            <p class="text-slate-300 text-sm sm:text-base font-light leading-relaxed max-w-md mx-auto" data-i18n="splash-subtitle">
                 Ciencia de tueste, extracción de precisión y cultura de café de especialidad.
             </p>
 
             <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
-                <button onclick="enterSite()" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-darktext hover:bg-coffeebrown hover:text-white font-semibold text-xs uppercase tracking-wider transition-all duration-300 shadow-lg flex items-center justify-center space-x-2">
+                <button onclick="enterSite()" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-slate-900 hover:bg-sky-100 font-semibold text-xs uppercase tracking-wider transition-all duration-300 shadow-lg flex items-center justify-center space-x-2">
                     <span data-i18n="btn-enter-site">Entrar a la Experiencia</span>
                     <i class="fa-solid fa-arrow-right text-xs"></i>
                 </button>
@@ -121,7 +123,7 @@
         </div>
 
         <!-- Botón flotante para pausar/reproducir video -->
-        <button onclick="toggleRoasterVideo()" class="absolute bottom-6 right-6 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white/20 transition-colors">
+        <button onclick="toggleRoasterVideo()" class="absolute bottom-6 right-6 z-20 w-10 h-10 rounded-full bg-slate-900/50 backdrop-blur-md border border-slate-700/50 text-white flex items-center justify-center hover:bg-slate-800/50 transition-colors">
             <i id="video-control-icon" class="fa-solid fa-pause text-xs"></i>
         </button>
     </div>
@@ -133,17 +135,17 @@
             
             <!-- Logo Brand -->
             <button onclick="switchView('home')" class="flex items-center space-x-3 text-left group focus:outline-none">
-                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-softgrey border border-bordergrey flex items-center justify-center p-1 overflow-hidden group-hover:border-coffeebrown transition-colors">
-                    <img src="1234.png" alt="Marco's Coffee" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x100/EFECE6/1C1917?text=MC';">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-softslate border border-bordergrey flex items-center justify-center p-1 overflow-hidden group-hover:border-accentblue transition-colors">
+                    <img src="1234.png" alt="Marco's Coffee" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x100/F1F5F9/0F172A?text=MC';">
                 </div>
                 <div>
-                    <span class="font-display block text-base sm:text-lg font-bold tracking-tight text-darktext group-hover:text-coffeebrown transition-colors">Marco's Coffee</span>
+                    <span class="font-serif block text-lg sm:text-xl font-semibold tracking-tight text-darktext group-hover:text-accentblue transition-colors">Marco's Coffee</span>
                     <span class="block text-[9px] uppercase tracking-widest text-mutedtext font-medium">Specialty Roastery</span>
                 </div>
             </button>
 
             <!-- Menú Desktop -->
-            <nav class="hidden md:flex items-center space-x-1 bg-softgrey p-1 rounded-full border border-bordergrey">
+            <nav class="hidden md:flex items-center space-x-1 bg-softslate p-1 rounded-full border border-bordergrey">
                 <button onclick="switchView('home')" id="nav-home" class="nav-btn px-5 py-1.5 rounded-full text-xs font-semibold text-darktext transition-all bg-cardwhite shadow-sm" data-i18n="nav-home">
                     Inicio
                 </button>
@@ -166,19 +168,19 @@
 
                 <!-- Selector de Idioma Navbar -->
                 <div class="relative id-lang-dropdown-container">
-                    <button onclick="toggleLangDropdown(event)" class="px-3 py-1.5 rounded-lg border border-bordergrey text-xs font-semibold bg-cardwhite hover:bg-softgrey transition-colors flex items-center space-x-1.5">
+                    <button onclick="toggleLangDropdown(event)" class="px-3 py-1.5 rounded-lg border border-bordergrey text-xs font-semibold bg-cardwhite hover:bg-softslate transition-colors flex items-center space-x-1.5">
                         <i class="fa-solid fa-globe text-mutedtext"></i>
                         <span id="current-lang-text">ES</span>
                         <i class="fa-solid fa-chevron-down text-[10px] text-mutedtext"></i>
                     </button>
                     <div id="lang-dropdown-menu" class="absolute right-0 mt-2 w-28 bg-cardwhite border border-bordergrey rounded-xl shadow-lg py-1 hidden z-50">
-                        <button onclick="setLanguage('es')" class="w-full text-left px-4 py-1.5 text-xs hover:bg-softgrey flex justify-between text-darktext"><span>Español</span><span class="text-mutedtext">ES</span></button>
-                        <button onclick="setLanguage('en')" class="w-full text-left px-4 py-1.5 text-xs hover:bg-softgrey flex justify-between text-darktext"><span>English</span><span class="text-mutedtext">EN</span></button>
-                        <button onclick="setLanguage('tr')" class="w-full text-left px-4 py-1.5 text-xs hover:bg-softgrey flex justify-between text-darktext"><span>Türkçe</span><span class="text-mutedtext">TR</span></button>
+                        <button onclick="setLanguage('es')" class="w-full text-left px-4 py-1.5 text-xs hover:bg-softslate flex justify-between text-darktext"><span>Español</span><span class="text-mutedtext">ES</span></button>
+                        <button onclick="setLanguage('en')" class="w-full text-left px-4 py-1.5 text-xs hover:bg-softslate flex justify-between text-darktext"><span>English</span><span class="text-mutedtext">EN</span></button>
+                        <button onclick="setLanguage('tr')" class="w-full text-left px-4 py-1.5 text-xs hover:bg-softslate flex justify-between text-darktext"><span>Türkçe</span><span class="text-mutedtext">TR</span></button>
                     </div>
                 </div>
 
-                <a href="https://wa.me/905078677978" target="_blank" class="bg-darktext hover:bg-coffeebrown text-white px-4 py-1.5 rounded-lg text-xs font-semibold transition-colors flex items-center space-x-1.5">
+                <a href="https://wa.me/905078677978" target="_blank" class="bg-darktext hover:bg-accentblue text-white px-4 py-1.5 rounded-lg text-xs font-semibold transition-colors flex items-center space-x-1.5 shadow-sm">
                     <i class="fa-brands fa-whatsapp"></i>
                     <span data-i18n="cta-whatsapp">Contacto</span>
                 </a>
@@ -192,17 +194,17 @@
         <!-- Menú Móvil -->
         <div id="mobile-menu" class="hidden md:hidden bg-cardwhite border-b border-bordergrey px-4 py-4 space-y-3">
             <div class="grid grid-cols-2 gap-2 text-xs font-semibold">
-                <button onclick="switchView('home'); toggleMobileMenu()" class="p-3 rounded-xl bg-softgrey text-darktext text-left">
-                    <i class="fa-solid fa-house text-coffeebrown mr-2"></i> <span data-i18n="nav-home">Inicio</span>
+                <button onclick="switchView('home'); toggleMobileMenu()" class="p-3 rounded-xl bg-softslate text-darktext text-left">
+                    <i class="fa-solid fa-house text-accentblue mr-2"></i> <span data-i18n="nav-home">Inicio</span>
                 </button>
-                <button onclick="switchView('recipes'); toggleMobileMenu()" class="p-3 rounded-xl bg-softgrey text-darktext text-left">
-                    <i class="fa-solid fa-mug-saucer text-coffeebrown mr-2"></i> <span data-i18n="nav-recipes">Recetas</span>
+                <button onclick="switchView('recipes'); toggleMobileMenu()" class="p-3 rounded-xl bg-softslate text-darktext text-left">
+                    <i class="fa-solid fa-mug-saucer text-accentblue mr-2"></i> <span data-i18n="nav-recipes">Recetas</span>
                 </button>
-                <button onclick="switchView('education'); toggleMobileMenu()" class="p-3 rounded-xl bg-softgrey text-darktext text-left">
-                    <i class="fa-solid fa-graduation-cap text-coffeebrown mr-2"></i> <span data-i18n="nav-education">Educación</span>
+                <button onclick="switchView('education'); toggleMobileMenu()" class="p-3 rounded-xl bg-softslate text-darktext text-left">
+                    <i class="fa-solid fa-graduation-cap text-accentblue mr-2"></i> <span data-i18n="nav-education">Educación</span>
                 </button>
-                <button onclick="switchView('roastery'); toggleMobileMenu()" class="p-3 rounded-xl bg-softgrey text-darktext text-left">
-                    <i class="fa-solid fa-fire-burner text-coffeebrown mr-2"></i> <span data-i18n="nav-roastery">Tostaduría</span>
+                <button onclick="switchView('roastery'); toggleMobileMenu()" class="p-3 rounded-xl bg-softslate text-darktext text-left">
+                    <i class="fa-solid fa-fire-burner text-accentblue mr-2"></i> <span data-i18n="nav-roastery">Tostaduría</span>
                 </button>
             </div>
             <div class="pt-2 border-t border-bordergrey flex justify-between items-center">
@@ -223,51 +225,59 @@
         <!-- VISTA 1: INICIO -->
         <section id="view-home" class="view-section active">
             <div class="max-w-2xl mx-auto text-center space-y-6">
-                <span class="inline-block px-3.5 py-1 rounded-full bg-softgrey border border-bordergrey text-xs font-medium text-mutedtext uppercase tracking-widest" data-i18n="hero-tagline">
+                <span class="inline-block px-3.5 py-1 rounded-full bg-iceblue border border-sky-200 text-xs font-semibold text-accentblue uppercase tracking-widest" data-i18n="hero-tagline">
                     Antalya, Turkey • Specialty Coffee Culture
                 </span>
                 
-                <h1 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-darktext leading-tight">
+                <h1 class="font-serif text-3xl sm:text-5xl font-medium tracking-tight text-darktext leading-tight">
                     <span data-i18n="hero-title-1">Más que café,</span> <br>
-                    <span class="text-coffeebrown font-normal" data-i18n="hero-title-2">Ciencia, Arte y Pasión.</span>
+                    <span class="italic text-slate-600 font-normal" data-i18n="hero-title-2">Ciencia, Arte y Pasión.</span>
                 </h1>
 
-                <p class="text-mutedtext text-sm sm:text-base leading-relaxed font-normal" data-i18n="hero-description">
+                <p class="text-mutedtext text-sm sm:text-base leading-relaxed font-normal max-w-lg mx-auto" data-i18n="hero-description">
                     Explora recetas de extracción de precisión, guías interactivas para baristas y consultoría especializada directamente desde Marco's Coffee.
                 </p>
 
+                <!-- Tarjetas de Navegación Rápida -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 text-left">
-                    <button onclick="switchView('recipes')" class="p-5 bg-cardwhite rounded-2xl border border-bordergrey hover:border-coffeebrown transition-all group shadow-sm">
-                        <i class="fa-solid fa-mug-saucer text-coffeebrown text-xl mb-3 block"></i>
-                        <h3 class="font-semibold text-sm text-darktext group-hover:text-coffeebrown" data-i18n="nav-recipes">Recetas</h3>
-                        <p class="text-xs text-mutedtext mt-1" data-i18n="card-recipes-desc">Calculadora de dosis y tiempos de extracción.</p>
+                    <button onclick="switchView('recipes')" class="p-6 bg-cardwhite rounded-2xl border border-bordergrey hover:border-sky-300 hover:shadow-md transition-all group shadow-sm">
+                        <div class="w-10 h-10 rounded-xl bg-iceblue flex items-center justify-center text-accentblue mb-3 group-hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-mug-saucer text-lg"></i>
+                        </div>
+                        <h3 class="font-serif text-base font-semibold text-darktext group-hover:text-accentblue transition-colors" data-i18n="nav-recipes">Recetas</h3>
+                        <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="card-recipes-desc">Calculadora de dosis y tiempos de extracción.</p>
                     </button>
 
-                    <button onclick="switchView('education')" class="p-5 bg-cardwhite rounded-2xl border border-bordergrey hover:border-coffeebrown transition-all group shadow-sm">
-                        <i class="fa-solid fa-graduation-cap text-coffeebrown text-xl mb-3 block"></i>
-                        <h3 class="font-semibold text-sm text-darktext group-hover:text-coffeebrown" data-i18n="nav-education">Educación</h3>
-                        <p class="text-xs text-mutedtext mt-1" data-i18n="card-edu-desc">Talleres y calibración de espresso.</p>
+                    <button onclick="switchView('education')" class="p-6 bg-cardwhite rounded-2xl border border-bordergrey hover:border-sky-300 hover:shadow-md transition-all group shadow-sm">
+                        <div class="w-10 h-10 rounded-xl bg-iceblue flex items-center justify-center text-accentblue mb-3 group-hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-graduation-cap text-lg"></i>
+                        </div>
+                        <h3 class="font-serif text-base font-semibold text-darktext group-hover:text-accentblue transition-colors" data-i18n="nav-education">Educación</h3>
+                        <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="card-edu-desc">Talleres y calibración de espresso.</p>
                     </button>
 
-                    <button onclick="switchView('roastery')" class="p-5 bg-cardwhite rounded-2xl border border-bordergrey hover:border-coffeebrown transition-all group shadow-sm">
-                        <i class="fa-solid fa-fire-burner text-coffeebrown text-xl mb-3 block"></i>
-                        <h3 class="font-semibold text-sm text-darktext group-hover:text-coffeebrown" data-i18n="nav-roastery">Tostaduría</h3>
-                        <p class="text-xs text-mutedtext mt-1" data-i18n="card-roastery-desc">Granos de especialidad en Antalya.</p>
+                    <button onclick="switchView('roastery')" class="p-6 bg-cardwhite rounded-2xl border border-bordergrey hover:border-sky-300 hover:shadow-md transition-all group shadow-sm">
+                        <div class="w-10 h-10 rounded-xl bg-iceblue flex items-center justify-center text-accentblue mb-3 group-hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-fire-burner text-lg"></i>
+                        </div>
+                        <h3 class="font-serif text-base font-semibold text-darktext group-hover:text-accentblue transition-colors" data-i18n="nav-roastery">Tostaduría</h3>
+                        <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="card-roastery-desc">Granos de especialidad en Antalya.</p>
                     </button>
                 </div>
 
+                <!-- Estadísticas -->
                 <div class="pt-8 border-t border-bordergrey grid grid-cols-3 gap-4 text-center">
                     <div>
-                        <p class="text-xl font-bold text-darktext">100%</p>
-                        <p class="text-[11px] text-mutedtext" data-i18n="stat-arabica">Arábica Especialidad</p>
+                        <p class="font-serif text-2xl font-semibold text-darktext">100%</p>
+                        <p class="text-[11px] text-mutedtext mt-0.5" data-i18n="stat-arabica">Arábica Especialidad</p>
                     </div>
                     <div>
-                        <p class="text-xl font-bold text-darktext">85+</p>
-                        <p class="text-[11px] text-mutedtext" data-i18n="stat-score">Puntaje de Cata</p>
+                        <p class="font-serif text-2xl font-semibold text-darktext">85+</p>
+                        <p class="text-[11px] text-mutedtext mt-0.5" data-i18n="stat-score">Puntaje de Cata</p>
                     </div>
                     <div>
-                        <p class="text-xl font-bold text-darktext">Global</p>
-                        <p class="text-[11px] text-mutedtext" data-i18n="stat-education">Educación de Café</p>
+                        <p class="font-serif text-2xl font-semibold text-darktext">Global</p>
+                        <p class="text-[11px] text-mutedtext mt-0.5" data-i18n="stat-education">Educación de Café</p>
                     </div>
                 </div>
             </div>
@@ -278,68 +288,75 @@
         <section id="view-recipes" class="view-section space-y-6">
             <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-bordergrey pb-6">
                 <div>
-                    <h2 class="font-display text-2xl sm:text-3xl font-bold text-darktext" data-i18n="recipes-section-title">Recetas de Café de Especialidad</h2>
+                    <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-darktext" data-i18n="recipes-section-title">Recetas de Café de Especialidad</h2>
                     <p class="text-xs sm:text-sm text-mutedtext mt-1" data-i18n="recipes-section-desc">Selecciona un método para abrir la calculadora y la guía interactiva.</p>
                 </div>
             </div>
 
+            <!-- Filtros de Receta -->
             <div class="flex space-x-2 border-b border-bordergrey pb-3 overflow-x-auto">
                 <button onclick="filterRecipes('all')" class="recipe-tab px-4 py-1.5 rounded-full text-xs font-semibold bg-darktext text-white shrink-0" data-filter="all" data-i18n="filter-all">Todas</button>
                 <button onclick="filterRecipes('espresso')" class="recipe-tab px-4 py-1.5 rounded-full text-xs font-semibold bg-cardwhite text-mutedtext border border-bordergrey shrink-0" data-filter="espresso" data-i18n="filter-espresso">Espresso</button>
                 <button onclick="filterRecipes('manual')" class="recipe-tab px-4 py-1.5 rounded-full text-xs font-semibold bg-cardwhite text-mutedtext border border-bordergrey shrink-0" data-filter="manual" data-i18n="filter-manual">Filtrados</button>
             </div>
 
+            <!-- Grid de Recetas -->
             <div id="recipe-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Espresso -->
                 <div class="recipe-card bg-cardwhite rounded-2xl border border-bordergrey overflow-hidden shadow-sm flex flex-col justify-between" data-category="espresso">
-                    <div class="p-5 space-y-3">
-                        <span class="text-[10px] uppercase font-bold text-coffeebrown bg-softgrey px-2.5 py-1 rounded-md">Espresso Core</span>
-                        <h3 class="font-bold text-base text-darktext">Perfect Espresso Doppio</h3>
+                    <div class="p-6 space-y-3">
+                        <span class="text-[10px] uppercase font-bold text-accentblue bg-iceblue px-2.5 py-1 rounded-md">Espresso Core</span>
+                        <h3 class="font-serif text-lg font-semibold text-darktext">Perfect Espresso Doppio</h3>
                         <p class="text-xs text-mutedtext leading-relaxed">Extracción balanceada y dulzura natural. 18.0g de café para 34.0g en taza.</p>
                         <div class="pt-2 text-[11px] text-mutedtext flex justify-between font-mono">
                             <span>27s Tiempo</span>
                             <span>1:1.88 Ratio</span>
                         </div>
                     </div>
-                    <div class="p-5 pt-0">
-                        <button onclick="openRecipeModal('espresso')" class="w-full py-2.5 bg-softgrey hover:bg-darktext hover:text-white text-darktext text-xs font-semibold rounded-xl border border-bordergrey transition-colors" data-i18n="btn-open-calc">
+                    <div class="p-6 pt-0">
+                        <button onclick="openRecipeModal('espresso')" class="w-full py-2.5 bg-softslate hover:bg-darktext hover:text-white text-darktext text-xs font-semibold rounded-xl border border-bordergrey transition-colors" data-i18n="btn-open-calc">
                             Abrir Calculadora & Guía
                         </button>
                     </div>
                 </div>
 
+                <!-- Bicerin -->
                 <div class="recipe-card bg-cardwhite rounded-2xl border border-bordergrey overflow-hidden shadow-sm flex flex-col justify-between" data-category="espresso">
-                    <div class="p-5 space-y-3">
-                        <span class="text-[10px] uppercase font-bold text-coffeebrown bg-softgrey px-2.5 py-1 rounded-md">Bebida de Autor</span>
-                        <h3 class="font-bold text-base text-darktext">Italian Bicerin</h3>
+                    <div class="p-6 space-y-3">
+                        <span class="text-[10px] uppercase font-bold text-accentblue bg-iceblue px-2.5 py-1 rounded-md">Bebida de Autor</span>
+                        <h3 class="font-serif text-lg font-semibold text-darktext">Italian Bicerin</h3>
                         <p class="text-xs text-mutedtext leading-relaxed">Bebida tradicional de Turín con capas de chocolate denso, espresso y crema fría.</p>
                         <div class="pt-2 text-[11px] text-mutedtext flex justify-between font-mono">
                             <span>3 Capas</span>
                             <span>Turín Tradicional</span>
                         </div>
                     </div>
-                    <div class="p-5 pt-0">
-                        <button onclick="openRecipeModal('bicerin')" class="w-full py-2.5 bg-softgrey hover:bg-darktext hover:text-white text-darktext text-xs font-semibold rounded-xl border border-bordergrey transition-colors" data-i18n="btn-open-calc">
+                    <div class="p-6 pt-0">
+                        <button onclick="openRecipeModal('bicerin')" class="w-full py-2.5 bg-softslate hover:bg-darktext hover:text-white text-darktext text-xs font-semibold rounded-xl border border-bordergrey transition-colors" data-i18n="btn-open-calc">
                             Abrir Calculadora & Guía
                         </button>
                     </div>
                 </div>
 
+                <!-- V60 -->
                 <div class="recipe-card bg-cardwhite rounded-2xl border border-bordergrey overflow-hidden shadow-sm flex flex-col justify-between" data-category="manual">
-                    <div class="p-5 space-y-3">
-                        <span class="text-[10px] uppercase font-bold text-coffeebrown bg-softgrey px-2.5 py-1 rounded-md">Método Manual</span>
-                        <h3 class="font-bold text-base text-darktext">V60 Pour Over</h3>
+                    <div class="p-6 space-y-3">
+                        <span class="text-[10px] uppercase font-bold text-accentblue bg-iceblue px-2.5 py-1 rounded-md">Método Manual</span>
+                        <h3 class="font-serif text-lg font-semibold text-darktext">V60 Pour Over</h3>
                         <p class="text-xs text-mutedtext leading-relaxed">Resalta acidez brillante y notas florales con un ratio 1:16.</p>
                         <div class="pt-2 text-[11px] text-mutedtext flex justify-between font-mono">
                             <span>3:00 min</span>
                             <span>1:16 Ratio</span>
                         </div>
                     </div>
-                    <div class="p-5 pt-0">
-                        <button onclick="openRecipeModal('v60')" class="w-full py-2.5 bg-softgrey hover:bg-darktext hover:text-white text-darktext text-xs font-semibold rounded-xl border border-bordergrey transition-colors" data-i18n="btn-open-calc">
+                    <div class="p-6 pt-0">
+                        <button onclick="openRecipeModal('v60')" class="w-full py-2.5 bg-softslate hover:bg-darktext hover:text-white text-darktext text-xs font-semibold rounded-xl border border-bordergrey transition-colors" data-i18n="btn-open-calc">
                             Abrir Calculadora & Guía
                         </button>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -347,45 +364,45 @@
         <!-- VISTA 3: EDUCACIÓN -->
         <section id="view-education" class="view-section space-y-8">
             <div class="max-w-2xl">
-                <span class="text-coffeebrown text-xs font-semibold uppercase tracking-widest block mb-1">Barista Education</span>
-                <h2 class="font-display text-2xl sm:text-3xl font-bold text-darktext" data-i18n="edu-title">Talleres y Consultoría Profesional</h2>
+                <span class="text-accentblue text-xs font-semibold uppercase tracking-widest block mb-1">Barista Education</span>
+                <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-darktext" data-i18n="edu-title">Talleres y Consultoría Profesional</h2>
                 <p class="text-sm text-mutedtext mt-2 leading-relaxed" data-i18n="edu-desc-1">
                     El gran café no es coincidencia: requiere técnica, consistencia y aprendizaje continuo. Ofrecemos capacitación práctica tanto para apasionados como para negocios.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div class="p-5 bg-cardwhite rounded-2xl border border-bordergrey">
-                    <div class="w-8 h-8 rounded-lg bg-softgrey flex items-center justify-center text-coffeebrown mb-3">
+                <div class="p-6 bg-cardwhite rounded-2xl border border-bordergrey shadow-sm">
+                    <div class="w-9 h-9 rounded-xl bg-iceblue flex items-center justify-center text-accentblue mb-3">
                         <i class="fa-solid fa-sliders"></i>
                     </div>
-                    <h3 class="font-semibold text-sm text-darktext" data-i18n="edu-p1-title">Calibración de Molino</h3>
-                    <p class="text-xs text-mutedtext mt-1" data-i18n="edu-p1-desc">Aprende a ajustar la molienda para evitar canalizaciones y balancear sabor.</p>
+                    <h3 class="font-serif text-base font-semibold text-darktext" data-i18n="edu-p1-title">Calibración de Molino</h3>
+                    <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="edu-p1-desc">Aprende a ajustar la molienda para evitar canalizaciones y balancear sabor.</p>
                 </div>
 
-                <div class="p-5 bg-cardwhite rounded-2xl border border-bordergrey">
-                    <div class="w-8 h-8 rounded-lg bg-softgrey flex items-center justify-center text-coffeebrown mb-3">
+                <div class="p-6 bg-cardwhite rounded-2xl border border-bordergrey shadow-sm">
+                    <div class="w-9 h-9 rounded-xl bg-iceblue flex items-center justify-center text-accentblue mb-3">
                         <i class="fa-solid fa-mug-hot"></i>
                     </div>
-                    <h3 class="font-semibold text-sm text-darktext" data-i18n="edu-p2-title">Bebidas de Autor</h3>
-                    <p class="text-xs text-mutedtext mt-1" data-i18n="edu-p2-desc">Desarrollo de recetas exclusivas para diferenciar el menú de tu cafetería.</p>
+                    <h3 class="font-serif text-base font-semibold text-darktext" data-i18n="edu-p2-title">Bebidas de Autor</h3>
+                    <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="edu-p2-desc">Desarrollo de recetas exclusivas para diferenciar el menú de tu cafetería.</p>
                 </div>
 
-                <div class="p-5 bg-cardwhite rounded-2xl border border-bordergrey">
-                    <div class="w-8 h-8 rounded-lg bg-softgrey flex items-center justify-center text-coffeebrown mb-3">
+                <div class="p-6 bg-cardwhite rounded-2xl border border-bordergrey shadow-sm">
+                    <div class="w-9 h-9 rounded-xl bg-iceblue flex items-center justify-center text-accentblue mb-3">
                         <i class="fa-solid fa-store"></i>
                     </div>
-                    <h3 class="font-semibold text-sm text-darktext" data-i18n="edu-p3-title">Asesoría de Negocio</h3>
-                    <p class="text-xs text-mutedtext mt-1" data-i18n="edu-p3-desc">Orientación en la selección de grano y montaje de barra de especialidad.</p>
+                    <h3 class="font-serif text-base font-semibold text-darktext" data-i18n="edu-p3-title">Asesoría de Negocio</h3>
+                    <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="edu-p3-desc">Orientación en la selección de grano y montaje de barra de especialidad.</p>
                 </div>
             </div>
 
-            <div class="p-6 bg-softgrey rounded-2xl border border-bordergrey flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="p-6 bg-softslate rounded-2xl border border-bordergrey flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div>
-                    <h4 class="font-semibold text-sm text-darktext" data-i18n="edu-cta-box-title">¿Buscas una sesión personalizada?</h4>
-                    <p class="text-xs text-mutedtext" data-i18n="edu-cta-box-desc">Agenda una consulta directa con Marco vía WhatsApp.</p>
+                    <h4 class="font-serif text-base font-semibold text-darktext" data-i18n="edu-cta-box-title">¿Buscas una sesión personalizada?</h4>
+                    <p class="text-xs text-mutedtext mt-0.5" data-i18n="edu-cta-box-desc">Agenda una consulta directa con Marco vía WhatsApp.</p>
                 </div>
-                <a href="https://wa.me/905078677978?text=Hola%20Marco,%20me%20interesa%20una%20consultoria" target="_blank" class="bg-darktext text-white px-5 py-2.5 rounded-xl text-xs font-semibold shrink-0" data-i18n="btn-book-consultation">
+                <a href="https://wa.me/905078677978?text=Hola%20Marco,%20me%20interesa%20una%20consultoria" target="_blank" class="bg-darktext hover:bg-accentblue text-white px-5 py-2.5 rounded-xl text-xs font-semibold shrink-0 transition-colors shadow-sm" data-i18n="btn-book-consultation">
                     Agendar por WhatsApp
                 </a>
             </div>
@@ -395,43 +412,43 @@
         <!-- VISTA 4: TOSTADURÍA -->
         <section id="view-roastery" class="view-section space-y-6">
             <div class="max-w-2xl">
-                <span class="text-coffeebrown text-xs font-semibold uppercase tracking-widest block mb-1">Antalya Roastery</span>
-                <h2 class="font-display text-2xl sm:text-3xl font-bold text-darktext" data-i18n="roastery-title">Grano de Especialidad Destacado</h2>
+                <span class="text-accentblue text-xs font-semibold uppercase tracking-widest block mb-1">Antalya Roastery</span>
+                <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-darktext" data-i18n="roastery-title">Grano de Especialidad Destacado</h2>
                 <p class="text-sm text-mutedtext mt-1" data-i18n="roastery-desc">Lotes tostados cuidadosamente en pequeños volúmenes.</p>
             </div>
 
             <div class="bg-cardwhite p-6 sm:p-8 rounded-3xl border border-bordergrey space-y-6 shadow-sm max-w-xl">
                 <div class="flex justify-between items-start border-b border-bordergrey pb-4">
                     <div>
-                        <span class="text-[10px] uppercase font-bold text-coffeebrown">Origen Único</span>
-                        <h3 class="font-display text-xl font-bold text-darktext">Ethiopia Yirgacheffe G1</h3>
+                        <span class="text-[10px] uppercase font-bold text-accentblue">Origen Único</span>
+                        <h3 class="font-serif text-xl font-semibold text-darktext">Ethiopia Yirgacheffe G1</h3>
                     </div>
-                    <span class="bg-softgrey text-darktext text-xs font-bold px-3 py-1 rounded-full border border-bordergrey">87.5 PTS</span>
+                    <span class="bg-iceblue text-accentblue text-xs font-bold px-3 py-1 rounded-full border border-sky-200">87.5 PTS</span>
                 </div>
 
                 <div class="flex flex-wrap gap-2 text-xs">
-                    <span class="bg-softgrey text-mutedtext px-3 py-1 rounded-full">Flor de Azahar</span>
-                    <span class="bg-softgrey text-mutedtext px-3 py-1 rounded-full">Néctar de Durazno</span>
-                    <span class="bg-softgrey text-mutedtext px-3 py-1 rounded-full">Miel Silvestre</span>
+                    <span class="bg-softslate text-mutedtext px-3 py-1 rounded-full border border-bordergrey">Flor de Azahar</span>
+                    <span class="bg-softslate text-mutedtext px-3 py-1 rounded-full border border-bordergrey">Néctar de Durazno</span>
+                    <span class="bg-softslate text-mutedtext px-3 py-1 rounded-full border border-bordergrey">Miel Silvestre</span>
                 </div>
 
                 <div class="grid grid-cols-3 gap-3 text-center text-xs">
-                    <div class="p-3 bg-softgrey rounded-xl">
+                    <div class="p-3 bg-softslate rounded-xl">
                         <span class="text-[10px] text-mutedtext block">Acidez</span>
                         <span class="font-semibold text-darktext">Cítrica Brillante</span>
                     </div>
-                    <div class="p-3 bg-softgrey rounded-xl">
+                    <div class="p-3 bg-softslate rounded-xl">
                         <span class="text-[10px] text-mutedtext block">Cuerpo</span>
                         <span class="font-semibold text-darktext">Sedoso</span>
                     </div>
-                    <div class="p-3 bg-softgrey rounded-xl">
+                    <div class="p-3 bg-softslate rounded-xl">
                         <span class="text-[10px] text-mutedtext block">Recomendación</span>
                         <span class="font-semibold text-darktext">V60 / Espresso</span>
                     </div>
                 </div>
 
                 <div class="pt-2 text-center border-t border-bordergrey">
-                    <a href="https://www.marcoscoffee.shop" class="text-xs text-coffeebrown hover:underline font-medium">
+                    <a href="https://www.marcoscoffee.shop" class="text-xs text-accentblue hover:underline font-medium">
                         www.marcoscoffee.shop
                     </a>
                 </div>
@@ -442,37 +459,37 @@
 
 
     <!-- ==================== MODAL DE RECETAS ==================== -->
-    <div id="recipe-modal" class="fixed inset-0 z-50 hidden bg-darktext/30 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div id="recipe-modal" class="fixed inset-0 z-50 hidden bg-slate-900/40 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
         <div class="bg-cardwhite border-t sm:border border-bordergrey w-full max-w-lg rounded-t-3xl sm:rounded-3xl overflow-hidden shadow-xl max-h-[90vh] flex flex-col">
             
-            <div class="p-4 border-b border-bordergrey flex justify-between items-center bg-softgrey">
-                <span id="modal-tag" class="text-[10px] font-bold uppercase text-coffeebrown">Tag</span>
-                <button onclick="closeRecipeModal()" class="w-8 h-8 rounded-full bg-cardwhite border border-bordergrey flex items-center justify-center text-darktext">
+            <div class="p-4 border-b border-bordergrey flex justify-between items-center bg-softslate">
+                <span id="modal-tag" class="text-[10px] font-bold uppercase text-accentblue">Tag</span>
+                <button onclick="closeRecipeModal()" class="w-8 h-8 rounded-full bg-cardwhite border border-bordergrey flex items-center justify-center text-darktext hover:bg-softslate">
                     <i class="fa-solid fa-xmark text-xs"></i>
                 </button>
             </div>
 
             <div class="p-6 space-y-5 overflow-y-auto">
-                <h2 id="modal-title" class="font-display text-xl font-bold text-darktext">Título Receta</h2>
+                <h2 id="modal-title" class="font-serif text-xl font-semibold text-darktext">Título Receta</h2>
 
-                <div class="p-4 bg-softgrey rounded-2xl border border-bordergrey space-y-2">
+                <div class="p-4 bg-softslate rounded-2xl border border-bordergrey space-y-2">
                     <div class="flex justify-between text-xs font-semibold">
                         <span class="text-darktext" data-i18n="calc-title">Calculadora de Dosis</span>
-                        <span id="dose-val-display" class="text-coffeebrown">1 Porción</span>
+                        <span id="dose-val-display" class="text-accentblue">1 Porción</span>
                     </div>
-                    <input type="range" id="dose-slider" min="1" max="4" value="1" step="1" oninput="updateRecipeCalculations()" class="w-full accent-coffeebrown">
+                    <input type="range" id="dose-slider" min="1" max="4" value="1" step="1" oninput="updateRecipeCalculations()" class="w-full accent-accentblue">
                 </div>
 
-                <div class="p-4 border border-bordergrey rounded-2xl flex items-center justify-between">
+                <div class="p-4 border border-bordergrey rounded-2xl flex items-center justify-between bg-cardwhite">
                     <div>
                         <span class="text-[10px] text-mutedtext block font-semibold uppercase" data-i18n="timer-title">Temporizador</span>
                         <span id="timer-display" class="font-mono text-xl font-bold text-darktext">00:00</span>
                     </div>
                     <div class="flex space-x-2">
-                        <button id="timer-start-btn" onclick="toggleBrewTimer()" class="px-4 py-2 bg-darktext text-white text-xs font-semibold rounded-xl">
+                        <button id="timer-start-btn" onclick="toggleBrewTimer()" class="px-4 py-2 bg-darktext text-white text-xs font-semibold rounded-xl hover:bg-accentblue transition-colors">
                             <span id="timer-btn-text" data-i18n="timer-start">Iniciar</span>
                         </button>
-                        <button onclick="resetBrewTimer()" class="px-3 py-2 bg-softgrey text-darktext text-xs rounded-xl border border-bordergrey">
+                        <button onclick="resetBrewTimer()" class="px-3 py-2 bg-softslate text-darktext text-xs rounded-xl border border-bordergrey hover:bg-slate-200">
                             <i class="fa-solid fa-rotate-right"></i>
                         </button>
                     </div>
@@ -490,7 +507,7 @@
 
                 <div id="reel-container" class="pt-2 border-t border-bordergrey">
                     <h4 class="text-xs font-bold uppercase text-mutedtext mb-2" data-i18n="video-title">Video Guía</h4>
-                    <div class="w-full rounded-2xl overflow-hidden bg-softgrey flex justify-center py-2">
+                    <div class="w-full rounded-2xl overflow-hidden bg-softslate flex justify-center py-2 border border-bordergrey">
                         <iframe id="reel-iframe" class="w-full max-w-xs h-64 rounded-xl border-0" src="" allowfullscreen></iframe>
                     </div>
                 </div>
@@ -681,25 +698,22 @@
             currentLang = lang;
             try { localStorage.setItem('marcos_coffee_lang', lang); } catch(e) {}
             
-            // Actualizar etiqueta navbar
             document.getElementById('current-lang-text').innerText = lang.toUpperCase();
             
-            // Reemplazar textos traducibles
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (i18n[lang][key]) el.innerHTML = i18n[lang][key];
             });
 
-            // Resaltar idioma activo en el Splash Screen
             ['es', 'en', 'tr'].forEach(l => {
                 const btn = document.getElementById(`splash-lang-${l}`);
                 if (btn) {
                     if (l === lang) {
-                        btn.classList.remove('text-white/70');
-                        btn.classList.add('text-white', 'bg-white/20');
+                        btn.classList.remove('text-slate-300');
+                        btn.classList.add('text-white', 'bg-slate-700/50');
                     } else {
-                        btn.classList.remove('text-white', 'bg-white/20');
-                        btn.classList.add('text-white/70');
+                        btn.classList.remove('text-white', 'bg-slate-700/50');
+                        btn.classList.add('text-slate-300');
                     }
                 }
             });
@@ -877,4 +891,9 @@
         });
     </script>
 </body>
-</html>
+</html>'''
+
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("Plantilla clara actualizada en index.html exitosamente.")
