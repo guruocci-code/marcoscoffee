@@ -6,8 +6,7 @@
     
     <!-- Primary SEO Meta Tags -->
     <title>Marco's Coffee | Specialty Coffee Recipes & Barista Education</title>
-    <meta name="description" content="Master specialty coffee brewing: Precision Espresso Doppio, V60 Pour-Over, and Italian recipes with interactive calculators and roastery guides.">
-    <meta name="keywords" content="Marco's Coffee, Specialty Coffee Antalya, Espresso Recipe, V60 Brew Guide, Barista Education, Coffee Roastery">
+    <meta name="description" content="Master specialty coffee brewing in Antalya: Precision Espresso Doppio, V60 Pour-Over, and Traditional Italian Bicerin recipes with interactive calculators.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://marcoscoffee.shop/">
 
@@ -15,7 +14,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://marcoscoffee.shop/">
     <meta property="og:title" content="Marco's Coffee | Specialty Coffee Recipes & Education">
-    <meta property="og:description" content="Precision coffee extraction guides, interactive dose calculators, and barista education.">
+    <meta property="og:description" content="Precision coffee extraction guides and interactive dose calculators by Marco's Coffee.">
     <meta property="og:image" content="https://marcoscoffee.shop/1234.png">
 
     <!-- PWA Meta Tags -->
@@ -30,7 +29,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Inter & Outfit (Minimalist & Clean) -->
+    <!-- Google Fonts: Inter & Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -82,20 +81,21 @@
     <!-- ==================== CINEMATIC VIDEO SPLASH ENTRANCE ==================== -->
     <div id="splash-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-black overflow-hidden">
         
-        <!-- Background Roaster Video (Autoplay, Loop, Muted for Mobile Compliance) -->
-        <video id="roaster-video" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-65 scale-105 transform transition-transform duration-1000">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-coffee-beans-roasting-in-a-machine-41444-large.mp4" type="video/mp4">
+        <!-- Video de la mirilla de la tostadora (roastery.mp4) -->
+        <video id="roaster-video" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover object-center opacity-70 scale-105 transform transition-transform duration-1000">
+            <source src="roastery.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video HTML5.
         </video>
 
-        <!-- Dark Gradient Overlay for Typography Contrast -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/60"></div>
+        <!-- Overlay de gradiente oscuro para legibilidad del texto -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/70"></div>
 
-        <!-- Splash Content Header -->
-        <div class="relative z-10 text-center px-6 max-w-xl space-y-6 text-white animate-fadeIn">
+        <!-- Contenido central de bienvenida -->
+        <div class="relative z-10 text-center px-6 max-w-xl space-y-6 text-white">
             
             <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-medium tracking-widest uppercase">
                 <span class="w-2 h-2 rounded-full bg-coffeebrown animate-pulse"></span>
-                <span>Specialty Roastery & Education</span>
+                <span data-i18n="hero-tagline">Antalya, Turkey • Specialty Coffee Culture</span>
             </div>
 
             <h1 class="font-display text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
@@ -114,14 +114,14 @@
             </div>
         </div>
 
-        <!-- Video Control (Play/Pause) -->
+        <!-- Botón flotante para pausar/reproducir video -->
         <button onclick="toggleRoasterVideo()" class="absolute bottom-6 right-6 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white/20 transition-colors">
             <i id="video-control-icon" class="fa-solid fa-pause text-xs"></i>
         </button>
     </div>
 
 
-    <!-- ==================== HEADER & NAVBAR ==================== -->
+    <!-- ==================== HEADER & NAV BAR ==================== -->
     <header class="sticky top-0 z-40 bg-cardwhite/90 backdrop-blur-md border-b border-bordergrey">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
             
@@ -132,32 +132,33 @@
                 </div>
                 <div>
                     <span class="font-display block text-base sm:text-lg font-bold tracking-tight text-darktext group-hover:text-coffeebrown transition-colors">Marco's Coffee</span>
-                    <span class="block text-[9px] uppercase tracking-widest text-mutedtext font-medium">Coffee Bar & Roastery</span>
+                    <span class="block text-[9px] uppercase tracking-widest text-mutedtext font-medium">Specialty Roastery</span>
                 </div>
             </button>
 
-            <!-- Desktop Menu -->
+            <!-- Menú de Navegación por Pestañas (Desktop) -->
             <nav class="hidden md:flex items-center space-x-1 bg-softgrey p-1 rounded-full border border-bordergrey">
                 <button onclick="switchView('home')" id="nav-home" class="nav-btn px-5 py-1.5 rounded-full text-xs font-semibold text-darktext transition-all bg-cardwhite shadow-sm" data-i18n="nav-home">
                     Inicio
                 </button>
-                <button onclick="switchView('beans')" id="nav-beans" class="nav-btn px-5 py-1.5 rounded-full text-xs font-semibold text-mutedtext hover:text-darktext transition-all" data-i18n="nav-beans">
-                    Granos & Origen
-                </button>
                 <button onclick="switchView('recipes')" id="nav-recipes" class="nav-btn px-5 py-1.5 rounded-full text-xs font-semibold text-mutedtext hover:text-darktext transition-all" data-i18n="nav-recipes">
-                    Calculadora
+                    Recetas
                 </button>
-                <button onclick="switchView('consulting')" id="nav-consulting" class="nav-btn px-5 py-1.5 rounded-full text-xs font-semibold text-mutedtext hover:text-darktext transition-all" data-i18n="nav-consulting">
-                    Educación & Consultoría
+                <button onclick="switchView('education')" id="nav-education" class="nav-btn px-5 py-1.5 rounded-full text-xs font-semibold text-mutedtext hover:text-darktext transition-all" data-i18n="nav-education">
+                    Educación
+                </button>
+                <button onclick="switchView('roastery')" id="nav-roastery" class="nav-btn px-5 py-1.5 rounded-full text-xs font-semibold text-mutedtext hover:text-darktext transition-all" data-i18n="nav-roastery">
+                    Tostaduría
                 </button>
             </nav>
 
-            <!-- Controls: Splash replay, Language & WhatsApp -->
+            <!-- Controles: Ver Video de nuevo, Idioma & WhatsApp -->
             <div class="hidden sm:flex items-center space-x-3">
                 <button onclick="replaySplash()" title="Ver Video Tostadora" class="w-8 h-8 rounded-lg border border-bordergrey bg-cardwhite text-mutedtext hover:text-darktext flex items-center justify-center transition-colors">
                     <i class="fa-solid fa-film text-xs"></i>
                 </button>
 
+                <!-- Selector de Idioma -->
                 <div class="relative id-lang-dropdown-container">
                     <button onclick="toggleLangDropdown(event)" class="px-3 py-1.5 rounded-lg border border-bordergrey text-xs font-semibold bg-cardwhite hover:bg-softgrey transition-colors flex items-center space-x-1.5">
                         <i class="fa-solid fa-globe text-mutedtext"></i>
@@ -177,26 +178,26 @@
                 </a>
             </div>
 
-            <!-- Mobile Menu Button -->
+            <!-- Botón Menú Móvil -->
             <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-darktext p-2 rounded-lg border border-bordergrey bg-cardwhite">
                 <i class="fa-solid fa-bars text-sm"></i>
             </button>
         </div>
 
-        <!-- Mobile Drawer -->
+        <!-- Menú Desplegable Móvil -->
         <div id="mobile-menu" class="hidden md:hidden bg-cardwhite border-b border-bordergrey px-4 py-4 space-y-3">
             <div class="grid grid-cols-2 gap-2 text-xs font-semibold">
                 <button onclick="switchView('home'); toggleMobileMenu()" class="p-3 rounded-xl bg-softgrey text-darktext text-left">
                     <i class="fa-solid fa-house text-coffeebrown mr-2"></i> <span data-i18n="nav-home">Inicio</span>
                 </button>
-                <button onclick="switchView('beans'); toggleMobileMenu()" class="p-3 rounded-xl bg-softgrey text-darktext text-left">
-                    <i class="fa-solid fa-seedling text-coffeebrown mr-2"></i> <span data-i18n="nav-beans">Granos</span>
-                </button>
                 <button onclick="switchView('recipes'); toggleMobileMenu()" class="p-3 rounded-xl bg-softgrey text-darktext text-left">
-                    <i class="fa-solid fa-sliders text-coffeebrown mr-2"></i> <span data-i18n="nav-recipes">Calculadora</span>
+                    <i class="fa-solid fa-mug-saucer text-coffeebrown mr-2"></i> <span data-i18n="nav-recipes">Recetas</span>
                 </button>
-                <button onclick="switchView('consulting'); toggleMobileMenu()" class="p-3 rounded-xl bg-softgrey text-darktext text-left">
-                    <i class="fa-solid fa-handshake text-coffeebrown mr-2"></i> <span data-i18n="nav-consulting">Consultoría</span>
+                <button onclick="switchView('education'); toggleMobileMenu()" class="p-3 rounded-xl bg-softgrey text-darktext text-left">
+                    <i class="fa-solid fa-graduation-cap text-coffeebrown mr-2"></i> <span data-i18n="nav-education">Educación</span>
+                </button>
+                <button onclick="switchView('roastery'); toggleMobileMenu()" class="p-3 rounded-xl bg-softgrey text-darktext text-left">
+                    <i class="fa-solid fa-fire-burner text-coffeebrown mr-2"></i> <span data-i18n="nav-roastery">Tostaduría</span>
                 </button>
             </div>
             <div class="pt-2 border-t border-bordergrey flex justify-between items-center">
@@ -214,7 +215,7 @@
     <!-- ==================== MAIN VIEWS ==================== -->
     <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex-grow w-full">
 
-        <!-- VIEW 1: HOME -->
+        <!-- VISTA 1: INICIO -->
         <section id="view-home" class="view-section active">
             <div class="max-w-2xl mx-auto text-center space-y-6">
                 <span class="inline-block px-3.5 py-1 rounded-full bg-softgrey border border-bordergrey text-xs font-medium text-mutedtext uppercase tracking-widest" data-i18n="hero-tagline">
@@ -230,112 +231,248 @@
                     Explora recetas de extracción de precisión, guías interactivas para baristas y consultoría especializada directamente desde Marco's Coffee.
                 </p>
 
-                <!-- Navigation Hub Cards -->
+                <!-- Tarjetas de Navegación Rápida -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 text-left">
-                    <button onclick="switchView('beans')" class="p-5 bg-cardwhite rounded-2xl border border-bordergrey hover:border-coffeebrown transition-all group shadow-sm">
-                        <i class="fa-solid fa-seedling text-coffeebrown text-xl mb-3 block"></i>
-                        <h3 class="font-semibold text-sm text-darktext group-hover:text-coffeebrown" data-i18n="nav-beans">Granos & Origen</h3>
-                        <p class="text-xs text-mutedtext mt-1" data-i18n="card-beans-desc">Lotes de especialidad tostados en micro-lotes.</p>
-                    </button>
-
                     <button onclick="switchView('recipes')" class="p-5 bg-cardwhite rounded-2xl border border-bordergrey hover:border-coffeebrown transition-all group shadow-sm">
-                        <i class="fa-solid fa-sliders text-coffeebrown text-xl mb-3 block"></i>
-                        <h3 class="font-semibold text-sm text-darktext group-hover:text-coffeebrown" data-i18n="nav-recipes">Calculadora</h3>
-                        <p class="text-xs text-mutedtext mt-1" data-i18n="card-recipes-desc">Calcula dosis, ratio y tiempos de extracción.</p>
+                        <i class="fa-solid fa-mug-saucer text-coffeebrown text-xl mb-3 block"></i>
+                        <h3 class="font-semibold text-sm text-darktext group-hover:text-coffeebrown" data-i18n="nav-recipes">Recetas</h3>
+                        <p class="text-xs text-mutedtext mt-1" data-i18n="card-recipes-desc">Calculadora de dosis y tiempos de extracción.</p>
                     </button>
 
-                    <button onclick="switchView('consulting')" class="p-5 bg-cardwhite rounded-2xl border border-bordergrey hover:border-coffeebrown transition-all group shadow-sm">
-                        <i class="fa-solid fa-handshake text-coffeebrown text-xl mb-3 block"></i>
-                        <h3 class="font-semibold text-sm text-darktext group-hover:text-coffeebrown" data-i18n="nav-consulting">Consultoría</h3>
-                        <p class="text-xs text-mutedtext mt-1" data-i18n="card-consulting-desc">Asesoría para cafeterías y talleres de barista.</p>
+                    <button onclick="switchView('education')" class="p-5 bg-cardwhite rounded-2xl border border-bordergrey hover:border-coffeebrown transition-all group shadow-sm">
+                        <i class="fa-solid fa-graduation-cap text-coffeebrown text-xl mb-3 block"></i>
+                        <h3 class="font-semibold text-sm text-darktext group-hover:text-coffeebrown" data-i18n="nav-education">Educación</h3>
+                        <p class="text-xs text-mutedtext mt-1" data-i18n="card-edu-desc">Talleres y calibración de espresso.</p>
+                    </button>
+
+                    <button onclick="switchView('roastery')" class="p-5 bg-cardwhite rounded-2xl border border-bordergrey hover:border-coffeebrown transition-all group shadow-sm">
+                        <i class="fa-solid fa-fire-burner text-coffeebrown text-xl mb-3 block"></i>
+                        <h3 class="font-semibold text-sm text-darktext group-hover:text-coffeebrown" data-i18n="nav-roastery">Tostaduría</h3>
+                        <p class="text-xs text-mutedtext mt-1" data-i18n="card-roastery-desc">Granos de especialidad en Antalya.</p>
                     </button>
                 </div>
-            </div>
-        </section>
 
-
-        <!-- VIEW 2: BEANS CATALOG -->
-        <section id="view-beans" class="view-section space-y-6">
-            <div class="border-b border-bordergrey pb-6">
-                <h2 class="font-display text-2xl sm:text-3xl font-bold text-darktext" data-i18n="beans-title">Catálogo de Granos de Especialidad</h2>
-                <p class="text-xs sm:text-sm text-mutedtext mt-1" data-i18n="beans-desc">Lotes seleccionados con perfilado de tueste específico para cada método.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <!-- Bean 1: Ethiopia -->
-                <div class="p-6 bg-cardwhite rounded-2xl border border-bordergrey space-y-4 shadow-sm">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="text-[10px] uppercase font-bold text-coffeebrown tracking-wider">Origen Único • Lavado</span>
-                            <h3 class="font-display text-xl font-bold text-darktext">Ethiopia Yirgacheffe G1</h3>
-                        </div>
-                        <span class="bg-softgrey text-darktext text-xs font-bold px-3 py-1 rounded-full border border-bordergrey">87.5 PTS</span>
-                    </div>
-                    <p class="text-xs text-mutedtext leading-relaxed">Tueste ligero diseñado para filtrar. Perfil aromático floral con notas a jazmín, melocotón y miel silvestre.</p>
-                    <div class="grid grid-cols-3 gap-2 text-center text-xs pt-2">
-                        <div class="p-2 bg-softgrey rounded-xl"><span class="text-[9px] text-mutedtext block">Tueste</span><span class="font-semibold">Light</span></div>
-                        <div class="p-2 bg-softgrey rounded-xl"><span class="text-[9px] text-mutedtext block">Acidez</span><span class="font-semibold">Cítrica</span></div>
-                        <div class="p-2 bg-softgrey rounded-xl"><span class="text-[9px] text-mutedtext block">Método</span><span class="font-semibold">V60 / Chemex</span></div>
-                    </div>
-                </div>
-
-                <!-- Bean 2: Colombia -->
-                <div class="p-6 bg-cardwhite rounded-2xl border border-bordergrey space-y-4 shadow-sm">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="text-[10px] uppercase font-bold text-coffeebrown tracking-wider">Origen Único • Honey</span>
-                            <h3 class="font-display text-xl font-bold text-darktext">Colombia Huila Reserve</h3>
-                        </div>
-                        <span class="bg-softgrey text-darktext text-xs font-bold px-3 py-1 rounded-full border border-bordergrey">88.5 PTS</span>
-                    </div>
-                    <p class="text-xs text-mutedtext leading-relaxed">Tueste medio-bajo. Cuerpo sedoso con notas a chocolate fino, caramelo tostado y frutos rojos.</p>
-                    <div class="grid grid-cols-3 gap-2 text-center text-xs pt-2">
-                        <div class="p-2 bg-softgrey rounded-xl"><span class="text-[9px] text-mutedtext block">Tueste</span><span class="font-semibold">Medium-Light</span></div>
-                        <div class="p-2 bg-softgrey rounded-xl"><span class="text-[9px] text-mutedtext block">Cuerpo</span><span class="font-semibold">Sedoso</span></div>
-                        <div class="p-2 bg-softgrey rounded-xl"><span class="text-[9px] text-mutedtext block">Método</span><span class="font-semibold">Espresso / V60</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- VIEW 3: EXTRACTION CALCULATOR -->
-        <section id="view-recipes" class="view-section space-y-6">
-            <div class="border-b border-bordergrey pb-6">
-                <h2 class="font-display text-2xl sm:text-3xl font-bold text-darktext" data-i18n="calc-section-title">Calculadora de Extracción</h2>
-                <p class="text-xs sm:text-sm text-mutedtext mt-1" data-i18n="calc-section-desc">Ajusta las porciones para obtener proporciones exactas de café y agua.</p>
-            </div>
-
-            <!-- Recipe Selection Tabs -->
-            <div class="flex space-x-2 border-b border-bordergrey pb-3 overflow-x-auto">
-                <button onclick="selectRecipe('espresso')" id="tab-espresso" class="recipe-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-darktext text-white shrink-0">Espresso Doppio</button>
-                <button onclick="selectRecipe('v60')" id="tab-v60" class="recipe-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-cardwhite text-mutedtext border border-bordergrey shrink-0">V60 Pour Over</button>
-                <button onclick="selectRecipe('frenchpress')" id="tab-frenchpress" class="recipe-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-cardwhite text-mutedtext border border-bordergrey shrink-0">Prensa Francesa</button>
-            </div>
-
-            <!-- Dynamic Calculator Panel -->
-            <div class="bg-cardwhite p-6 rounded-3xl border border-bordergrey space-y-6 shadow-sm max-w-xl">
-                <div class="flex justify-between items-center">
+                <!-- Estadísticas de Confianza -->
+                <div class="pt-8 border-t border-bordergrey grid grid-cols-3 gap-4 text-center">
                     <div>
-                        <span id="calc-method-tag" class="text-[10px] font-bold uppercase text-coffeebrown">Espresso Core</span>
-                        <h3 id="calc-method-title" class="font-display text-xl font-bold text-darktext">Golden Crema Espresso Doppio</h3>
+                        <p class="text-xl font-bold text-darktext">100%</p>
+                        <p class="text-[11px] text-mutedtext" data-i18n="stat-arabica">Arábica Especialidad</p>
+                    </div>
+                    <div>
+                        <p class="text-xl font-bold text-darktext">85+</p>
+                        <p class="text-[11px] text-mutedtext" data-i18n="stat-score">Puntaje de Cata</p>
+                    </div>
+                    <div>
+                        <p class="text-xl font-bold text-darktext">Global</p>
+                        <p class="text-[11px] text-mutedtext" data-i18n="stat-education">Educación de Café</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- VISTA 2: RECETAS -->
+        <section id="view-recipes" class="view-section space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-bordergrey pb-6">
+                <div>
+                    <h2 class="font-display text-2xl sm:text-3xl font-bold text-darktext" data-i18n="recipes-section-title">Recetas de Café de Especialidad</h2>
+                    <p class="text-xs sm:text-sm text-mutedtext mt-1" data-i18n="recipes-section-desc">Selecciona un método para abrir la calculadora y la guía interactiva.</p>
+                </div>
+            </div>
+
+            <!-- Filtros de Receta -->
+            <div class="flex space-x-2 border-b border-bordergrey pb-3 overflow-x-auto">
+                <button onclick="filterRecipes('all')" class="recipe-tab px-4 py-1.5 rounded-full text-xs font-semibold bg-darktext text-white shrink-0" data-filter="all" data-i18n="filter-all">Todas</button>
+                <button onclick="filterRecipes('espresso')" class="recipe-tab px-4 py-1.5 rounded-full text-xs font-semibold bg-cardwhite text-mutedtext border border-bordergrey shrink-0" data-filter="espresso" data-i18n="filter-espresso">Espresso</button>
+                <button onclick="filterRecipes('manual')" class="recipe-tab px-4 py-1.5 rounded-full text-xs font-semibold bg-cardwhite text-mutedtext border border-bordergrey shrink-0" data-filter="manual" data-i18n="filter-manual">Filtrados</button>
+            </div>
+
+            <!-- Grid de Recetas -->
+            <div id="recipe-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Espresso -->
+                <div class="recipe-card bg-cardwhite rounded-2xl border border-bordergrey overflow-hidden shadow-sm flex flex-col justify-between" data-category="espresso">
+                    <div class="p-5 space-y-3">
+                        <span class="text-[10px] uppercase font-bold text-coffeebrown bg-softgrey px-2.5 py-1 rounded-md">Espresso Core</span>
+                        <h3 class="font-bold text-base text-darktext">Perfect Espresso Doppio</h3>
+                        <p class="text-xs text-mutedtext leading-relaxed">Extracción balanceada y dulzura natural. 18.0g de café para 34.0g en taza.</p>
+                        <div class="pt-2 text-[11px] text-mutedtext flex justify-between font-mono">
+                            <span>27s Tiempo</span>
+                            <span>1:1.88 Ratio</span>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <button onclick="openRecipeModal('espresso')" class="w-full py-2.5 bg-softgrey hover:bg-darktext hover:text-white text-darktext text-xs font-semibold rounded-xl border border-bordergrey transition-colors" data-i18n="btn-open-calc">
+                            Abrir Calculadora & Guía
+                        </button>
                     </div>
                 </div>
 
-                <!-- Dose Slider -->
+                <!-- Bicerin -->
+                <div class="recipe-card bg-cardwhite rounded-2xl border border-bordergrey overflow-hidden shadow-sm flex flex-col justify-between" data-category="espresso">
+                    <div class="p-5 space-y-3">
+                        <span class="text-[10px] uppercase font-bold text-coffeebrown bg-softgrey px-2.5 py-1 rounded-md">Bebida de Autor</span>
+                        <h3 class="font-bold text-base text-darktext">Italian Bicerin</h3>
+                        <p class="text-xs text-mutedtext leading-relaxed">Bebida tradicional de Turín con capas de chocolate denso, espresso y crema fría.</p>
+                        <div class="pt-2 text-[11px] text-mutedtext flex justify-between font-mono">
+                            <span>3 Capas</span>
+                            <span>Turín Tradicional</span>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <button onclick="openRecipeModal('bicerin')" class="w-full py-2.5 bg-softgrey hover:bg-darktext hover:text-white text-darktext text-xs font-semibold rounded-xl border border-bordergrey transition-colors" data-i18n="btn-open-calc">
+                            Abrir Calculadora & Guía
+                        </button>
+                    </div>
+                </div>
+
+                <!-- V60 -->
+                <div class="recipe-card bg-cardwhite rounded-2xl border border-bordergrey overflow-hidden shadow-sm flex flex-col justify-between" data-category="manual">
+                    <div class="p-5 space-y-3">
+                        <span class="text-[10px] uppercase font-bold text-coffeebrown bg-softgrey px-2.5 py-1 rounded-md">Método Manual</span>
+                        <h3 class="font-bold text-base text-darktext">V60 Pour Over</h3>
+                        <p class="text-xs text-mutedtext leading-relaxed">Resalta acidez brillante y notas florales con un ratio 1:16.</p>
+                        <div class="pt-2 text-[11px] text-mutedtext flex justify-between font-mono">
+                            <span>3:00 min</span>
+                            <span>1:16 Ratio</span>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <button onclick="openRecipeModal('v60')" class="w-full py-2.5 bg-softgrey hover:bg-darktext hover:text-white text-darktext text-xs font-semibold rounded-xl border border-bordergrey transition-colors" data-i18n="btn-open-calc">
+                            Abrir Calculadora & Guía
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- VISTA 3: EDUCACIÓN -->
+        <section id="view-education" class="view-section space-y-8">
+            <div class="max-w-2xl">
+                <span class="text-coffeebrown text-xs font-semibold uppercase tracking-widest block mb-1">Barista Education</span>
+                <h2 class="font-display text-2xl sm:text-3xl font-bold text-darktext" data-i18n="edu-title">Talleres y Consultoría Profesional</h2>
+                <p class="text-sm text-mutedtext mt-2 leading-relaxed" data-i18n="edu-desc-1">
+                    El gran café no es coincidencia: requiere técnica, consistencia y aprendizaje continuo. Ofrecemos capacitación práctica tanto para apasionados como para negocios.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="p-5 bg-cardwhite rounded-2xl border border-bordergrey">
+                    <div class="w-8 h-8 rounded-lg bg-softgrey flex items-center justify-center text-coffeebrown mb-3">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <h3 class="font-semibold text-sm text-darktext" data-i18n="edu-p1-title">Calibración de Molino</h3>
+                    <p class="text-xs text-mutedtext mt-1" data-i18n="edu-p1-desc">Aprende a ajustar la molienda para evitar canalizaciones y balancear sabor.</p>
+                </div>
+
+                <div class="p-5 bg-cardwhite rounded-2xl border border-bordergrey">
+                    <div class="w-8 h-8 rounded-lg bg-softgrey flex items-center justify-center text-coffeebrown mb-3">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <h3 class="font-semibold text-sm text-darktext" data-i18n="edu-p2-title">Bebidas de Autor</h3>
+                    <p class="text-xs text-mutedtext mt-1" data-i18n="edu-p2-desc">Desarrollo de recetas exclusivas para diferenciar el menú de tu cafetería.</p>
+                </div>
+
+                <div class="p-5 bg-cardwhite rounded-2xl border border-bordergrey">
+                    <div class="w-8 h-8 rounded-lg bg-softgrey flex items-center justify-center text-coffeebrown mb-3">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+                    <h3 class="font-semibold text-sm text-darktext" data-i18n="edu-p3-title">Asesoría de Negocio</h3>
+                    <p class="text-xs text-mutedtext mt-1" data-i18n="edu-p3-desc">Orientación en la selección de grano y montaje de barra de especialidad.</p>
+                </div>
+            </div>
+
+            <div class="p-6 bg-softgrey rounded-2xl border border-bordergrey flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                    <h4 class="font-semibold text-sm text-darktext" data-i18n="edu-cta-box-title">¿Buscas una sesión personalizada?</h4>
+                    <p class="text-xs text-mutedtext" data-i18n="edu-cta-box-desc">Agenda una consulta directa con Marco vía WhatsApp.</p>
+                </div>
+                <a href="https://wa.me/905078677978?text=Hola%20Marco,%20me%20interesa%20una%20consultoria" target="_blank" class="bg-darktext text-white px-5 py-2.5 rounded-xl text-xs font-semibold shrink-0" data-i18n="btn-book-consultation">
+                    Agendar por WhatsApp
+                </a>
+            </div>
+        </section>
+
+
+        <!-- VISTA 4: TOSTADURÍA -->
+        <section id="view-roastery" class="view-section space-y-6">
+            <div class="max-w-2xl">
+                <span class="text-coffeebrown text-xs font-semibold uppercase tracking-widest block mb-1">Antalya Roastery</span>
+                <h2 class="font-display text-2xl sm:text-3xl font-bold text-darktext" data-i18n="roastery-title">Grano de Especialidad Destacado</h2>
+                <p class="text-sm text-mutedtext mt-1" data-i18n="roastery-desc">Lotes tostados cuidadosamente en pequeños volúmenes.</p>
+            </div>
+
+            <div class="bg-cardwhite p-6 sm:p-8 rounded-3xl border border-bordergrey space-y-6 shadow-sm max-w-xl">
+                <div class="flex justify-between items-start border-b border-bordergrey pb-4">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold text-coffeebrown">Origen Único</span>
+                        <h3 class="font-display text-xl font-bold text-darktext">Ethiopia Yirgacheffe G1</h3>
+                    </div>
+                    <span class="bg-softgrey text-darktext text-xs font-bold px-3 py-1 rounded-full border border-bordergrey">87.5 PTS</span>
+                </div>
+
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="bg-softgrey text-mutedtext px-3 py-1 rounded-full">Flor de Azahar</span>
+                    <span class="bg-softgrey text-mutedtext px-3 py-1 rounded-full">Néctar de Durazno</span>
+                    <span class="bg-softgrey text-mutedtext px-3 py-1 rounded-full">Miel Silvestre</span>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3 text-center text-xs">
+                    <div class="p-3 bg-softgrey rounded-xl">
+                        <span class="text-[10px] text-mutedtext block">Acidez</span>
+                        <span class="font-semibold text-darktext">Cítrica Brillante</span>
+                    </div>
+                    <div class="p-3 bg-softgrey rounded-xl">
+                        <span class="text-[10px] text-mutedtext block">Cuerpo</span>
+                        <span class="font-semibold text-darktext">Sedoso</span>
+                    </div>
+                    <div class="p-3 bg-softgrey rounded-xl">
+                        <span class="text-[10px] text-mutedtext block">Recomendación</span>
+                        <span class="font-semibold text-darktext">V60 / Espresso</span>
+                    </div>
+                </div>
+
+                <div class="pt-2 text-center border-t border-bordergrey">
+                    <a href="https://www.marcoscoffee.shop" class="text-xs text-coffeebrown hover:underline font-medium">
+                        www.marcoscoffee.shop
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ==================== MODAL DE RECETAS & CALCULADORA ==================== -->
+    <div id="recipe-modal" class="fixed inset-0 z-50 hidden bg-darktext/30 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="bg-cardwhite border-t sm:border border-bordergrey w-full max-w-lg rounded-t-3xl sm:rounded-3xl overflow-hidden shadow-xl max-h-[90vh] flex flex-col">
+            
+            <div class="p-4 border-b border-bordergrey flex justify-between items-center bg-softgrey">
+                <span id="modal-tag" class="text-[10px] font-bold uppercase text-coffeebrown">Tag</span>
+                <button onclick="closeRecipeModal()" class="w-8 h-8 rounded-full bg-cardwhite border border-bordergrey flex items-center justify-center text-darktext">
+                    <i class="fa-solid fa-xmark text-xs"></i>
+                </button>
+            </div>
+
+            <div class="p-6 space-y-5 overflow-y-auto">
+                <h2 id="modal-title" class="font-display text-xl font-bold text-darktext">Título Receta</h2>
+
+                <!-- Calculadora -->
                 <div class="p-4 bg-softgrey rounded-2xl border border-bordergrey space-y-2">
                     <div class="flex justify-between text-xs font-semibold">
-                        <span class="text-darktext" data-i18n="calc-title">Porciones / Tazas</span>
-                        <span id="dose-val-display" class="text-coffeebrown">1 Porción (18g Café)</span>
+                        <span class="text-darktext" data-i18n="calc-title">Calculadora de Dosis</span>
+                        <span id="dose-val-display" class="text-coffeebrown">1 Porción</span>
                     </div>
-                    <input type="range" id="dose-slider" min="1" max="4" value="1" step="1" oninput="updateCalculator()" class="w-full accent-coffeebrown">
+                    <input type="range" id="dose-slider" min="1" max="4" value="1" step="1" oninput="updateRecipeCalculations()" class="w-full accent-coffeebrown">
                 </div>
 
-                <!-- Live Timer -->
+                <!-- Temporizador Barista -->
                 <div class="p-4 border border-bordergrey rounded-2xl flex items-center justify-between">
                     <div>
-                        <span class="text-[10px] text-mutedtext block font-semibold uppercase" data-i18n="timer-title">Temporizador Barista</span>
-                        <span id="timer-display" class="font-mono text-2xl font-bold text-darktext">00:00</span>
+                        <span class="text-[10px] text-mutedtext block font-semibold uppercase" data-i18n="timer-title">Temporizador</span>
+                        <span id="timer-display" class="font-mono text-xl font-bold text-darktext">00:00</span>
                     </div>
                     <div class="flex space-x-2">
                         <button id="timer-start-btn" onclick="toggleBrewTimer()" class="px-4 py-2 bg-darktext text-white text-xs font-semibold rounded-xl">
@@ -347,82 +484,34 @@
                     </div>
                 </div>
 
-                <!-- Calculated Output Specs -->
-                <div class="grid grid-cols-3 gap-3 text-center text-xs">
-                    <div class="p-3 bg-softgrey rounded-xl">
-                        <span class="text-[10px] text-mutedtext block">Café (Gramos)</span>
-                        <span id="spec-coffee" class="font-bold text-darktext">18.0g</span>
-                    </div>
-                    <div class="p-3 bg-softgrey rounded-xl">
-                        <span class="text-[10px] text-mutedtext block">Agua / Rendimiento</span>
-                        <span id="spec-water" class="font-bold text-darktext">34.0g</span>
-                    </div>
-                    <div class="p-3 bg-softgrey rounded-xl">
-                        <span class="text-[10px] text-mutedtext block">Ratio</span>
-                        <span id="spec-ratio" class="font-bold text-darktext">1:1.88</span>
-                    </div>
+                <!-- Ingredientes -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase text-mutedtext mb-2" data-i18n="ingredients-title">Ingredientes Recalculados</h4>
+                    <ul id="modal-ingredients" class="space-y-1.5 text-xs text-darktext"></ul>
                 </div>
 
-                <!-- Steps -->
+                <!-- Pasos -->
                 <div>
                     <h4 class="text-xs font-bold uppercase text-mutedtext mb-2" data-i18n="steps-title">Pasos de Extracción</h4>
-                    <ol id="calc-steps-list" class="space-y-2 text-xs text-mutedtext list-decimal list-inside leading-relaxed"></ol>
+                    <ol id="modal-steps" class="space-y-1.5 text-xs text-mutedtext list-decimal list-inside leading-relaxed"></ol>
                 </div>
-            </div>
-        </section>
 
-
-        <!-- VIEW 4: CONSULTING & B2B -->
-        <section id="view-consulting" class="view-section space-y-6">
-            <div class="border-b border-bordergrey pb-6">
-                <h2 class="font-display text-2xl sm:text-3xl font-bold text-darktext" data-i18n="consulting-title">Consultoría & Educación de Barista</h2>
-                <p class="text-sm text-mutedtext mt-1" data-i18n="consulting-desc">Asesoramiento integral para cafeterías de especialidad, desarrollo de menú y formación técnica.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div class="p-5 bg-cardwhite rounded-2xl border border-bordergrey space-y-2">
-                    <div class="w-8 h-8 rounded-lg bg-softgrey flex items-center justify-center text-coffeebrown">
-                        <i class="fa-solid fa-mug-hot"></i>
+                <!-- Embed Reel -->
+                <div id="reel-container" class="pt-2 border-t border-bordergrey">
+                    <h4 class="text-xs font-bold uppercase text-mutedtext mb-2" data-i18n="video-title">Video Guía</h4>
+                    <div class="w-full rounded-2xl overflow-hidden bg-softgrey flex justify-center py-2">
+                        <iframe id="reel-iframe" class="w-full max-w-xs h-64 rounded-xl border-0" src="" allowfullscreen></iframe>
                     </div>
-                    <h3 class="font-semibold text-sm text-darktext" data-i18n="cons-service-1">Diseño de Menú & Recetas</h3>
-                    <p class="text-xs text-mutedtext leading-relaxed">Desarrollo de bebidas de autor y perfiles para espresso y métodos filtrados.</p>
-                </div>
-
-                <div class="p-5 bg-cardwhite rounded-2xl border border-bordergrey space-y-2">
-                    <div class="w-8 h-8 rounded-lg bg-softgrey flex items-center justify-center text-coffeebrown">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="font-semibold text-sm text-darktext" data-i18n="cons-service-2">Capacitación de Baristas</h3>
-                    <p class="text-xs text-mutedtext leading-relaxed">Formación en calibración de molinos, sensorial y técnica de espresso.</p>
-                </div>
-
-                <div class="p-5 bg-cardwhite rounded-2xl border border-bordergrey space-y-2">
-                    <div class="w-8 h-8 rounded-lg bg-softgrey flex items-center justify-center text-coffeebrown">
-                        <i class="fa-solid fa-store"></i>
-                    </div>
-                    <h3 class="font-semibold text-sm text-darktext" data-i18n="cons-service-3">Montaje de Barra</h3>
-                    <p class="text-xs text-mutedtext leading-relaxed">Asesoría técnica en equipamiento comercial y selección de café verde.</p>
                 </div>
             </div>
-
-            <div class="p-6 bg-softgrey rounded-2xl border border-bordergrey flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div>
-                    <h4 class="font-semibold text-sm text-darktext" data-i18n="edu-cta-box-title">¿Tienes un proyecto en mente?</h4>
-                    <p class="text-xs text-mutedtext" data-i18n="edu-cta-box-desc">Conecta directamente con Marco para asesoría personalizada.</p>
-                </div>
-                <a href="https://wa.me/905078677978?text=Hola%20Marco,%20me%20interesa%20una%20consultoria%20para%20mi%20cafeteria" target="_blank" class="bg-darktext text-white px-5 py-2.5 rounded-xl text-xs font-semibold shrink-0" data-i18n="btn-book-consultation">
-                    Contactar por WhatsApp
-                </a>
-            </div>
-        </section>
-
-    </main>
+        </div>
+    </div>
 
 
     <!-- ==================== FOOTER ==================== -->
     <footer class="bg-cardwhite border-t border-bordergrey py-6">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center text-xs text-mutedtext gap-2">
-            <p>© 2026 Marco's Coffee. Todos los derechos reservados.</p>
+            <p>© 2026 Marco's Coffee. All rights reserved.</p>
             <div class="flex space-x-4">
                 <span>Antalya, Türkiye</span>
                 <span>•</span>
@@ -434,7 +523,7 @@
 
     <!-- ==================== JAVASCRIPT LOGIC ==================== -->
     <script>
-        /* --- 1. SPLASH VIDEO CONTROLS --- */
+        /* --- 1. CONTROLES DEL VIDEO HERO DE ENTRADA --- */
         function enterSite() {
             const splash = document.getElementById('splash-screen');
             splash.classList.add('hidden-splash');
@@ -459,103 +548,139 @@
             }
         }
 
-        /* --- 2. MULTILINGUAL TRANSLATIONS (i18n) --- */
+        /* --- 2. DICCIONARIO DE TRADUCCIONES (i18n) --- */
         const i18n = {
             es: {
                 'nav-home': 'Inicio',
-                'nav-beans': 'Granos & Origen',
-                'nav-recipes': 'Calculadora',
-                'nav-consulting': 'Consultoría',
+                'nav-recipes': 'Recetas',
+                'nav-education': 'Educación',
+                'nav-roastery': 'Tostaduría',
                 'cta-whatsapp': 'Contacto',
                 'splash-subtitle': 'Ciencia de tueste, extracción de precisión y cultura de café de especialidad.',
                 'btn-enter-site': 'Entrar a la Experiencia',
-                'hero-tagline': 'Antalya, Turkey • Specialty Coffee Culture',
+                'hero-tagline': 'Antalya, Turquía • Cultura del Café de Especialidad',
                 'hero-title-1': 'Más que café,',
                 'hero-title-2': 'Ciencia, Arte y Pasión.',
-                'hero-description': 'Desarrollamos perfiles de tueste para resaltar la identidad de cada origen y compartimos herramientas de precisión para baristas.',
-                'card-beans-desc': 'Lotes de especialidad tostados en micro-lotes.',
-                'card-recipes-desc': 'Calcula dosis, ratio y tiempos de extracción.',
-                'card-consulting-desc': 'Asesoría para cafeterías y talleres de barista.',
-                'beans-title': 'Catálogo de Granos de Especialidad',
-                'beans-desc': 'Lotes seleccionados con perfilado de tueste específico para cada método.',
-                'calc-section-title': 'Calculadora de Extracción',
-                'calc-section-desc': 'Ajusta las porciones para obtener proporciones exactas de café y agua.',
-                'calc-title': 'Porciones / Tazas',
-                'timer-title': 'Temporizador Barista',
+                'hero-description': 'Explora recetas de extracción de precisión, guías interactivas para baristas y consultoría especializada directamente desde Marco\'s Coffee.',
+                'card-recipes-desc': 'Calculadora de dosis y tiempos de extracción.',
+                'card-edu-desc': 'Talleres y calibración de espresso.',
+                'card-roastery-desc': 'Granos de especialidad en Antalya.',
+                'stat-arabica': 'Arábica Especialidad',
+                'stat-score': 'Puntaje de Cata',
+                'stat-education': 'Educación de Café',
+                'recipes-section-title': 'Recetas de Café de Especialidad',
+                'recipes-section-desc': 'Selecciona un método para abrir la calculadora y la guía interactiva.',
+                'filter-all': 'Todas',
+                'filter-espresso': 'Espresso',
+                'filter-manual': 'Filtrados',
+                'btn-open-calc': 'Abrir Calculadora & Guía',
+                'edu-title': 'Talleres y Consultoría Profesional',
+                'edu-desc-1': 'El gran café no es coincidencia: requiere técnica, consistencia y aprendizaje continuo. Ofrecemos capacitación práctica tanto para apasionados como para negocios.',
+                'edu-p1-title': 'Calibración de Molino',
+                'edu-p1-desc': 'Aprende a ajustar la molienda para evitar canalizaciones y balancear sabor.',
+                'edu-p2-title': 'Bebidas de Autor',
+                'edu-p2-desc': 'Desarrollo de recetas exclusivas para diferenciar el menú de tu cafetería.',
+                'edu-p3-title': 'Asesoría de Negocio',
+                'edu-p3-desc': 'Orientación en la selección de grano y montaje de barra de especialidad.',
+                'edu-cta-box-title': '¿Buscas una sesión personalizada?',
+                'edu-cta-box-desc': 'Agenda una consulta directa con Marco vía WhatsApp.',
+                'btn-book-consultation': 'Agendar por WhatsApp',
+                'roastery-title': 'Grano de Especialidad Destacado',
+                'roastery-desc': 'Lotes tostados cuidadosamente en pequeños volúmenes.',
+                'calc-title': 'Calculadora de Dosis',
+                'timer-title': 'Temporizador',
                 'timer-start': 'Iniciar',
+                'ingredients-title': 'Ingredientes Recalculados',
                 'steps-title': 'Pasos de Extracción',
-                'consulting-title': 'Consultoría & Educación de Barista',
-                'consulting-desc': 'Asesoramiento integral para cafeterías de especialidad, desarrollo de menú y formación técnica.',
-                'cons-service-1': 'Diseño de Menú & Recetas',
-                'cons-service-2': 'Capacitación de Baristas',
-                'cons-service-3': 'Montaje de Barra',
-                'edu-cta-box-title': '¿Tienes un proyecto en mente?',
-                'edu-cta-box-desc': 'Conecta directamente con Marco para asesoría personalizada.',
-                'btn-book-consultation': 'Contactar por WhatsApp'
+                'video-title': 'Video Guía'
             },
             en: {
                 'nav-home': 'Home',
-                'nav-beans': 'Beans & Origin',
-                'nav-recipes': 'Calculator',
-                'nav-consulting': 'Consulting',
+                'nav-recipes': 'Recipes',
+                'nav-education': 'Education',
+                'nav-roastery': 'Roastery',
                 'cta-whatsapp': 'Contact',
                 'splash-subtitle': 'Roast science, precision extraction, and specialty coffee culture.',
                 'btn-enter-site': 'Enter Experience',
                 'hero-tagline': 'Antalya, Turkey • Specialty Coffee Culture',
                 'hero-title-1': 'More than coffee,',
                 'hero-title-2': 'Science, Art & Passion.',
-                'hero-description': 'We develop roast profiles to highlight origin terroir and provide precision barista tools.',
-                'card-beans-desc': 'Micro-lot specialty coffee beans.',
-                'card-recipes-desc': 'Calculate dose, ratio, and extraction time.',
-                'card-consulting-desc': 'Coffee shop consulting and bar setup.',
-                'beans-title': 'Specialty Beans Catalog',
-                'beans-desc': 'Curated lots with custom roast profiles per brew method.',
-                'calc-section-title': 'Extraction Calculator',
-                'calc-section-desc': 'Adjust servings for exact coffee-to-water ratios.',
-                'calc-title': 'Servings / Cups',
-                'timer-title': 'Barista Timer',
+                'hero-description': 'Explore precision extraction recipes, interactive barista guides, and professional consulting directly from Marco\'s Coffee.',
+                'card-recipes-desc': 'Dynamic dose calculator & brew timers.',
+                'card-edu-desc': 'Workshops & espresso dialing-in.',
+                'card-roastery-desc': 'Specialty beans in Antalya.',
+                'stat-arabica': 'Specialty Arabica',
+                'stat-score': 'Cupping Score',
+                'stat-education': 'Coffee Education',
+                'recipes-section-title': 'Specialty Coffee Recipes',
+                'recipes-section-desc': 'Select a brew method to open the calculator and interactive guide.',
+                'filter-all': 'All',
+                'filter-espresso': 'Espresso',
+                'filter-manual': 'Manual Brews',
+                'btn-open-calc': 'Open Calculator & Guide',
+                'edu-title': 'Workshops & Professional Consulting',
+                'edu-desc-1': 'Great coffee isn\'t luck—it\'s science, art, and consistency. We offer hands-on training for enthusiasts and cafe owners.',
+                'edu-p1-title': 'Grinder Dialing-In',
+                'edu-p1-desc': 'Learn grind adjustments to prevent channeling and balance flavor.',
+                'edu-p2-title': 'Signature Beverages',
+                'edu-p2-desc': 'Develop exclusive recipes to elevate your coffee shop menu.',
+                'edu-p3-title': 'Business Consulting',
+                'edu-p3-desc': 'Guidance on bean sourcing and specialty coffee bar setup.',
+                'edu-cta-box-title': 'Looking for a personalized session?',
+                'edu-cta-box-desc': 'Book a direct consultation with Marco via WhatsApp.',
+                'btn-book-consultation': 'Book via WhatsApp',
+                'roastery-title': 'Specialty Coffee Spotlight',
+                'roastery-desc': 'Small-batch freshly roasted coffee beans.',
+                'calc-title': 'Dose Calculator',
+                'timer-title': 'Brew Timer',
                 'timer-start': 'Start',
-                'steps-title': 'Brewing Steps',
-                'consulting-title': 'Consulting & Barista Education',
-                'consulting-desc': 'End-to-end guidance for specialty coffee shops and barista training.',
-                'cons-service-1': 'Menu & Recipe Design',
-                'cons-service-2': 'Barista Training',
-                'cons-service-3': 'Bar Setup Consulting',
-                'edu-cta-box-title': 'Have a coffee project in mind?',
-                'edu-cta-box-desc': 'Connect directly with Marco for custom advice.',
-                'btn-book-consultation': 'Contact via WhatsApp'
+                'ingredients-title': 'Recalculated Ingredients',
+                'steps-title': 'Extraction Steps',
+                'video-title': 'Video Guide'
             },
             tr: {
                 'nav-home': 'Ana Sayfa',
-                'nav-beans': 'Çekirdekler',
-                'nav-recipes': 'Hesaplayıcı',
-                'nav-consulting': 'Danışmanlık',
+                'nav-recipes': 'Tarifler',
+                'nav-education': 'Eğitim',
+                'nav-roastery': 'Roastery',
                 'cta-whatsapp': 'İletişim',
                 'splash-subtitle': 'Kavurma bilimi, hassas ekstraksiyon ve nitelikli kahve kültürü.',
                 'btn-enter-site': 'Deneyime Başla',
                 'hero-tagline': 'Antalya, Türkiye • Nitelikli Kahve Kültürü',
                 'hero-title-1': 'Kahveden fazlası,',
                 'hero-title-2': 'Bilim, Sanat ve Tutku.',
-                'hero-description': 'Her çekirdeğin aromasını öne çıkaran kavurma profilleri ve baristalar için hassas araçlar sunuyoruz.',
-                'card-beans-desc': 'Mikro lot nitelikli kahve çekirdekleri.',
-                'card-recipes-desc': 'Doz, oran ve demleme süresini hesaplayın.',
-                'card-consulting-desc': 'Kahve dükkanları için danışmanlık ve kurulum.',
-                'beans-title': 'Nitelikli Çekirdek Kataloğu',
-                'beans-desc': 'Demleme yöntemine özel kavrulmuş seçkin lotlar.',
-                'calc-section-title': 'Ekstraksiyon Hesaplayıcı',
-                'calc-section-desc': 'Kahve-su oranlarını tam olarak ayarlayın.',
-                'calc-title': 'Porsiyon / Fincan',
-                'timer-title': 'Barista Zamanlayıcısı',
-                'timer-start': 'Başlat',
-                'steps-title': 'Demleme Adımları',
-                'consulting-title': 'Danışmanlık & Barista Eğitimi',
-                'consulting-desc': 'Nitelikli kahve dükkanları ve barista eğitimi için uçtan uca rehberlik.',
-                'cons-service-1': 'Menü ve Tarif Tasarımı',
-                'cons-service-2': 'Barista Eğitimi',
-                'cons-service-3': 'Bar Kurulum Danışmanlığı',
-                'edu-cta-box-title': 'Aklınızda bir proje mi var?',
+                'hero-description': 'Hassas demleme tarifleri, interaktif barista rehberleri ve profesyonel danışmanlığı Marco\'s Coffee\'den keşfedin.',
+                'card-recipes-desc': 'Doz hesaplayıcı ve demleme zamanlayıcısı.',
+                'card-edu-desc': 'Atölyeler ve espresso kalibrasyonu.',
+                'card-roastery-desc': 'Antalya\'da nitelikli çekirdekler.',
+                'stat-arabica': 'Nitelikli Arabica',
+                'stat-score': 'Tadım Puanı',
+                'stat-education': 'Kahve Eğitimi',
+                'recipes-section-title': 'Nitelikli Kahve Tarifleri',
+                'recipes-section-desc': 'Hesaplayıcı ve rehberi açmak için bir yöntem seçin.',
+                'filter-all': 'Tümü',
+                'filter-espresso': 'Espresso',
+                'filter-manual': 'Manuel Demleme',
+                'btn-open-calc': 'Hesaplayıcı & Rehberi Aç',
+                'edu-title': 'Atölyeler ve Profesyonel Danışmanlık',
+                'edu-desc-1': 'Mükemmel kahve tesadüf değildir: teknik, tutarlılık ve sürekli öğrenme gerektirir.',
+                'edu-p1-title': 'Öğütücü Kalibrasyonu',
+                'edu-p1-desc': 'Kanallanmayı önlemek ve tadı dengelemek için öğütüm ayarlarını öğrenin.',
+                'edu-p2-title': 'İmza İçecekler',
+                'edu-p2-desc': 'Menünüzü öne çıkaracak özel tarifler geliştirin.',
+                'edu-p3-title': 'İşletme Danışmanlığı',
+                'edu-p3-desc': 'Çekirdek tedariki ve bar kurulumu rehberliği.',
+                'edu-cta-box-title': 'Kişiselleştirilmiş bir seans mı arıyorsunuz?',
                 'edu-cta-box-desc': 'Danışmanlık için Marco ile doğrudan iletişime geçin.',
-                'btn-book-consultation': 'WhatsApp ile İletişime Geç'
+                'btn-book-consultation': 'WhatsApp ile Randevu Al',
+                'roastery-title': 'Öne Çıkan Nitelikli Çekirdek',
+                'roastery-desc': 'Özenle taze kavrulmuş küçük ölçekli lotlar.',
+                'calc-title': 'Doz Hesaplayıcı',
+                'timer-title': 'Zamanlayıcı',
+                'timer-start': 'Başlat',
+                'ingredients-title': 'Hesaplanan Malzemeler',
+                'steps-title': 'Demleme Adımları',
+                'video-title': 'Video Rehber'
             }
         };
 
@@ -576,7 +701,7 @@
             document.getElementById('lang-dropdown-menu').classList.add('hidden');
         }
 
-        /* --- 3. SPA ROUTER --- */
+        /* --- 3. NAVEGACIÓN SPA ENTRE PESTAÑAS --- */
         function switchView(viewId) {
             document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(btn => {
@@ -596,14 +721,18 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        /* --- 4. CALCULATOR DATA & LOGIC --- */
-        const calcMethods = {
+        /* --- 4. DATOS DE RECETAS Y CALCULADORA --- */
+        const recipesData = {
             'espresso': {
-                tag: 'Espresso Core',
                 title: 'Golden Crema Espresso Doppio',
-                baseCoffee: 18,
-                baseWater: 34,
-                ratio: '1:1.88',
+                tag: 'Espresso Core',
+                baseCoffeeGrams: 18,
+                reelUrl: 'https://www.instagram.com/p/DehFMzioJfp/embed',
+                calcIngredients: (m) => [
+                    `<strong>${18 * m}g</strong> Café recién tostado de especialidad`,
+                    `<strong>${34 * m}g</strong> Rendimiento en taza (Ratio 1:1.88)`,
+                    '6s Pre-infusión + 21s Extracción (27s Total)'
+                ],
                 steps: [
                     'Moler 18.0g en la canasta del portafiltro.',
                     'Distribuir uniformemente con herramienta WDT.',
@@ -611,79 +740,84 @@
                     'Iniciar extracción con 6s de pre-infusión hasta completar 34g en 27s.'
                 ]
             },
-            'v60': {
-                tag: 'Método Manual',
-                title: 'V60 Pour Over',
-                baseCoffee: 15,
-                baseWater: 240,
-                ratio: '1:16',
+            'bicerin': {
+                title: 'Traditional Italian Bicerin',
+                tag: 'Bebida de Autor',
+                baseCoffeeGrams: 18,
+                reelUrl: 'https://www.instagram.com/reel/DeUfBn-I6iH/embed',
+                calcIngredients: (m) => [
+                    `<strong>${50 * m}ml</strong> Chocolate caliente denso estilo italiano`,
+                    `<strong>${50 * m}ml</strong> Espresso doble fresco`,
+                    `<strong>${40 * m}ml</strong> Crema de leche fría semi-batida`
+                ],
                 steps: [
-                    'Purgar filtro de papel con agua caliente.',
-                    'Pre-infusión con 45g de agua a 93°C durante 45 segundos.',
-                    'Vertidos continuos en espiral hasta alcanzar los 240g a los 3:00 min.'
+                    'Servir chocolate caliente denso en la base del vaso.',
+                    'Verter el espresso suavemente sobre el reverso de una cuchara.',
+                    'Flotar la crema fría sobre el espresso sin mezclar las capas.'
                 ]
             },
-            'frenchpress': {
-                tag: 'Inmersión',
-                title: 'Prensa Francesa',
-                baseCoffee: 18,
-                baseWater: 270,
-                ratio: '1:15',
+            'v60': {
+                title: 'V60 Precision Pour Over',
+                tag: 'Método Manual',
+                baseCoffeeGrams: 15,
+                reelUrl: 'https://www.instagram.com/marcoscoffeeantalya/embed',
+                calcIngredients: (m) => [
+                    `<strong>${15 * m}g</strong> Café molienda media-fina`,
+                    `<strong>${240 * m}g</strong> Agua a 93°C (Ratio 1:16)`,
+                    'Filtro de papel purgado'
+                ],
                 steps: [
-                    'Molienda gruesa. Verter el agua hirviendo y mezclar suavemente.',
-                    'Colocar la tapa sin bajar el émbolo y esperar 4 minutos.',
-                    'Romper la costra superior y bajar el émbolo lentamente.'
+                    'Purgar filtro con agua caliente.',
+                    'Pre-infusión con 45g de agua durante 45 segundos.',
+                    'Vertidos continuos en espiral hasta alcanzar los 240g a los 3:00 min.'
                 ]
             }
         };
 
-        let activeMethodKey = 'espresso';
-
-        function selectRecipe(key) {
-            activeMethodKey = key;
-            document.querySelectorAll('.recipe-btn').forEach(btn => {
-                btn.classList.remove('bg-darktext', 'text-white');
-                btn.classList.add('bg-cardwhite', 'text-mutedtext');
-            });
-            const activeTab = document.getElementById(`tab-${key}`);
-            if (activeTab) {
-                activeTab.classList.add('bg-darktext', 'text-white');
-                activeTab.classList.remove('bg-cardwhite', 'text-mutedtext');
-            }
-            updateCalculator();
-        }
-
-        function updateCalculator() {
-            const method = calcMethods[activeMethodKey];
-            if (!method) return;
-
-            const multiplier = parseInt(document.getElementById('dose-slider').value) || 1;
-            const totalCoffee = method.baseCoffee * multiplier;
-            const totalWater = method.baseWater * multiplier;
-
-            document.getElementById('calc-method-tag').innerText = method.tag;
-            document.getElementById('calc-method-title').innerText = method.title;
-            document.getElementById('dose-val-display').innerText = `${multiplier} ${multiplier > 1 ? 'Porciones' : 'Porción'} (${totalCoffee}g Café)`;
-            
-            document.getElementById('spec-coffee').innerText = `${totalCoffee.toFixed(1)}g`;
-            document.getElementById('spec-water').innerText = `${totalWater.toFixed(1)}g`;
-            document.getElementById('spec-ratio').innerText = method.ratio;
-
-            const stepsList = document.getElementById('calc-steps-list');
-            stepsList.innerHTML = method.steps.map(s => `<li>${s}</li>`).join('');
-        }
-
-        /* --- 5. TIMER LOGIC --- */
+        let activeRecipeKey = 'espresso';
         let timerInterval = null, timerSeconds = 0, isTimerRunning = false;
+
+        function updateRecipeCalculations() {
+            const data = recipesData[activeRecipeKey];
+            if (!data) return;
+
+            const m = parseInt(document.getElementById('dose-slider').value) || 1;
+            document.getElementById('dose-val-display').innerText = `${m} ${m > 1 ? 'Porciones' : 'Porción'} (${data.baseCoffeeGrams * m}g café)`;
+
+            const ingContainer = document.getElementById('modal-ingredients');
+            ingContainer.innerHTML = data.calcIngredients(m).map(i => `<li>• ${i}</li>`).join('');
+        }
+
+        function openRecipeModal(key) {
+            activeRecipeKey = key;
+            const data = recipesData[key];
+            if (!data) return;
+
+            resetBrewTimer();
+            document.getElementById('modal-tag').innerText = data.tag;
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('reel-iframe').src = data.reelUrl || '';
+            document.getElementById('dose-slider').value = 1;
+            updateRecipeCalculations();
+
+            document.getElementById('modal-steps').innerHTML = data.steps.map(s => `<li>${s}</li>`).join('');
+            document.getElementById('recipe-modal').classList.remove('hidden');
+        }
+
+        function closeRecipeModal() {
+            resetBrewTimer();
+            document.getElementById('reel-iframe').src = '';
+            document.getElementById('recipe-modal').classList.add('hidden');
+        }
 
         function toggleBrewTimer() {
             if (isTimerRunning) {
                 clearInterval(timerInterval);
                 isTimerRunning = false;
-                document.getElementById('timer-btn-text').innerText = currentLang === 'es' ? 'Reanudar' : 'Resume';
+                document.getElementById('timer-btn-text').innerText = currentLang === 'es' ? 'Reanudar' : (currentLang === 'tr' ? 'Devam Et' : 'Resume');
             } else {
                 isTimerRunning = true;
-                document.getElementById('timer-btn-text').innerText = currentLang === 'es' ? 'Pausar' : 'Pause';
+                document.getElementById('timer-btn-text').innerText = currentLang === 'es' ? 'Pausar' : (currentLang === 'tr' ? 'Durdur' : 'Pause');
                 timerInterval = setInterval(() => {
                     timerSeconds++;
                     const m = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
@@ -701,7 +835,23 @@
             document.getElementById('timer-btn-text').innerText = i18n[currentLang]['timer-start'];
         }
 
-        /* --- 6. UI DROPDOWNS --- */
+        function filterRecipes(cat) {
+            document.querySelectorAll('.recipe-tab').forEach(tab => {
+                if (tab.getAttribute('data-filter') === cat) {
+                    tab.classList.add('bg-darktext', 'text-white');
+                    tab.classList.remove('bg-cardwhite', 'text-mutedtext');
+                } else {
+                    tab.classList.remove('bg-darktext', 'text-white');
+                    tab.classList.add('bg-cardwhite', 'text-mutedtext');
+                }
+            });
+
+            document.querySelectorAll('.recipe-card').forEach(card => {
+                const cCat = card.getAttribute('data-category');
+                card.style.display = (cat === 'all' || cCat.includes(cat)) ? 'flex' : 'none';
+            });
+        }
+
         function toggleMobileMenu() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         }
@@ -714,7 +864,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('marcos_coffee_lang') || 'es';
             setLanguage(savedLang);
-            updateCalculator();
         });
 
         document.addEventListener('click', () => {
