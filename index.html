@@ -39,15 +39,15 @@
             theme: {
                 extend: {
                     colors: {
-                        sitebg: '#F8FAFC',        /* Blanco slate / gris ultra claro */
-                        cardwhite: '#FFFFFF',     /* Blanco puro para tarjetas */
-                        softslate: '#F1F5F9',     /* Gris claro suave para bordes/botones */
-                        bordergrey: '#E2E8F0',    /* Gris de estructura */
-                        iceblue: '#E0F2FE',       /* Azul helado claro */
-                        icebluehover: '#BAE6FD',  /* Azul helado para hover */
-                        accentblue: '#0284C7',    /* Azul profesional elegante */
-                        darktext: '#0F172A',      /* Azul pizarra muy oscuro */
-                        mutedtext: '#64748B'      /* Gris medio elegante */
+                        sitebg: '#F8FAFC',
+                        cardwhite: '#FFFFFF',
+                        softslate: '#F1F5F9',
+                        bordergrey: '#E2E8F0',
+                        iceblue: '#E0F2FE',
+                        icebluehover: '#BAE6FD',
+                        accentblue: '#0284C7',
+                        darktext: '#0F172A',
+                        mutedtext: '#64748B'
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -65,6 +65,7 @@
         
         #splash-screen {
             transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
+            z-index: 9999;
         }
         #splash-screen.hidden-splash {
             opacity: 0;
@@ -80,28 +81,23 @@
 <body class="bg-sitebg text-darktext antialiased min-h-screen flex flex-col justify-between selection:bg-iceblue selection:text-darktext">
 
     <!-- ==================== CINEMATIC VIDEO SPLASH ENTRANCE ==================== -->
-    <div id="splash-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950 overflow-hidden">
+    <div id="splash-screen" class="fixed inset-0 flex items-center justify-center bg-slate-950 overflow-hidden">
         
-        <!-- Video de fondo local -->
-        <video id="roaster-video" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover object-center opacity-70 scale-105 transform transition-transform duration-1000">
+        <video id="roaster-video" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-60 transform transition-transform duration-1000" style="object-position: 50% 75%;">
             <source src="roastery.mp4" type="video/mp4">
             Tu navegador no soporta la reproducción de video HTML5.
         </video>
 
-        <!-- Overlay de filtro profesional -->
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-slate-950/70"></div>
+        <div class="absolute inset-0 bg-slate-950/80"></div>
 
-        <!-- Selector de Idioma en el Splash -->
-        <div class="absolute top-6 right-6 z-20 flex space-x-1.5 bg-slate-900/50 backdrop-blur-md p-1 rounded-full border border-slate-700/50">
-            <button onclick="setLanguage('es')" class="px-3 py-1 rounded-full text-xs font-semibold text-white hover:bg-slate-700/50 transition-colors" id="splash-lang-es">ES</button>
-            <button onclick="setLanguage('en')" class="px-3 py-1 rounded-full text-xs font-semibold text-slate-300 hover:bg-slate-700/50 transition-colors" id="splash-lang-en">EN</button>
-            <button onclick="setLanguage('tr')" class="px-3 py-1 rounded-full text-xs font-semibold text-slate-300 hover:bg-slate-700/50 transition-colors" id="splash-lang-tr">TR</button>
+        <div class="absolute top-6 right-6 z-20 flex space-x-1.5 bg-slate-900/80 backdrop-blur-md p-1 rounded-full border border-slate-700">
+            <button onclick="setLanguage('es')" class="px-3 py-1 rounded-full text-xs font-semibold text-white hover:bg-slate-700 transition-colors" id="splash-lang-es">ES</button>
+            <button onclick="setLanguage('en')" class="px-3 py-1 rounded-full text-xs font-semibold text-slate-300 hover:bg-slate-700 transition-colors" id="splash-lang-en">EN</button>
+            <button onclick="setLanguage('tr')" class="px-3 py-1 rounded-full text-xs font-semibold text-slate-300 hover:bg-slate-700 transition-colors" id="splash-lang-tr">TR</button>
         </div>
 
-        <!-- Contenido central de bienvenida -->
         <div class="relative z-10 text-center px-6 max-w-xl space-y-6 text-white">
-            
-            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-slate-800/60 backdrop-blur-md border border-slate-600/50 text-xs font-medium tracking-widest uppercase">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 backdrop-blur-md border border-slate-600 text-xs font-medium tracking-widest uppercase">
                 <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
                 <span data-i18n="hero-tagline">Antalya, Turkey • Specialty Coffee Culture</span>
             </div>
@@ -122,18 +118,16 @@
             </div>
         </div>
 
-        <!-- Botón flotante para pausar/reproducir video -->
-        <button onclick="toggleRoasterVideo()" class="absolute bottom-6 right-6 z-20 w-10 h-10 rounded-full bg-slate-900/50 backdrop-blur-md border border-slate-700/50 text-white flex items-center justify-center hover:bg-slate-800/50 transition-colors">
+        <button onclick="toggleRoasterVideo()" class="absolute bottom-6 right-6 z-20 w-10 h-10 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-700 text-white flex items-center justify-center hover:bg-slate-800 transition-colors">
             <i id="video-control-icon" class="fa-solid fa-pause text-xs"></i>
         </button>
     </div>
 
 
     <!-- ==================== HEADER & NAV BAR ==================== -->
-    <header class="sticky top-0 z-40 bg-cardwhite/90 backdrop-blur-md border-b border-bordergrey">
+    <header class="sticky top-0 z-40 bg-cardwhite/95 backdrop-blur-md border-b border-bordergrey shadow-sm">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
             
-            <!-- Logo Brand -->
             <button onclick="switchView('home')" class="flex items-center space-x-3 text-left group focus:outline-none">
                 <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-softslate border border-bordergrey flex items-center justify-center p-1 overflow-hidden group-hover:border-accentblue transition-colors">
                     <img src="1234.png" alt="Marco's Coffee" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x100/F1F5F9/0F172A?text=MC';">
@@ -146,29 +140,20 @@
 
             <!-- Menú Desktop -->
             <nav class="hidden md:flex items-center space-x-1 bg-softslate p-1 rounded-full border border-bordergrey">
-                <button onclick="switchView('home')" id="nav-home" class="nav-btn px-5 py-1.5 rounded-full text-xs font-semibold text-darktext transition-all bg-cardwhite shadow-sm" data-i18n="nav-home">
-                    Inicio
-                </button>
-                <button onclick="switchView('recipes')" id="nav-recipes" class="nav-btn px-5 py-1.5 rounded-full text-xs font-semibold text-mutedtext hover:text-darktext transition-all" data-i18n="nav-recipes">
-                    Recetas
-                </button>
-                <button onclick="switchView('education')" id="nav-education" class="nav-btn px-5 py-1.5 rounded-full text-xs font-semibold text-mutedtext hover:text-darktext transition-all" data-i18n="nav-education">
-                    Educación
-                </button>
-                <button onclick="switchView('roastery')" id="nav-roastery" class="nav-btn px-5 py-1.5 rounded-full text-xs font-semibold text-mutedtext hover:text-darktext transition-all" data-i18n="nav-roastery">
-                    Tostaduría
-                </button>
+                <button onclick="switchView('home')" id="nav-home" class="nav-btn px-4 py-1.5 rounded-full text-xs font-semibold text-darktext transition-all bg-cardwhite shadow-sm" data-i18n="nav-home">Inicio</button>
+                <button onclick="switchView('recipes')" id="nav-recipes" class="nav-btn px-4 py-1.5 rounded-full text-xs font-semibold text-mutedtext hover:text-darktext transition-all" data-i18n="nav-recipes">Recetas</button>
+                <button onclick="switchView('education')" id="nav-education" class="nav-btn px-4 py-1.5 rounded-full text-xs font-semibold text-mutedtext hover:text-darktext transition-all" data-i18n="nav-education">Educación</button>
+                <button onclick="switchView('roastery')" id="nav-roastery" class="nav-btn px-4 py-1.5 rounded-full text-xs font-semibold text-mutedtext hover:text-darktext transition-all" data-i18n="nav-roastery">Tostaduría</button>
+                <button onclick="switchView('coroasters')" id="nav-coroasters" class="nav-btn px-4 py-1.5 rounded-full text-xs font-semibold text-mutedtext hover:text-darktext transition-all" data-i18n="nav-coroasters">Co-Roasters</button>
             </nav>
 
-            <!-- Controles: Video, Idioma & WhatsApp -->
             <div class="hidden sm:flex items-center space-x-3">
-                <button onclick="replaySplash()" title="Ver Video Tostadora" class="w-8 h-8 rounded-lg border border-bordergrey bg-cardwhite text-mutedtext hover:text-darktext flex items-center justify-center transition-colors">
+                <button onclick="replaySplash()" title="Ver Video Tostadora" class="w-8 h-8 rounded-lg border border-bordergrey bg-cardwhite text-mutedtext hover:text-darktext flex items-center justify-center transition-colors shadow-sm">
                     <i class="fa-solid fa-film text-xs"></i>
                 </button>
 
-                <!-- Selector de Idioma Navbar -->
                 <div class="relative id-lang-dropdown-container">
-                    <button onclick="toggleLangDropdown(event)" class="px-3 py-1.5 rounded-lg border border-bordergrey text-xs font-semibold bg-cardwhite hover:bg-softslate transition-colors flex items-center space-x-1.5">
+                    <button onclick="toggleLangDropdown(event)" class="px-3 py-1.5 rounded-lg border border-bordergrey text-xs font-semibold bg-cardwhite hover:bg-softslate transition-colors flex items-center space-x-1.5 shadow-sm">
                         <i class="fa-solid fa-globe text-mutedtext"></i>
                         <span id="current-lang-text">ES</span>
                         <i class="fa-solid fa-chevron-down text-[10px] text-mutedtext"></i>
@@ -192,7 +177,7 @@
         </div>
 
         <!-- Menú Móvil -->
-        <div id="mobile-menu" class="hidden md:hidden bg-cardwhite border-b border-bordergrey px-4 py-4 space-y-3">
+        <div id="mobile-menu" class="hidden md:hidden bg-cardwhite border-b border-bordergrey px-4 py-4 space-y-3 shadow-md">
             <div class="grid grid-cols-2 gap-2 text-xs font-semibold">
                 <button onclick="switchView('home'); toggleMobileMenu()" class="p-3 rounded-xl bg-softslate text-darktext text-left">
                     <i class="fa-solid fa-house text-accentblue mr-2"></i> <span data-i18n="nav-home">Inicio</span>
@@ -206,10 +191,13 @@
                 <button onclick="switchView('roastery'); toggleMobileMenu()" class="p-3 rounded-xl bg-softslate text-darktext text-left">
                     <i class="fa-solid fa-fire-burner text-accentblue mr-2"></i> <span data-i18n="nav-roastery">Tostaduría</span>
                 </button>
+                <button onclick="switchView('coroasters'); toggleMobileMenu()" class="p-3 rounded-xl bg-softslate text-darktext text-left col-span-2">
+                    <i class="fa-solid fa-industry text-accentblue mr-2"></i> <span data-i18n="nav-coroasters">Co-Roasters</span>
+                </button>
             </div>
             <div class="pt-2 border-t border-bordergrey flex justify-between items-center">
                 <div class="flex space-x-1 text-xs">
-                    <button onclick="setLanguage('es')" class="px-2.5 py-1 border border-bordergrey rounded-md">ES</button>
+                    <button onclick="setLanguage('es')" class="px-2.5 py-1 border border-bordergrey rounded-md bg-softslate">ES</button>
                     <button onclick="setLanguage('en')" class="px-2.5 py-1 border border-bordergrey rounded-md">EN</button>
                     <button onclick="setLanguage('tr')" class="px-2.5 py-1 border border-bordergrey rounded-md">TR</button>
                 </div>
@@ -231,15 +219,15 @@
                 
                 <h1 class="font-serif text-3xl sm:text-5xl font-medium tracking-tight text-darktext leading-tight">
                     <span data-i18n="hero-title-1">Más que café,</span> <br>
-                    <span class="text-slate-600 font-normal" data-i18n="hero-title-2">Ciencia, Arte y Pasión.</span>
+                    <span class="text-slate-600 font-normal" data-i18n="hero-title-2">Ciencia, Arte & Pasión.</span>
                 </h1>
 
                 <p class="text-mutedtext text-sm sm:text-base leading-relaxed font-normal max-w-lg mx-auto" data-i18n="hero-description">
-                    Explora recetas de extracción de precisión, guías interactivas para baristas y consultoría especializada directamente desde Marco's Coffee.
+                    Explora recetas de extracción de precisión, guías interactivas para baristas y servicios de maquila y tueste colaborativo en Marco's Coffee.
                 </p>
 
                 <!-- Tarjetas de Navegación Rápida -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 text-left">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 text-left">
                     <button onclick="switchView('recipes')" class="p-6 bg-cardwhite rounded-2xl border border-bordergrey hover:border-sky-300 hover:shadow-md transition-all group shadow-sm">
                         <div class="w-10 h-10 rounded-xl bg-iceblue flex items-center justify-center text-accentblue mb-3 group-hover:scale-105 transition-transform">
                             <i class="fa-solid fa-mug-saucer text-lg"></i>
@@ -253,7 +241,7 @@
                             <i class="fa-solid fa-graduation-cap text-lg"></i>
                         </div>
                         <h3 class="font-serif text-base font-semibold text-darktext group-hover:text-accentblue transition-colors" data-i18n="nav-education">Educación</h3>
-                        <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="card-edu-desc">Talleres y calibración de espresso.</p>
+                        <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="card-edu-desc">Barismo, cursos de tostado y consultoría.</p>
                     </button>
 
                     <button onclick="switchView('roastery')" class="p-6 bg-cardwhite rounded-2xl border border-bordergrey hover:border-sky-300 hover:shadow-md transition-all group shadow-sm">
@@ -261,7 +249,15 @@
                             <i class="fa-solid fa-fire-burner text-lg"></i>
                         </div>
                         <h3 class="font-serif text-base font-semibold text-darktext group-hover:text-accentblue transition-colors" data-i18n="nav-roastery">Tostaduría</h3>
-                        <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="card-roastery-desc">Granos de especialidad en Antalya.</p>
+                        <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="card-roastery-desc">Tostadora y granos de origen mexicano.</p>
+                    </button>
+
+                    <button onclick="switchView('coroasters')" class="p-6 bg-cardwhite rounded-2xl border border-bordergrey hover:border-sky-300 hover:shadow-md transition-all group shadow-sm">
+                        <div class="w-10 h-10 rounded-xl bg-iceblue flex items-center justify-center text-accentblue mb-3 group-hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-industry text-lg"></i>
+                        </div>
+                        <h3 class="font-serif text-base font-semibold text-darktext group-hover:text-accentblue transition-colors" data-i18n="nav-coroasters">Co-Roasters</h3>
+                        <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="card-coroasters-desc">Renta de maquinaria y área de empacado.</p>
                     </button>
                 </div>
 
@@ -361,39 +357,39 @@
         </section>
 
 
-        <!-- VISTA 3: EDUCACIÓN -->
+        <!-- VISTA 3: EDUCACIÓN (Con las 3 secciones concretas solicitadas) -->
         <section id="view-education" class="view-section space-y-8">
             <div class="max-w-2xl">
                 <span class="text-accentblue text-xs font-semibold uppercase tracking-widest block mb-1">Barista Education</span>
-                <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-darktext" data-i18n="edu-title">Talleres y Consultoría Profesional</h2>
+                <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-darktext" data-i18n="edu-title">Educación Profesional</h2>
                 <p class="text-sm text-mutedtext mt-2 leading-relaxed" data-i18n="edu-desc-1">
-                    El gran café no es coincidencia: requiere técnica, consistencia y aprendizaje continuo. Ofrecemos capacitación práctica tanto para apasionados como para negocios.
+                    Programas diseñados para llevar tu conocimiento del café al siguiente nivel, desde la extracción en barra hasta la ciencia del tueste.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div class="p-6 bg-cardwhite rounded-2xl border border-bordergrey shadow-sm">
                     <div class="w-9 h-9 rounded-xl bg-iceblue flex items-center justify-center text-accentblue mb-3">
-                        <i class="fa-solid fa-sliders"></i>
+                        <i class="fa-solid fa-mug-hot"></i>
                     </div>
-                    <h3 class="font-serif text-base font-semibold text-darktext" data-i18n="edu-p1-title">Calibración de Molino</h3>
-                    <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="edu-p1-desc">Aprende a ajustar la molienda para evitar canalizaciones y balancear sabor.</p>
+                    <h3 class="font-serif text-base font-semibold text-darktext" data-i18n="edu-p1-title">Barismo</h3>
+                    <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="edu-p1-desc">Técnicas de extracción, calibración de molinos, flujos de trabajo eficientes y texturizado de leche.</p>
                 </div>
 
                 <div class="p-6 bg-cardwhite rounded-2xl border border-bordergrey shadow-sm">
                     <div class="w-9 h-9 rounded-xl bg-iceblue flex items-center justify-center text-accentblue mb-3">
-                        <i class="fa-solid fa-mug-hot"></i>
+                        <i class="fa-solid fa-fire-burner"></i>
                     </div>
-                    <h3 class="font-serif text-base font-semibold text-darktext" data-i18n="edu-p2-title">Bebidas de Autor</h3>
-                    <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="edu-p2-desc">Desarrollo de recetas exclusivas para diferenciar el menú de tu cafetería.</p>
+                    <h3 class="font-serif text-base font-semibold text-darktext" data-i18n="edu-p2-title">Curso de Tostado</h3>
+                    <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="edu-p2-desc">Física y química del tueste, transferencia de calor, desarrollo de perfiles y control de curvas.</p>
                 </div>
 
                 <div class="p-6 bg-cardwhite rounded-2xl border border-bordergrey shadow-sm">
                     <div class="w-9 h-9 rounded-xl bg-iceblue flex items-center justify-center text-accentblue mb-3">
                         <i class="fa-solid fa-store"></i>
                     </div>
-                    <h3 class="font-serif text-base font-semibold text-darktext" data-i18n="edu-p3-title">Asesoría de Negocio</h3>
-                    <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="edu-p3-desc">Orientación en la selección de grano y montaje de barra de especialidad.</p>
+                    <h3 class="font-serif text-base font-semibold text-darktext" data-i18n="edu-p3-title">Consultoría</h3>
+                    <p class="text-xs text-mutedtext mt-1.5 leading-relaxed" data-i18n="edu-p3-desc">Asesoría especializada para diseño de barras de especialidad, selección de equipos y optimización de negocio.</p>
                 </div>
             </div>
 
@@ -402,56 +398,121 @@
                     <h4 class="font-serif text-base font-semibold text-darktext" data-i18n="edu-cta-box-title">¿Buscas una sesión personalizada?</h4>
                     <p class="text-xs text-mutedtext mt-0.5" data-i18n="edu-cta-box-desc">Agenda una consulta directa con Marco vía WhatsApp.</p>
                 </div>
-                <a href="https://wa.me/905078677978?text=Hola%20Marco,%20me%20interesa%20una%20consultoria" target="_blank" class="bg-darktext hover:bg-accentblue text-white px-5 py-2.5 rounded-xl text-xs font-semibold shrink-0 transition-colors shadow-sm" data-i18n="btn-book-consultation">
+                <a href="https://wa.me/905078677978?text=Hola%20Marco,%20me%20interesa%20informacion%20sobre%20los%20cursos" target="_blank" class="bg-darktext hover:bg-accentblue text-white px-5 py-2.5 rounded-xl text-xs font-semibold shrink-0 transition-colors shadow-sm" data-i18n="btn-book-consultation">
                     Agendar por WhatsApp
                 </a>
             </div>
         </section>
 
 
-        <!-- VISTA 4: TOSTADURÍA -->
-        <section id="view-roastery" class="view-section space-y-6">
+        <!-- VISTA 4: TOSTADURÍA (Con tostadora.jpeg y orígenes 100% mexicanos) -->
+        <section id="view-roastery" class="view-section space-y-8">
             <div class="max-w-2xl">
-                <span class="text-accentblue text-xs font-semibold uppercase tracking-widest block mb-1">Antalya Roastery</span>
-                <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-darktext" data-i18n="roastery-title">Grano de Especialidad Destacado</h2>
-                <p class="text-sm text-mutedtext mt-1" data-i18n="roastery-desc">Lotes tostados cuidadosamente en pequeños volúmenes.</p>
+                <span class="text-accentblue text-xs font-semibold uppercase tracking-widest block mb-1">Antalya Roastery & Mexican Origin</span>
+                <h2 class="font-serif text-2xl sm:text-4xl font-semibold text-darktext" data-i18n="roastery-title">Tostaduría y Orígenes de México</h2>
+                <p class="text-sm sm:text-base text-mutedtext mt-2 leading-relaxed" data-i18n="roastery-desc">
+                    Tostamos cuidadosamente lotes de especialidad de origen 100% mexicano, explorando perfiles naturales, honey y fermentados de diversas regiones cafetaleras de México.
+                </p>
             </div>
 
-            <div class="bg-cardwhite p-6 sm:p-8 rounded-3xl border border-bordergrey space-y-6 shadow-sm max-w-xl">
-                <div class="flex justify-between items-start border-b border-bordergrey pb-4">
-                    <div>
-                        <span class="text-[10px] uppercase font-bold text-accentblue">Origen Único</span>
-                        <h3 class="font-serif text-xl font-semibold text-darktext">Ethiopia Yirgacheffe G1</h3>
+            <!-- Imagen de la Tostadora -->
+            <div class="w-full max-w-3xl mx-auto rounded-3xl overflow-hidden border border-bordergrey shadow-md bg-cardwhite">
+                <img src="tostadora.jpeg" alt="Tostadora Marco's Coffee" class="w-full h-auto object-cover max-h-[450px]" onerror="this.onerror=null; this.src='https://placehold.co/800x450/F1F5F9/0F172A?text=Tostadora+Marco%27s+Coffee';">
+                <div class="p-4 bg-softslate border-t border-bordergrey text-center">
+                    <span class="text-xs font-semibold text-darktext uppercase tracking-wider">Tostadora 15kg • Curvas de Tueste con Precisión</span>
+                </div>
+            </div>
+
+            <!-- Variedades de Origen Mexicano -->
+            <div class="space-y-4 pt-2">
+                <h3 class="font-serif text-xl font-semibold text-darktext" data-i18n="mexico-varieties-title">Variedades y Procesos de México</h3>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Variedad 1 -->
+                    <div class="p-6 bg-cardwhite rounded-2xl border border-bordergrey shadow-sm space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] uppercase font-bold text-accentblue bg-iceblue px-2.5 py-1 rounded-md">Proceso Fermentado / Anaeróbico</span>
+                            <span class="text-xs font-mono font-bold text-darktext">Chiapas Motozintla</span>
+                        </div>
+                        <h4 class="font-serif text-base font-semibold text-darktext">Finca El Triunfo (Bourbón / Typica)</h4>
+                        <p class="text-xs text-mutedtext leading-relaxed">Notas intensas a frutos rojos maduros, vino tinto y cacao amargo con postgusto prolongado.</p>
                     </div>
-                    <span class="bg-iceblue text-accentblue text-xs font-bold px-3 py-1 rounded-full border border-sky-200">87.5 PTS</span>
+
+                    <!-- Variedad 2 -->
+                    <div class="p-6 bg-cardwhite rounded-2xl border border-bordergrey shadow-sm space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] uppercase font-bold text-accentblue bg-iceblue px-2.5 py-1 rounded-md">Proceso Honey</span>
+                            <span class="text-xs font-mono font-bold text-darktext">Oaxaca Pluma Hidalgo</span>
+                        </div>
+                        <h4 class="font-serif text-base font-semibold text-darktext">Pluma Hidalgo Selección (Pluma Coffe)</h4>
+                        <p class="text-xs text-mutedtext leading-relaxed">Dulzor pronunciado a piloncillo, panela, notas cítricas a naranja dulce y cuerpo sedoso.</p>
+                    </div>
+
+                    <!-- Variedad 3 -->
+                    <div class="p-6 bg-cardwhite rounded-2xl border border-bordergrey shadow-sm space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] uppercase font-bold text-accentblue bg-iceblue px-2.5 py-1 rounded-md">Proceso Natural</span>
+                            <span class="text-xs font-mono font-bold text-darktext">Veracruz Coatepec</span>
+                        </div>
+                        <h4 class="font-serif text-base font-semibold text-darktext">Finca Altas Cumbres (Typica / Catura)</h4>
+                        <p class="text-xs text-mutedtext leading-relaxed">Perfil aromático complejo con notas a durazno en almíbar, chocolate con leche y jazmín.</p>
+                    </div>
+
+                    <!-- Variedad 4 -->
+                    <div class="p-6 bg-cardwhite rounded-2xl border border-bordergrey shadow-sm space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] uppercase font-bold text-accentblue bg-iceblue px-2.5 py-1 rounded-md">Proceso Láctico / Experimental</span>
+                            <span class="text-xs font-mono font-bold text-darktext">Nayarit Volcán</span>
+                        </div>
+                        <h4 class="font-serif text-base font-semibold text-darktext">Jala Altitud (Marsellesa / Sarchimor)</h4>
+                        <p class="text-xs text-mutedtext leading-relaxed">Acidez málica brillante, notas a manzana verde, yogur y vainilla con taza sumamente limpia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- VISTA 5: CO-ROASTERS -->
+        <section id="view-coroasters" class="view-section space-y-8">
+            <div class="max-w-2xl">
+                <span class="text-accentblue text-xs font-semibold uppercase tracking-widest block mb-1">Collaborative Roasting</span>
+                <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-darktext" data-i18n="coroasters-title">Co-Roasters & Maquila</h2>
+                <p class="text-sm text-mutedtext mt-2 leading-relaxed" data-i18n="coroasters-desc">
+                    Espacio de tueste y empacado colaborativo diseñado para marcas de café nuevas o ya posicionadas que buscan infraestructura profesional sin la inversión inicial de una planta propia.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="p-6 bg-cardwhite rounded-3xl border border-bordergrey space-y-4 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-iceblue flex items-center justify-center text-accentblue">
+                        <i class="fa-solid fa-industry text-lg"></i>
+                    </div>
+                    <h3 class="font-serif text-lg font-semibold text-darktext" data-i18n="coroasters-feat1-title">Renta de Maquinaria y Espacio</h3>
+                    <p class="text-xs text-mutedtext leading-relaxed" data-i18n="coroasters-feat1-desc">
+                        Acceso a tostadoras industriales de precisión y área especializada de empacado bajo estrictos estándares de control de calidad. Ideal para escalar producción de forma inmediata.
+                    </p>
                 </div>
 
-                <div class="flex flex-wrap gap-2 text-xs">
-                    <span class="bg-softslate text-mutedtext px-3 py-1 rounded-full border border-bordergrey">Flor de Azahar</span>
-                    <span class="bg-softslate text-mutedtext px-3 py-1 rounded-full border border-bordergrey">Néctar de Durazno</span>
-                    <span class="bg-softslate text-mutedtext px-3 py-1 rounded-full border border-bordergrey">Miel Silvestre</span>
+                <div class="p-6 bg-cardwhite rounded-3xl border border-bordergrey space-y-4 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-iceblue flex items-center justify-center text-accentblue">
+                        <i class="fa-solid fa-handshake text-lg"></i>
+                    </div>
+                    <h3 class="font-serif text-lg font-semibold text-darktext" data-i18n="coroasters-feat2-title">Acompañamiento Experto</h3>
+                    <p class="text-xs text-mutedtext leading-relaxed" data-i18n="coroasters-feat2-desc">
+                        Elige entre rentar exclusivamente el espacio para operar por tu cuenta, o ir de la mano con Marco en todo el proceso: desarrollo de perfiles, control de tueste y optimización de empaque.
+                    </p>
                 </div>
+            </div>
 
-                <div class="grid grid-cols-3 gap-3 text-center text-xs">
-                    <div class="p-3 bg-softslate rounded-xl">
-                        <span class="text-[10px] text-mutedtext block">Acidez</span>
-                        <span class="font-semibold text-darktext">Cítrica Brillante</span>
-                    </div>
-                    <div class="p-3 bg-softslate rounded-xl">
-                        <span class="text-[10px] text-mutedtext block">Cuerpo</span>
-                        <span class="font-semibold text-darktext">Sedoso</span>
-                    </div>
-                    <div class="p-3 bg-softslate rounded-xl">
-                        <span class="text-[10px] text-mutedtext block">Recomendación</span>
-                        <span class="font-semibold text-darktext">V60 / Espresso</span>
-                    </div>
+            <div class="p-6 sm:p-8 bg-softslate rounded-3xl border border-bordergrey flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="space-y-1">
+                    <h4 class="font-serif text-lg font-semibold text-darktext" data-i18n="coroasters-cta-title">¿Listo para llevar tu marca al siguiente nivel?</h4>
+                    <p class="text-xs text-mutedtext" data-i18n="coroasters-cta-desc">Cotiza disponibilidad de turnos de tueste y asesoría personalizada.</p>
                 </div>
-
-                <div class="pt-2 text-center border-t border-bordergrey">
-                    <a href="https://www.marcoscoffee.shop" class="text-xs text-accentblue hover:underline font-medium">
-                        www.marcoscoffee.shop
-                    </a>
-                </div>
+                <a href="https://wa.me/905078677978?text=Hola%20Marco,%20me%20interesa%20informacion%20sobre%20el%20servicio%20de%20Co-Roasters" target="_blank" class="bg-darktext hover:bg-accentblue text-white px-6 py-3 rounded-xl text-xs font-semibold shrink-0 transition-colors shadow-sm flex items-center space-x-2">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                    <span data-i18n="btn-coroasters-wa">Consultar por WhatsApp</span>
+                </a>
             </div>
         </section>
 
@@ -562,16 +623,18 @@
                 'nav-recipes': 'Recetas',
                 'nav-education': 'Educación',
                 'nav-roastery': 'Tostaduría',
+                'nav-coroasters': 'Co-Roasters',
                 'cta-whatsapp': 'Contacto',
                 'splash-subtitle': 'Ciencia de tueste, extracción de precisión y cultura de café de especialidad.',
                 'btn-enter-site': 'Entrar a la Experiencia',
                 'hero-tagline': 'Antalya, Turquía • Cultura del Café de Especialidad',
                 'hero-title-1': 'Más que café,',
-                'hero-title-2': 'Ciencia, Arte y Pasión.',
-                'hero-description': 'Explora recetas de extracción de precisión, guías interactivas para baristas y consultoría especializada directamente desde Marco\'s Coffee.',
+                'hero-title-2': 'Ciencia, Arte & Pasión.',
+                'hero-description': 'Explora recetas de extracción de precisión, guías interactivas para baristas y servicios de maquila y tueste colaborativo en Marco\'s Coffee.',
                 'card-recipes-desc': 'Calculadora de dosis y tiempos de extracción.',
-                'card-edu-desc': 'Talleres y calibración de espresso.',
-                'card-roastery-desc': 'Granos de especialidad en Antalya.',
+                'card-edu-desc': 'Barismo, cursos de tostado y consultoría.',
+                'card-roastery-desc': 'Tostadora y granos de origen mexicano.',
+                'card-coroasters-desc': 'Renta de maquinaria y área de empacado.',
                 'stat-arabica': 'Arábica Especialidad',
                 'stat-score': 'Puntaje de Cata',
                 'stat-education': 'Educación de Café',
@@ -581,19 +644,29 @@
                 'filter-espresso': 'Espresso',
                 'filter-manual': 'Filtrados',
                 'btn-open-calc': 'Abrir Calculadora & Guía',
-                'edu-title': 'Talleres y Consultoría Profesional',
-                'edu-desc-1': 'El gran café no es coincidencia: requiere técnica, consistencia y aprendizaje continuo. Ofrecemos capacitación práctica tanto para apasionados como para negocios.',
-                'edu-p1-title': 'Calibración de Molino',
-                'edu-p1-desc': 'Aprende a ajustar la molienda para evitar canalizaciones y balancear sabor.',
-                'edu-p2-title': 'Bebidas de Autor',
-                'edu-p2-desc': 'Desarrollo de recetas exclusivas para diferenciar el menú de tu cafetería.',
-                'edu-p3-title': 'Asesoría de Negocio',
-                'edu-p3-desc': 'Orientación en la selección de grano y montaje de barra de especialidad.',
+                'edu-title': 'Educación Profesional',
+                'edu-desc-1': 'Programas diseñados para llevar tu conocimiento del café al siguiente nivel, desde la extracción en barra hasta la ciencia del tueste.',
+                'edu-p1-title': 'Barismo',
+                'edu-p1-desc': 'Técnicas de extracción, calibración de molinos, flujos de trabajo eficientes y texturizado de leche.',
+                'edu-p2-title': 'Curso de Tostado',
+                'edu-p2-desc': 'Física y química del tueste, transferencia de calor, desarrollo de perfiles y control de curvas.',
+                'edu-p3-title': 'Consultoría',
+                'edu-p3-desc': 'Asesoría especializada para diseño de barras de especialidad, selección de equipos y optimización de negocio.',
                 'edu-cta-box-title': '¿Buscas una sesión personalizada?',
                 'edu-cta-box-desc': 'Agenda una consulta directa con Marco vía WhatsApp.',
                 'btn-book-consultation': 'Agendar por WhatsApp',
-                'roastery-title': 'Grano de Especialidad Destacado',
-                'roastery-desc': 'Lotes tostados cuidadosamente en pequeños volúmenes.',
+                'roastery-title': 'Tostaduría y Orígenes de México',
+                'roastery-desc': 'Tostamos cuidadosamente lotes de especialidad de origen 100% mexicano, explorando perfiles naturales, honey y fermentados de diversas regiones cafetaleras de México.',
+                'mexico-varieties-title': 'Variedades y Procesos de México',
+                'coroasters-title': 'Co-Roasters & Maquila',
+                'coroasters-desc': 'Espacio de tueste y empacado colaborativo diseñado para marcas de café nuevas o ya posicionadas que buscan infraestructura profesional sin la inversión inicial de una planta propia.',
+                'coroasters-feat1-title': 'Renta de Maquinaria y Espacio',
+                'coroasters-feat1-desc': 'Acceso a tostadoras industriales de precisión y área especializada de empacado bajo estrictos estándares de control de calidad. Ideal para escalar producción de forma inmediata.',
+                'coroasters-feat2-title': 'Acompañamiento Experto',
+                'coroasters-feat2-desc': 'Elige entre rentar exclusivamente el espacio para operar por tu cuenta, o ir de la mano con Marco en todo el proceso: desarrollo de perfiles, control de tueste y optimización de empaque.',
+                'coroasters-cta-title': '¿Listo para llevar tu marca al siguiente nivel?',
+                'coroasters-cta-desc': 'Cotiza disponibilidad de turnos de tueste y asesoría personalizada.',
+                'btn-coroasters-wa': 'Consultar por WhatsApp',
                 'calc-title': 'Calculadora de Dosis',
                 'timer-title': 'Temporizador',
                 'timer-start': 'Iniciar',
@@ -606,16 +679,18 @@
                 'nav-recipes': 'Recipes',
                 'nav-education': 'Education',
                 'nav-roastery': 'Roastery',
+                'nav-coroasters': 'Co-Roasters',
                 'cta-whatsapp': 'Contact',
                 'splash-subtitle': 'Roast science, precision extraction, and specialty coffee culture.',
                 'btn-enter-site': 'Enter Experience',
                 'hero-tagline': 'Antalya, Turkey • Specialty Coffee Culture',
                 'hero-title-1': 'More than coffee,',
                 'hero-title-2': 'Science, Art & Passion.',
-                'hero-description': 'Explore precision extraction recipes, interactive barista guides, and professional consulting directly from Marco\'s Coffee.',
+                'hero-description': 'Explore precision extraction recipes, interactive barista guides, and collaborative roasting services at Marco\'s Coffee.',
                 'card-recipes-desc': 'Dynamic dose calculator & brew timers.',
-                'card-edu-desc': 'Workshops & espresso dialing-in.',
-                'card-roastery-desc': 'Specialty beans in Antalya.',
+                'card-edu-desc': 'Barista, roasting courses & consulting.',
+                'card-roastery-desc': 'Roaster & 100% Mexican specialty beans.',
+                'card-coroasters-desc': 'Equipment rental and packaging space.',
                 'stat-arabica': 'Specialty Arabica',
                 'stat-score': 'Cupping Score',
                 'stat-education': 'Coffee Education',
@@ -625,19 +700,29 @@
                 'filter-espresso': 'Espresso',
                 'filter-manual': 'Manual Brews',
                 'btn-open-calc': 'Open Calculator & Guide',
-                'edu-title': 'Workshops & Professional Consulting',
-                'edu-desc-1': 'Great coffee isn\'t luck—it\'s science, art, and consistency. We offer hands-on training for enthusiasts and cafe owners.',
-                'edu-p1-title': 'Grinder Dialing-In',
-                'edu-p1-desc': 'Learn grind adjustments to prevent channeling and balance flavor.',
-                'edu-p2-title': 'Signature Beverages',
-                'edu-p2-desc': 'Develop exclusive recipes to elevate your coffee shop menu.',
-                'edu-p3-title': 'Business Consulting',
-                'edu-p3-desc': 'Guidance on bean sourcing and specialty coffee bar setup.',
+                'edu-title': 'Professional Education',
+                'edu-desc-1': 'Programs designed to take your coffee knowledge to the next level, from bar extraction to roasting science.',
+                'edu-p1-title': 'Barista Skills',
+                'edu-p1-desc': 'Extraction techniques, grinder dialing-in, efficient workflows, and milk texturing.',
+                'edu-p2-title': 'Roasting Course',
+                'edu-p2-desc': 'Roast physics and chemistry, heat transfer, profile development, and curve control.',
+                'edu-p3-title': 'Consulting',
+                'edu-p3-desc': 'Specialized advice for specialty bar design, equipment selection, and business optimization.',
                 'edu-cta-box-title': 'Looking for a personalized session?',
                 'edu-cta-box-desc': 'Book a direct consultation with Marco via WhatsApp.',
                 'btn-book-consultation': 'Book via WhatsApp',
-                'roastery-title': 'Specialty Coffee Spotlight',
-                'roastery-desc': 'Small-batch freshly roasted coffee beans.',
+                'roastery-title': 'Roastery & Mexican Origins',
+                'roastery-desc': 'Carefully roasting 100% Mexican specialty lots, exploring natural, honey, and fermented profiles from diverse coffee regions.',
+                'mexico-varieties-title': 'Mexican Varieties & Processes',
+                'coroasters-title': 'Co-Roasters & Tolling',
+                'coroasters-desc': 'Collaborative roasting and packaging space designed for new or established coffee brands looking for professional infrastructure.',
+                'coroasters-feat1-title': 'Equipment & Space Rental',
+                'coroasters-feat1-desc': 'Access to precision industrial roasters and a specialized packaging area under strict quality control standards.',
+                'coroasters-feat2-title': 'Expert Guidance',
+                'coroasters-feat2-desc': 'Choose to rent the space for independent operation or work hand-in-hand with Marco throughout the entire process.',
+                'coroasters-cta-title': 'Ready to take your brand to the next level?',
+                'coroasters-cta-desc': 'Check roasting shift availability and personalized consulting.',
+                'btn-coroasters-wa': 'Consult via WhatsApp',
                 'calc-title': 'Dose Calculator',
                 'timer-title': 'Brew Timer',
                 'timer-start': 'Start',
@@ -650,16 +735,18 @@
                 'nav-recipes': 'Tarifler',
                 'nav-education': 'Eğitim',
                 'nav-roastery': 'Roastery',
+                'nav-coroasters': 'Co-Roasters',
                 'cta-whatsapp': 'İletişim',
                 'splash-subtitle': 'Kavurma bilimi, hassas ekstraksiyon ve nitelikli kahve kültürü.',
                 'btn-enter-site': 'Deneyime Başla',
                 'hero-tagline': 'Antalya, Türkiye • Nitelikli Kahve Kültürü',
                 'hero-title-1': 'Kahveden fazlası,',
-                'hero-title-2': 'Bilim, Sanat ve Tutku.',
-                'hero-description': 'Hassas demleme tarifleri, interaktif barista rehberleri ve profesyonel danışmanlığı Marco\'s Coffee\'den keşfedin.',
+                'hero-title-2': 'Bilim, Sanat & Tutku.',
+                'hero-description': 'Hassas demleme tarifleri, interaktif barista rehberleri ve ortak kavurma hizmetleri Marco\'s Coffee\'de.',
                 'card-recipes-desc': 'Doz hesaplayıcı ve demleme zamanlayıcısı.',
-                'card-edu-desc': 'Atölyeler ve espresso kalibrasyonu.',
-                'card-roastery-desc': 'Antalya\'da nitelikli çekirdekler.',
+                'card-edu-desc': 'Baristalık, kavurma kursları ve danışmanlık.',
+                'card-roastery-desc': 'Kavurma makinesi ve %100 Meksika çekirdekleri.',
+                'card-coroasters-desc': 'Ekipman kiralama ve paketleme alanı.',
                 'stat-arabica': 'Nitelikli Arabica',
                 'stat-score': 'Tadım Puanı',
                 'stat-education': 'Kahve Eğitimi',
@@ -669,19 +756,29 @@
                 'filter-espresso': 'Espresso',
                 'filter-manual': 'Manuel Demleme',
                 'btn-open-calc': 'Hesaplayıcı & Rehberi Aç',
-                'edu-title': 'Atölyeler ve Profesyonel Danışmanlık',
-                'edu-desc-1': 'Mükemmel kahve tesadüf değildir: teknik, tutarlılık ve sürekli öğrenme gerektirir.',
-                'edu-p1-title': 'Öğütücü Kalibrasyonu',
-                'edu-p1-desc': 'Kanallanmayı önlemek ve tadı dengelemek için öğütüm ayarlarını öğrenin.',
-                'edu-p2-title': 'İmza İçecekler',
-                'edu-p2-desc': 'Menünüzü öne çıkaracak özel tarifler geliştirin.',
-                'edu-p3-title': 'İşletme Danışmanlığı',
-                'edu-p3-desc': 'Çekirdek tedariki ve bar kurulumu rehberliği.',
+                'edu-title': 'Profesyonel Eğitim',
+                'edu-desc-1': 'Kahve bilginizi bar ekstraksiyonundan kavurma bilimine kadar bir üst seviyeye taşımak için tasarlanmış programlar.',
+                'edu-p1-title': 'Baristalık',
+                'edu-p1-desc': 'Ekstraksiyon teknikleri, öğütücü kalibrasyonu, verimli iş akışları ve süt tekstüre etme.',
+                'edu-p2-title': 'Kavurma Kursu',
+                'edu-p2-desc': 'Kavurma fiziği ve kimyası, ısı transferi, profil geliştirme ve eğri kontrolü.',
+                'edu-p3-title': 'Danışmanlık',
+                'edu-p3-desc': 'Nitelikli bar tasarımı, ekipman seçimi ve işletme optimizasyonu için uzman tavsiyesi.',
                 'edu-cta-box-title': 'Kişiselleştirilmiş bir seans mı arıyorsunuz?',
                 'edu-cta-box-desc': 'Danışmanlık için Marco ile doğrudan iletişime geçin.',
                 'btn-book-consultation': 'WhatsApp ile Randevu Al',
-                'roastery-title': 'Öne Çıkan Nitelikli Çekirdek',
-                'roastery-desc': 'Özenle taze kavrulmuş küçük ölçekli lotlar.',
+                'roastery-title': 'Roastery ve Meksika Menşei',
+                'roastery-desc': '%100 Meksika menşeli nitelikli lotları özenle kavuruyor; doğal, honey ve fermente profilleri keşfediyoruz.',
+                'mexico-varieties-title': 'Meksika Çeşitleri ve Prosesleri',
+                'coroasters-title': 'Co-Roasters & Fason Kavurma',
+                'coroasters-desc': 'Yeni veya established kahve markaları için profesyonel altyapı sunan ortak kavurma ve paketleme alanı.',
+                'coroasters-feat1-title': 'Ekipman ve Alan Kiralama',
+                'coroasters-feat1-desc': 'Hassas endüstriyel kavurma makinelerine ve sıkı kalite kontrol standartlarına sahip paketleme alanına erişim.',
+                'coroasters-feat2-title': 'Uzman Rehberliği',
+                'coroasters-feat2-desc': 'İster bağımsız operasyon için alanı kiralayın ister tüm süreçte Marco ile el ele ilerleyin.',
+                'coroasters-cta-title': 'Markanızı bir sonraki seviyeye taşımaya hazır mısınız?',
+                'coroasters-cta-desc': 'Kavurma vardiyası müsaitliği ve kişiselleştirilmiş danışmanlık için bilgi alın.',
+                'btn-coroasters-wa': 'WhatsApp ile Danışın',
                 'calc-title': 'Doz Hesaplayıcı',
                 'timer-title': 'Zamanlayıcı',
                 'timer-start': 'Başlat',
@@ -710,9 +807,9 @@
                 if (btn) {
                     if (l === lang) {
                         btn.classList.remove('text-slate-300');
-                        btn.classList.add('text-white', 'bg-slate-700/50');
+                        btn.classList.add('text-white', 'bg-slate-700/80');
                     } else {
-                        btn.classList.remove('text-white', 'bg-slate-700/50');
+                        btn.classList.remove('text-white', 'bg-slate-700/80');
                         btn.classList.add('text-slate-300');
                     }
                 }
