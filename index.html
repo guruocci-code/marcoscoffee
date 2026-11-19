@@ -147,12 +147,13 @@
                 <button onclick="switchView('coroasters')" id="nav-coroasters" class="nav-btn px-4 py-1.5 rounded-full text-xs font-semibold text-mutedtext hover:text-darktext transition-all" data-i18n="nav-coroasters">Co-Roasters</button>
             </nav>
 
-            <div class="hidden sm:flex items-center space-x-3">
-                <button onclick="replaySplash()" title="Ver Video Tostadora" class="w-8 h-8 rounded-lg border border-bordergrey bg-cardwhite text-mutedtext hover:text-darktext flex items-center justify-center transition-colors shadow-sm">
+            <!-- Controles Header (Desktop & Móvil) -->
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <button onclick="replaySplash()" title="Ver Video Tostadora" class="hidden sm:flex w-8 h-8 rounded-lg border border-bordergrey bg-cardwhite text-mutedtext hover:text-darktext items-center justify-center transition-colors shadow-sm">
                     <i class="fa-solid fa-film text-xs"></i>
                 </button>
 
-                <div class="relative id-lang-dropdown-container">
+                <div class="hidden sm:block relative id-lang-dropdown-container">
                     <button onclick="toggleLangDropdown(event)" class="px-3 py-1.5 rounded-lg border border-bordergrey text-xs font-semibold bg-cardwhite hover:bg-softslate transition-colors flex items-center space-x-1.5 shadow-sm">
                         <i class="fa-solid fa-globe text-mutedtext"></i>
                         <span id="current-lang-text">ES</span>
@@ -165,15 +166,16 @@
                     </div>
                 </div>
 
-                <a href="https://wa.me/905078677978" target="_blank" class="bg-darktext hover:bg-accentblue text-white px-4 py-1.5 rounded-lg text-xs font-semibold transition-colors flex items-center space-x-1.5 shadow-sm">
-                    <i class="fa-brands fa-whatsapp"></i>
+                <!-- Botón WhatsApp visible en Header tanto en Móvil como en Desktop -->
+                <a href="https://wa.me/905078677978?text=Hola%20Marco,%20visito%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20contactarte" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2 sm:px-4 sm:py-2 rounded-xl text-xs font-semibold transition-all flex items-center space-x-1.5 shadow-sm">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
                     <span data-i18n="cta-whatsapp">Contacto</span>
                 </a>
-            </div>
 
-            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-darktext p-2 rounded-lg border border-bordergrey bg-cardwhite">
-                <i class="fa-solid fa-bars text-sm"></i>
-            </button>
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-darktext p-2 rounded-xl border border-bordergrey bg-cardwhite">
+                    <i class="fa-solid fa-bars text-sm"></i>
+                </button>
+            </div>
         </div>
 
         <!-- Menú Móvil -->
@@ -226,8 +228,16 @@
                     Explora recetas de extracción de precisión, guías interactivas para baristas y servicios de maquila y tueste colaborativo en Marco's Coffee.
                 </p>
 
+                <!-- Llamado a la Acción Directo WhatsApp en Main -->
+                <div class="pt-1 flex justify-center">
+                    <a href="https://wa.me/905078677978?text=Hola%20Marco,%20visito%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20contactarte" target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-7 py-3.5 rounded-2xl text-xs sm:text-sm font-semibold transition-all shadow-md hover:shadow-lg flex items-center justify-center space-x-2.5">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span data-i18n="home-cta-whatsapp">Contáctanos directo por WhatsApp</span>
+                    </a>
+                </div>
+
                 <!-- Tarjetas de Navegación Rápida -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 text-left">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-left">
                     <button onclick="switchView('recipes')" class="p-6 bg-cardwhite rounded-2xl border border-bordergrey hover:border-sky-300 hover:shadow-md transition-all group shadow-sm">
                         <div class="w-10 h-10 rounded-xl bg-iceblue flex items-center justify-center text-accentblue mb-3 group-hover:scale-105 transition-transform">
                             <i class="fa-solid fa-mug-saucer text-lg"></i>
@@ -398,8 +408,9 @@
                     <h4 class="font-serif text-base font-semibold text-darktext" data-i18n="edu-cta-box-title">¿Buscas una sesión personalizada?</h4>
                     <p class="text-xs text-mutedtext mt-0.5" data-i18n="edu-cta-box-desc">Agenda una consulta directa con Marco vía WhatsApp.</p>
                 </div>
-                <a href="https://wa.me/905078677978?text=Hola%20Marco,%20me%20interesa%20informacion%20sobre%20los%20cursos" target="_blank" class="bg-darktext hover:bg-accentblue text-white px-5 py-2.5 rounded-xl text-xs font-semibold shrink-0 transition-colors shadow-sm" data-i18n="btn-book-consultation">
-                    Agendar por WhatsApp
+                <a href="https://wa.me/905078677978?text=Hola%20Marco,%20me%20interesa%20informacion%20sobre%20los%20cursos" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-3 rounded-xl text-xs font-semibold shrink-0 transition-colors shadow-sm flex items-center space-x-2">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                    <span data-i18n="btn-book-consultation">Agendar por WhatsApp</span>
                 </a>
             </div>
         </section>
@@ -509,7 +520,7 @@
                     <h4 class="font-serif text-lg font-semibold text-darktext" data-i18n="coroasters-cta-title">¿Listo para llevar tu marca al siguiente nivel?</h4>
                     <p class="text-xs text-mutedtext" data-i18n="coroasters-cta-desc">Cotiza disponibilidad de turnos de tueste y asesoría personalizada.</p>
                 </div>
-                <a href="https://wa.me/905078677978?text=Hola%20Marco,%20me%20interesa%20informacion%20sobre%20el%20servicio%20de%20Co-Roasters" target="_blank" class="bg-darktext hover:bg-accentblue text-white px-6 py-3 rounded-xl text-xs font-semibold shrink-0 transition-colors shadow-sm flex items-center space-x-2">
+                <a href="https://wa.me/905078677978?text=Hola%20Marco,%20me%20interesa%20informacion%20sobre%20el%20servicio%20de%20Co-Roasters" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl text-xs font-semibold shrink-0 transition-colors shadow-sm flex items-center space-x-2">
                     <i class="fa-brands fa-whatsapp text-sm"></i>
                     <span data-i18n="btn-coroasters-wa">Consultar por WhatsApp</span>
                 </a>
@@ -517,6 +528,13 @@
         </section>
 
     </main>
+
+
+    <!-- ==================== BOTÓN FLOTANTE DE WHATSAPP ==================== -->
+    <a href="https://wa.me/905078677978?text=Hola%20Marco,%20visito%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20contactarte" target="_blank" aria-label="Contactar por WhatsApp" class="fixed bottom-5 right-5 z-40 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 group">
+        <i class="fa-brands fa-whatsapp text-xl"></i>
+        <span class="text-xs font-semibold tracking-wide" data-i18n="floating-wa">WhatsApp</span>
+    </a>
 
 
     <!-- ==================== MODAL DE RECETAS ==================== -->
@@ -578,13 +596,13 @@
 
 
     <!-- ==================== FOOTER ==================== -->
-    <footer class="bg-cardwhite border-t border-bordergrey py-6">
+    <footer class="bg-cardwhite border-t border-bordergrey py-6 pb-20 sm:pb-6">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center text-xs text-mutedtext gap-2">
             <p>© 2026 Marco's Coffee. All rights reserved.</p>
             <div class="flex space-x-4">
                 <span>Antalya, Türkiye</span>
                 <span>•</span>
-                <a href="https://wa.me/905078677978" target="_blank" class="hover:text-darktext">WhatsApp</a>
+                <a href="https://wa.me/905078677978" target="_blank" class="hover:text-emerald-600 font-semibold">WhatsApp</a>
             </div>
         </div>
     </footer>
@@ -625,6 +643,8 @@
                 'nav-roastery': 'Tostaduría',
                 'nav-coroasters': 'Co-Roasters',
                 'cta-whatsapp': 'Contacto',
+                'home-cta-whatsapp': 'Contáctanos directo por WhatsApp',
+                'floating-wa': 'WhatsApp',
                 'splash-subtitle': 'Ciencia de tueste, extracción de precisión y cultura de café de especialidad.',
                 'btn-enter-site': 'Entrar a la Experiencia',
                 'hero-tagline': 'Antalya, Turquía • Cultura del Café de Especialidad',
@@ -700,6 +720,8 @@
                 'nav-roastery': 'Roastery',
                 'nav-coroasters': 'Co-Roasters',
                 'cta-whatsapp': 'Contact',
+                'home-cta-whatsapp': 'Contact us directly via WhatsApp',
+                'floating-wa': 'WhatsApp',
                 'splash-subtitle': 'Roast science, precision extraction, and specialty coffee culture.',
                 'btn-enter-site': 'Enter Experience',
                 'hero-tagline': 'Antalya, Turkey • Specialty Coffee Culture',
@@ -775,6 +797,8 @@
                 'nav-roastery': 'Roastery',
                 'nav-coroasters': 'Co-Roasters',
                 'cta-whatsapp': 'İletişim',
+                'home-cta-whatsapp': 'WhatsApp ile doğrudan iletişime geçin',
+                'floating-wa': 'WhatsApp',
                 'splash-subtitle': 'Kavurma bilimi, hassas ekstraksiyon ve nitelikli kahve kültürü.',
                 'btn-enter-site': 'Deneyime Başla',
                 'hero-tagline': 'Antalya, Türkiye • Nitelikli Kahve Kültürü',
